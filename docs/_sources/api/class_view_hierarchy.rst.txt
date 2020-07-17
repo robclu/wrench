@@ -1,0 +1,18 @@
+
+Class Hierarchy
+---------------
+
+
+.. raw:: html
+
+   <ul class="treeView" id="class-treeView">
+     <li>
+       <ul class="collapsibleList">
+         <li class="lastChild">Namespace <a href="namespace_wrench.html#namespace-wrench">wrench</a><ul><li class="lastChild">Class <a href="classwrench_1_1_aligned_heap_allocator.html#exhale-class-classwrench-1-1-aligned-heap-allocator">AlignedHeapAllocator</a></li></ul></li>
+       </ul>
+     </li><!-- only tree view element -->
+   </ul><!-- /treeView class-treeView -->
+
+.. end raw html for treeView
+
+
