@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Namespace wrench &mdash; Wrench 1.0.0 documentation</title>
+  <title>Function wrench::align_ptr &mdash; Wrench 1.0.0 documentation</title>
   
 
   
@@ -38,8 +38,8 @@
   <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Class AlignedHeapAllocator" href="classwrench_1_1_aligned_heap_allocator.html" />
-    <link rel="prev" title="Wrench API" href="wrench_api_root.html" /> 
+    <link rel="next" title="Function wrench::offset_ptr" href="function_memory__utils_8hpp_1ab4a31f5ef79d511a861dcf2c23c5ef55.html" />
+    <link rel="prev" title="Class LinearAllocator" href="classwrench_1_1_linear_allocator.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -93,12 +93,13 @@
 <li class="toctree-l2"><a class="reference internal" href="wrench_api_root.html#class-hierarchy">Class Hierarchy</a></li>
 <li class="toctree-l2"><a class="reference internal" href="wrench_api_root.html#file-hierarchy">File Hierarchy</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="wrench_api_root.html#full-api">Full API</a><ul class="current">
-<li class="toctree-l3 current"><a class="reference internal" href="wrench_api_root.html#namespaces">Namespaces</a><ul class="current">
-<li class="toctree-l4 current"><a class="current reference internal" href="#">Namespace wrench</a></li>
+<li class="toctree-l3"><a class="reference internal" href="wrench_api_root.html#namespaces">Namespaces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="wrench_api_root.html#classes-and-structs">Classes and Structs</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="wrench_api_root.html#functions">Functions</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Function wrench::align_ptr</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_memory__utils_8hpp_1ab4a31f5ef79d511a861dcf2c23c5ef55.html">Function wrench::offset_ptr</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="wrench_api_root.html#classes-and-structs">Classes and Structs</a></li>
-<li class="toctree-l3"><a class="reference internal" href="wrench_api_root.html#functions">Functions</a></li>
 </ul>
 </li>
 </ul>
@@ -150,13 +151,13 @@
         
           <li><a href="wrench_api_root.html">Wrench API</a> &raquo;</li>
         
-      <li>Namespace wrench</li>
+      <li>Function wrench::align_ptr</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/api/namespace_wrench.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/api/function_memory__utils_8hpp_1a5895da501ef40348ce77c4dde12e3179.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -169,28 +170,26 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="namespace-wrench">
-<span id="id1"></span><h1>Namespace wrench<a class="headerlink" href="#namespace-wrench" title="Permalink to this headline">¶</a></h1>
-<div class="contents local topic" id="contents">
-<p class="topic-title">Contents</p>
+  <div class="section" id="function-wrench-align-ptr">
+<span id="exhale-function-memory-utils-8hpp-1a5895da501ef40348ce77c4dde12e3179"></span><h1>Function wrench::align_ptr<a class="headerlink" href="#function-wrench-align-ptr" title="Permalink to this headline">¶</a></h1>
 <ul class="simple">
-<li><p><a class="reference internal" href="#classes" id="id2">Classes</a></p></li>
-<li><p><a class="reference internal" href="#functions" id="id3">Functions</a></p></li>
+<li><p>Defined in <a class="reference internal" href="file_include_wrench_memory_memory_utils.hpp.html#file-include-wrench-memory-memory-utils-hpp"><span class="std std-ref">File memory_utils.hpp</span></a></p></li>
 </ul>
-</div>
-<div class="section" id="classes">
-<h2>Classes<a class="headerlink" href="#classes" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p><a class="reference internal" href="classwrench_1_1_aligned_heap_allocator.html#exhale-class-classwrench-1-1-aligned-heap-allocator"><span class="std std-ref">Class AlignedHeapAllocator</span></a></p></li>
-<li><p><a class="reference internal" href="classwrench_1_1_linear_allocator.html#exhale-class-classwrench-1-1-linear-allocator"><span class="std std-ref">Class LinearAllocator</span></a></p></li>
+<div class="section" id="function-documentation">
+<h2>Function Documentation<a class="headerlink" href="#function-documentation" title="Permalink to this headline">¶</a></h2>
+<dl class="cpp function">
+<dt>
+<span class="target" id="memory__utils_8hpp_1a5895da501ef40348ce77c4dde12e3179"></span><code class="sig-name descname">auto wrench::align_ptr (const void *ptr, size_t alignment) noexcept -&gt; void *</code></dt>
+<dd><p>Returns a pointer with an address aligned to <code class="docutils literal notranslate"><span class="pre">alignment</span></code>. This will fail at runtime if the <code class="docutils literal notranslate"><span class="pre">alignemnt</span></code> is not a power of two. <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">ptr</span></code>: The pointer to align. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">alignment</span></code>: The alignment to ensure. </p></li>
 </ul>
-</div>
-<div class="section" id="functions">
-<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p><a class="reference internal" href="function_memory__utils_8hpp_1a5895da501ef40348ce77c4dde12e3179.html#exhale-function-memory-utils-8hpp-1a5895da501ef40348ce77c4dde12e3179"><span class="std std-ref">Function wrench::align_ptr</span></a></p></li>
-<li><p><a class="reference internal" href="function_memory__utils_8hpp_1ab4a31f5ef79d511a861dcf2c23c5ef55.html#exhale-function-memory-utils-8hpp-1ab4a31f5ef79d511a861dcf2c23c5ef55"><span class="std std-ref">Function wrench::offset_ptr</span></a></p></li>
-</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
 </div>
 </div>
 
@@ -202,10 +201,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="classwrench_1_1_aligned_heap_allocator.html" class="btn btn-neutral float-right" title="Class AlignedHeapAllocator" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="function_memory__utils_8hpp_1ab4a31f5ef79d511a861dcf2c23c5ef55.html" class="btn btn-neutral float-right" title="Function wrench::offset_ptr" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="wrench_api_root.html" class="btn btn-neutral float-left" title="Wrench API" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="classwrench_1_1_linear_allocator.html" class="btn btn-neutral float-left" title="Class LinearAllocator" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

@@ -1,0 +1,356 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Class LinearAllocator &mdash; Wrench 1.0.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Function wrench::align_ptr" href="function_memory__utils_8hpp_1a5895da501ef40348ce77c4dde12e3179.html" />
+    <link rel="prev" title="Class AlignedHeapAllocator" href="classwrench_1_1_aligned_heap_allocator.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Wrench
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="wrench_api_root.html">Wrench API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="wrench_api_root.html#class-hierarchy">Class Hierarchy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wrench_api_root.html#file-hierarchy">File Hierarchy</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="wrench_api_root.html#full-api">Full API</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="wrench_api_root.html#namespaces">Namespaces</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="wrench_api_root.html#classes-and-structs">Classes and Structs</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="classwrench_1_1_aligned_heap_allocator.html">Class AlignedHeapAllocator</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Class LinearAllocator</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="wrench_api_root.html#functions">Functions</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Wrench</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="wrench_api_root.html">Wrench API</a> &raquo;</li>
+        
+      <li>Class LinearAllocator</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/classwrench_1_1_linear_allocator.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="class-linearallocator">
+<span id="exhale-class-classwrench-1-1-linear-allocator"></span><h1>Class LinearAllocator<a class="headerlink" href="#class-linearallocator" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_include_wrench_memory_linear_allocator.hpp.html#file-include-wrench-memory-linear-allocator-hpp"><span class="std std-ref">File linear_allocator.hpp</span></a></p></li>
+</ul>
+<div class="section" id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline">¶</a></h2>
+<dl class="cpp class">
+<dt id="_CPPv4N6wrench15LinearAllocatorE">
+<span id="_CPPv3N6wrench15LinearAllocatorE"></span><span id="_CPPv2N6wrench15LinearAllocatorE"></span><span id="wrench::LinearAllocator"></span><span class="target" id="classwrench_1_1_linear_allocator"></span><em class="property">class </em><code class="sig-prename descclassname">wrench<code class="sig-prename descclassname">::</code></code><code class="sig-name descname">LinearAllocator</code><a class="headerlink" href="#_CPPv4N6wrench15LinearAllocatorE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>This allocator allocates data linearly from a provided arena. While it provides an interface for freeing an individual element, it’s an empty function, and the allocator only allows resetting all allocations from the pool. It just bumps along the pointer to the next allocation address. It can allocate different sizes. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="cpp function">
+<dt id="_CPPv4N6wrench15LinearAllocator15LinearAllocatorEPvPv">
+<span id="_CPPv3N6wrench15LinearAllocator15LinearAllocatorEPvPv"></span><span id="_CPPv2N6wrench15LinearAllocator15LinearAllocatorEPvPv"></span><span id="wrench::LinearAllocator::LinearAllocator__voidP.voidP"></span><span class="target" id="classwrench_1_1_linear_allocator_1aa1bdb0bffd9390695415de38a91b46cb"></span><code class="sig-name descname">LinearAllocator</code><span class="sig-paren">(</span>void *<em>begin</em>, void *<em>end</em><span class="sig-paren">)</span> <em class="property">noexcept</em><a class="headerlink" href="#_CPPv4N6wrench15LinearAllocator15LinearAllocatorEPvPv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Constructor to set the <code class="docutils literal notranslate"><span class="pre">begin</span></code> and <code class="docutils literal notranslate"><span class="pre">end</span></code> of the available memory for the allocator. <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">begin</span></code>: The start of the allocation arena. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">end</span></code>: The end of the allocation arena. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4I0EN6wrench15LinearAllocator15LinearAllocatorERK5Arena">
+<span id="_CPPv3I0EN6wrench15LinearAllocator15LinearAllocatorERK5Arena"></span><span id="_CPPv2I0EN6wrench15LinearAllocator15LinearAllocatorERK5Arena"></span>template&lt;typename <code class="sig-name descname">Arena</code>&gt;<br /><span class="target" id="classwrench_1_1_linear_allocator_1aad82e90e75c97eb76bd57e56cfc7aeab"></span><code class="sig-name descname">LinearAllocator</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4I0EN6wrench15LinearAllocator15LinearAllocatorERK5Arena" title="wrench::LinearAllocator::LinearAllocator::Arena">Arena</a> &amp;<em>arena</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I0EN6wrench15LinearAllocator15LinearAllocatorERK5Arena" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Constructor which takes an Arena from which the allocator can allocate. <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">arena</span></code>: The area to allocate memory from. </p></li>
+</ul>
+</dd>
+<dt><strong>Template Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Arena</span></code>: The type of the arena. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N6wrench15LinearAllocatorD0Ev">
+<span id="_CPPv3N6wrench15LinearAllocatorD0Ev"></span><span id="_CPPv2N6wrench15LinearAllocatorD0Ev"></span><span id="wrench::LinearAllocator::~LinearAllocator"></span><span class="target" id="classwrench_1_1_linear_allocator_1abd30cc9b941e28dcf5a39332f53276b0"></span><code class="sig-name descname">~LinearAllocator</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">noexcept</em> = default<a class="headerlink" href="#_CPPv4N6wrench15LinearAllocatorD0Ev" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Constructor  defaulted. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N6wrench15LinearAllocator15LinearAllocatorERR15LinearAllocator">
+<span id="_CPPv3N6wrench15LinearAllocator15LinearAllocatorERR15LinearAllocator"></span><span id="_CPPv2N6wrench15LinearAllocator15LinearAllocatorERR15LinearAllocator"></span><span id="wrench::LinearAllocator::LinearAllocator__LinearAllocatorRR"></span><span class="target" id="classwrench_1_1_linear_allocator_1a1c5b795e340968bc0c957887b9f6d2b3"></span><code class="sig-name descname">LinearAllocator</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N6wrench15LinearAllocator15LinearAllocatorERR15LinearAllocator" title="wrench::LinearAllocator::LinearAllocator">LinearAllocator</a> &amp;&amp;<em>other</em><span class="sig-paren">)</span> <em class="property">noexcept</em><a class="headerlink" href="#_CPPv4N6wrench15LinearAllocator15LinearAllocatorERR15LinearAllocator" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Move construcor, swaps <code class="docutils literal notranslate"><span class="pre">other</span></code> with this allocator. <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">other</span></code>: The other allocator to create this one from. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt>
+<span class="target" id="classwrench_1_1_linear_allocator_1a0142b268d303c39be98cc558f60a5d48"></span><code class="sig-name descname">auto operator= (LinearAllocator &amp;&amp;other) noexcept -&gt; LinearAllocator &amp;</code></dt>
+<dd><p>Move assignment, swaps the <code class="docutils literal notranslate"><span class="pre">other</span></code> allocator with this one. <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">other</span></code>: The other allocator to swap with this one. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N6wrench15LinearAllocator15LinearAllocatorERK15LinearAllocator">
+<span id="_CPPv3N6wrench15LinearAllocator15LinearAllocatorERK15LinearAllocator"></span><span id="_CPPv2N6wrench15LinearAllocator15LinearAllocatorERK15LinearAllocator"></span><span id="wrench::LinearAllocator::LinearAllocator__LinearAllocatorCR"></span><span class="target" id="classwrench_1_1_linear_allocator_1acb5ab0d6d27d870fdf0728b420b73be8"></span><code class="sig-name descname">LinearAllocator</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N6wrench15LinearAllocator15LinearAllocatorERK15LinearAllocator" title="wrench::LinearAllocator::LinearAllocator">LinearAllocator</a>&amp;<span class="sig-paren">)</span> = delete<a class="headerlink" href="#_CPPv4N6wrench15LinearAllocator15LinearAllocatorERK15LinearAllocator" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Copy constructor  deleted to disable copying. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N6wrench15LinearAllocatoraSERK15LinearAllocator">
+<span id="_CPPv3N6wrench15LinearAllocatoraSERK15LinearAllocator"></span><span id="_CPPv2N6wrench15LinearAllocatoraSERK15LinearAllocator"></span><span id="wrench::LinearAllocator::assign-operator__LinearAllocatorCR"></span><span class="target" id="classwrench_1_1_linear_allocator_1ac041df6fa87782c9d706dbe246a0e0e3"></span>auto <code class="sig-name descname">operator=</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N6wrench15LinearAllocatorE" title="wrench::LinearAllocator">LinearAllocator</a>&amp;<span class="sig-paren">)</span> = delete<a class="headerlink" href="#_CPPv4N6wrench15LinearAllocatoraSERK15LinearAllocator" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Copy assignment  deleted to disable copying. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt>
+<span class="target" id="classwrench_1_1_linear_allocator_1ac3cb49601543990d2e7296261dae020e"></span><code class="sig-name descname">auto alloc (size_t size, size_t alignment) noexcept -&gt; void *</code></dt>
+<dd><p>Allocates <code class="docutils literal notranslate"><span class="pre">size</span></code> bytes with <code class="docutils literal notranslate"><span class="pre">alignment</span></code>. <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">size</span></code>: The number of bytes to allocate. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">alignment</span></code>: The alignment for the allocation. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt>
+<span class="target" id="classwrench_1_1_linear_allocator_1a3ba066220ee167edb36bcd3fe38100a1"></span><code class="sig-name descname">auto free (void *ptr) const noexcept -&gt; void</code></dt>
+<dd><p>This <strong>does not</strong> free the <code class="docutils literal notranslate"><span class="pre">ptr</span></code>, since it does not allow freeing of individual allocations. This allocator only allows resetting. <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">ptr</span></code>: The pointer to free. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt>
+<span class="target" id="classwrench_1_1_linear_allocator_1af1bd3f077ec0b6b74b6c7b3328b829c2"></span><code class="sig-name descname">auto free (void *ptr, size_t size) const noexcept -&gt; void</code></dt>
+<dd><p>This <strong>does not</strong> free the <code class="docutils literal notranslate"><span class="pre">ptr</span></code>, since it does not allow freeing of individual allocations. This allocator only allows resetting. <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">ptr</span></code>: The pointer to free. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">size</span></code>: The size to free. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt>
+<span class="target" id="classwrench_1_1_linear_allocator_1a8ee2a679f557ea91593a42c0c132bfd4"></span><code class="sig-name descname">auto reset () noexcept -&gt; void</code></dt>
+<dd><p>Resets the allocator to the begining of the allocation arena. This invalidates any allocations from the allocator, since any subsequent allocations will overwrite old allocations. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="function_memory__utils_8hpp_1a5895da501ef40348ce77c4dde12e3179.html" class="btn btn-neutral float-right" title="Function wrench::align_ptr" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="classwrench_1_1_aligned_heap_allocator.html" class="btn btn-neutral float-left" title="Class AlignedHeapAllocator" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Rob Clucas
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
