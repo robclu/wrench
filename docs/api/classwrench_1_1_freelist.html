@@ -1,0 +1,341 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Class Freelist &mdash; Wrench 1.0.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Class LinearAllocator" href="classwrench_1_1_linear_allocator.html" />
+    <link rel="prev" title="Class AlignedHeapAllocator" href="classwrench_1_1_aligned_heap_allocator.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Wrench
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="wrench_api_root.html">Wrench API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="wrench_api_root.html#class-hierarchy">Class Hierarchy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wrench_api_root.html#file-hierarchy">File Hierarchy</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="wrench_api_root.html#full-api">Full API</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="wrench_api_root.html#namespaces">Namespaces</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="wrench_api_root.html#classes-and-structs">Classes and Structs</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="structwrench_1_1_freelist_1_1_node.html">Struct Freelist::Node</a></li>
+<li class="toctree-l4"><a class="reference internal" href="structwrench_1_1_heap_arena.html">Struct HeapArena</a></li>
+<li class="toctree-l4"><a class="reference internal" href="structwrench_1_1_thread_safe_freelist_1_1_head_ptr.html">Struct ThreadSafeFreelist::HeadPtr</a></li>
+<li class="toctree-l4"><a class="reference internal" href="structwrench_1_1_thread_safe_freelist_1_1_node.html">Struct ThreadSafeFreelist::Node</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classwrench_1_1_aligned_heap_allocator.html">Class AlignedHeapAllocator</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Class Freelist</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classwrench_1_1_linear_allocator.html">Class LinearAllocator</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classwrench_1_1_pool_allocator.html">Template Class PoolAllocator</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classwrench_1_1_stack_arena.html">Template Class StackArena</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classwrench_1_1_thread_safe_freelist.html">Class ThreadSafeFreelist</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="wrench_api_root.html#functions">Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="wrench_api_root.html#variables">Variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="wrench_api_root.html#typedefs">Typedefs</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Wrench</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="wrench_api_root.html">Wrench API</a> &raquo;</li>
+        
+      <li>Class Freelist</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/classwrench_1_1_freelist.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="class-freelist">
+<span id="exhale-class-classwrench-1-1-freelist"></span><h1>Class Freelist<a class="headerlink" href="#class-freelist" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_include_wrench_memory_pool_allocator.hpp.html#file-include-wrench-memory-pool-allocator-hpp"><span class="std std-ref">File pool_allocator.hpp</span></a></p></li>
+</ul>
+<div class="section" id="nested-relationships">
+<h2>Nested Relationships<a class="headerlink" href="#nested-relationships" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="nested-types">
+<h3>Nested Types<a class="headerlink" href="#nested-types" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference internal" href="structwrench_1_1_freelist_1_1_node.html#exhale-struct-structwrench-1-1-freelist-1-1-node"><span class="std std-ref">Struct Freelist::Node</span></a></p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline">¶</a></h2>
+<dl class="cpp class">
+<dt id="_CPPv4N6wrench8FreelistE">
+<span id="_CPPv3N6wrench8FreelistE"></span><span id="_CPPv2N6wrench8FreelistE"></span><span id="wrench::Freelist"></span><span class="target" id="classwrench_1_1_freelist"></span><em class="property">class </em><code class="sig-prename descclassname">wrench<code class="sig-prename descclassname">::</code></code><code class="sig-name descname">Freelist</code><a class="headerlink" href="#_CPPv4N6wrench8FreelistE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>This type is a simple, single-threaded free-list implementation. It is essentially just a singly linked-list over an arena from which the free list nodes are allocated from. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="cpp function">
+<dt id="_CPPv4N6wrench8Freelist8FreelistEv">
+<span id="_CPPv3N6wrench8Freelist8FreelistEv"></span><span id="_CPPv2N6wrench8Freelist8FreelistEv"></span><span id="wrench::Freelist::Freelist"></span><span class="target" id="classwrench_1_1_freelist_1ab4b2640b1b178e478c0feb39dd8dd94a"></span><code class="sig-name descname">Freelist</code><span class="sig-paren">(</span><span class="sig-paren">)</span> = default<a class="headerlink" href="#_CPPv4N6wrench8Freelist8FreelistEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Default constructor. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N6wrench8FreelistD0Ev">
+<span id="_CPPv3N6wrench8FreelistD0Ev"></span><span id="_CPPv2N6wrench8FreelistD0Ev"></span><span id="wrench::Freelist::~Freelist"></span><span class="target" id="classwrench_1_1_freelist_1afae557eb36a2aa9da9ee8f74eccbce07"></span><code class="sig-name descname">~Freelist</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">noexcept</em><a class="headerlink" href="#_CPPv4N6wrench8FreelistD0Ev" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Default destructor, resets head pointer. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N6wrench8Freelist8FreelistEPKvPKv6size_t6size_t">
+<span id="_CPPv3N6wrench8Freelist8FreelistEPKvPKv6size_t6size_t"></span><span id="_CPPv2N6wrench8Freelist8FreelistEPKvPKv6size_t6size_t"></span><span id="wrench::Freelist::Freelist__voidCP.voidCP.s.s"></span><span class="target" id="classwrench_1_1_freelist_1a0fa3214bc5be72a8aa79d326ca3dc4fd"></span><code class="sig-name descname">Freelist</code><span class="sig-paren">(</span><em class="property">const</em> void *<em>start</em>, <em class="property">const</em> void *<em>end</em>, size_t <em>element_size</em>, size_t <em>alignment</em><span class="sig-paren">)</span> <em class="property">noexcept</em><a class="headerlink" href="#_CPPv4N6wrench8Freelist8FreelistEPKvPKv6size_t6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Constructor to initialize the freelist with the <code class="docutils literal notranslate"><span class="pre">start</span></code> and <code class="docutils literal notranslate"><span class="pre">end</span></code> of the arena from which elements can be stored. <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">start</span></code>: The start of the arena. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">end</span></code>: The end of the arena. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">element_size</span></code>: The size of the elements in the freelist. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">alignment</span></code>: The alignment of the elements. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N6wrench8Freelist8FreelistERR8Freelist">
+<span id="_CPPv3N6wrench8Freelist8FreelistERR8Freelist"></span><span id="_CPPv2N6wrench8Freelist8FreelistERR8Freelist"></span><span id="wrench::Freelist::Freelist__FreelistRR"></span><span class="target" id="classwrench_1_1_freelist_1a98642a07f33224d3fb06768dc4746b32"></span><code class="sig-name descname">Freelist</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N6wrench8Freelist8FreelistERR8Freelist" title="wrench::Freelist::Freelist">Freelist</a> &amp;&amp;<em>other</em><span class="sig-paren">)</span> <em class="property">noexcept</em> = default<a class="headerlink" href="#_CPPv4N6wrench8Freelist8FreelistERR8Freelist" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Move constructor to move <code class="docutils literal notranslate"><span class="pre">other</span></code> to this freelist. <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">other</span></code>: The other freelist to move. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt>
+<span class="target" id="classwrench_1_1_freelist_1ad6b0ef7ca5072bb7f57a0b17dc3b0df1"></span><code class="sig-name descname">auto operator= (Freelist &amp;&amp;other) noexcept -&gt; Freelist &amp;=default</code></dt>
+<dd><p>Move assignment to move <code class="docutils literal notranslate"><span class="pre">other</span></code> to this freelist. <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">other</span></code>: The other freelist to move. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N6wrench8Freelist8FreelistERK8Freelist">
+<span id="_CPPv3N6wrench8Freelist8FreelistERK8Freelist"></span><span id="_CPPv2N6wrench8Freelist8FreelistERK8Freelist"></span><span id="wrench::Freelist::Freelist__FreelistCR"></span><span class="target" id="classwrench_1_1_freelist_1aeb078eb0ec800a8a0a3c69117c5ad357"></span><code class="sig-name descname">Freelist</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N6wrench8Freelist8FreelistERK8Freelist" title="wrench::Freelist::Freelist">Freelist</a>&amp;<span class="sig-paren">)</span> = delete<a class="headerlink" href="#_CPPv4N6wrench8Freelist8FreelistERK8Freelist" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Copy constructor  deleted since the freelist can’t be copied. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N6wrench8FreelistaSERK8Freelist">
+<span id="_CPPv3N6wrench8FreelistaSERK8Freelist"></span><span id="_CPPv2N6wrench8FreelistaSERK8Freelist"></span><span id="wrench::Freelist::assign-operator__FreelistCR"></span><span class="target" id="classwrench_1_1_freelist_1a69d91046fe23f81d231163bb5d07d357"></span>auto <code class="sig-name descname">operator=</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N6wrench8FreelistE" title="wrench::Freelist">Freelist</a>&amp;<span class="sig-paren">)</span> = delete<a class="headerlink" href="#_CPPv4N6wrench8FreelistaSERK8Freelist" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Copy assignment  deleted since the freelist can’t be copied. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt>
+<span class="target" id="classwrench_1_1_freelist_1a9bf16fb817ec137d522e035b1cb43557"></span><code class="sig-name descname">auto pop_front () noexcept -&gt; void *</code></dt>
+<dd><p>Pops the most recently added element from the list, and returns it. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt>
+<span class="target" id="classwrench_1_1_freelist_1afb1af95264eb9e222c022e9356a449ed"></span><code class="sig-name descname">auto push_front (void *ptr) noexcept -&gt; void</code></dt>
+<dd><p>Pushes a new element onto the front of the list. <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">ptr</span></code>: The pointer to the element to push onto the list. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="classwrench_1_1_linear_allocator.html" class="btn btn-neutral float-right" title="Class LinearAllocator" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="classwrench_1_1_aligned_heap_allocator.html" class="btn btn-neutral float-left" title="Class AlignedHeapAllocator" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Rob Clucas
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

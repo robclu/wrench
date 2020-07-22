@@ -38,7 +38,7 @@
   <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Class AlignedHeapAllocator" href="classwrench_1_1_aligned_heap_allocator.html" />
+    <link rel="next" title="Struct Freelist::Node" href="structwrench_1_1_freelist_1_1_node.html" />
     <link rel="prev" title="Wrench API" href="wrench_api_root.html" /> 
 </head>
 
@@ -99,6 +99,8 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="wrench_api_root.html#classes-and-structs">Classes and Structs</a></li>
 <li class="toctree-l3"><a class="reference internal" href="wrench_api_root.html#functions">Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="wrench_api_root.html#variables">Variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="wrench_api_root.html#typedefs">Typedefs</a></li>
 </ul>
 </li>
 </ul>
@@ -176,13 +178,23 @@
 <ul class="simple">
 <li><p><a class="reference internal" href="#classes" id="id2">Classes</a></p></li>
 <li><p><a class="reference internal" href="#functions" id="id3">Functions</a></p></li>
+<li><p><a class="reference internal" href="#typedefs" id="id4">Typedefs</a></p></li>
+<li><p><a class="reference internal" href="#variables" id="id5">Variables</a></p></li>
 </ul>
 </div>
 <div class="section" id="classes">
 <h2>Classes<a class="headerlink" href="#classes" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
+<li><p><a class="reference internal" href="structwrench_1_1_freelist_1_1_node.html#exhale-struct-structwrench-1-1-freelist-1-1-node"><span class="std std-ref">Struct Freelist::Node</span></a></p></li>
+<li><p><a class="reference internal" href="structwrench_1_1_heap_arena.html#exhale-struct-structwrench-1-1-heap-arena"><span class="std std-ref">Struct HeapArena</span></a></p></li>
+<li><p><a class="reference internal" href="structwrench_1_1_thread_safe_freelist_1_1_head_ptr.html#exhale-struct-structwrench-1-1-thread-safe-freelist-1-1-head-ptr"><span class="std std-ref">Struct ThreadSafeFreelist::HeadPtr</span></a></p></li>
+<li><p><a class="reference internal" href="structwrench_1_1_thread_safe_freelist_1_1_node.html#exhale-struct-structwrench-1-1-thread-safe-freelist-1-1-node"><span class="std std-ref">Struct ThreadSafeFreelist::Node</span></a></p></li>
 <li><p><a class="reference internal" href="classwrench_1_1_aligned_heap_allocator.html#exhale-class-classwrench-1-1-aligned-heap-allocator"><span class="std std-ref">Class AlignedHeapAllocator</span></a></p></li>
+<li><p><a class="reference internal" href="classwrench_1_1_freelist.html#exhale-class-classwrench-1-1-freelist"><span class="std std-ref">Class Freelist</span></a></p></li>
 <li><p><a class="reference internal" href="classwrench_1_1_linear_allocator.html#exhale-class-classwrench-1-1-linear-allocator"><span class="std std-ref">Class LinearAllocator</span></a></p></li>
+<li><p><a class="reference internal" href="classwrench_1_1_pool_allocator.html#exhale-class-classwrench-1-1-pool-allocator"><span class="std std-ref">Template Class PoolAllocator</span></a></p></li>
+<li><p><a class="reference internal" href="classwrench_1_1_stack_arena.html#exhale-class-classwrench-1-1-stack-arena"><span class="std std-ref">Template Class StackArena</span></a></p></li>
+<li><p><a class="reference internal" href="classwrench_1_1_thread_safe_freelist.html#exhale-class-classwrench-1-1-thread-safe-freelist"><span class="std std-ref">Class ThreadSafeFreelist</span></a></p></li>
 </ul>
 </div>
 <div class="section" id="functions">
@@ -190,6 +202,20 @@
 <ul class="simple">
 <li><p><a class="reference internal" href="function_memory__utils_8hpp_1a5895da501ef40348ce77c4dde12e3179.html#exhale-function-memory-utils-8hpp-1a5895da501ef40348ce77c4dde12e3179"><span class="std std-ref">Function wrench::align_ptr</span></a></p></li>
 <li><p><a class="reference internal" href="function_memory__utils_8hpp_1ab4a31f5ef79d511a861dcf2c23c5ef55.html#exhale-function-memory-utils-8hpp-1ab4a31f5ef79d511a861dcf2c23c5ef55"><span class="std std-ref">Function wrench::offset_ptr</span></a></p></li>
+</ul>
+</div>
+<div class="section" id="typedefs">
+<h2>Typedefs<a class="headerlink" href="#typedefs" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="typedef_arena_8hpp_1aa5f668f199488eee6fb299cf325bdfa1.html#exhale-typedef-arena-8hpp-1aa5f668f199488eee6fb299cf325bdfa1"><span class="std std-ref">Typedef wrench::ArenaConstexprSizeEnable</span></a></p></li>
+<li><p><a class="reference internal" href="typedef_arena_8hpp_1a319924653a5f8c4beb9a5bc650384fe3.html#exhale-typedef-arena-8hpp-1a319924653a5f8c4beb9a5bc650384fe3"><span class="std std-ref">Typedef wrench::ArenaNonConstexprSizeEnable</span></a></p></li>
+<li><p><a class="reference internal" href="typedef_arena_8hpp_1a3159549bc513c900d7580d6a03ba03a1.html#exhale-typedef-arena-8hpp-1a3159549bc513c900d7580d6a03ba03a1"><span class="std std-ref">Typedef wrench::DefaultStackArena</span></a></p></li>
+</ul>
+</div>
+<div class="section" id="variables">
+<h2>Variables<a class="headerlink" href="#variables" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="variable_arena_8hpp_1a798f37a469eaea2c1d6c7768530b97b5.html#exhale-variable-arena-8hpp-1a798f37a469eaea2c1d6c7768530b97b5"><span class="std std-ref">Variable wrench::default_stack_arena_size</span></a></p></li>
 </ul>
 </div>
 </div>
@@ -202,7 +228,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="classwrench_1_1_aligned_heap_allocator.html" class="btn btn-neutral float-right" title="Class AlignedHeapAllocator" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="structwrench_1_1_freelist_1_1_node.html" class="btn btn-neutral float-right" title="Struct Freelist::Node" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="wrench_api_root.html" class="btn btn-neutral float-left" title="Wrench API" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

@@ -1,0 +1,13 @@
+.. _exhale_typedef_arena_8hpp_1a3159549bc513c900d7580d6a03ba03a1:
+
+Typedef wrench::DefaultStackArena
+=================================
+
+- Defined in :ref:`file_include_wrench_memory_arena.hpp`
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: wrench::DefaultStackArena

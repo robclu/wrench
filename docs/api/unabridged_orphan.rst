@@ -35,9 +35,19 @@ Files
 .. toctree::
    :maxdepth: 5
 
+   file_include_wrench_memory_arena.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
    file_include_wrench_memory_linear_allocator.hpp.rst
 
 .. toctree::
    :maxdepth: 5
 
    file_include_wrench_memory_memory_utils.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_include_wrench_memory_pool_allocator.hpp.rst

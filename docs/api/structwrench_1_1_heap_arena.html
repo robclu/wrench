@@ -1,0 +1,335 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Struct HeapArena &mdash; Wrench 1.0.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Struct ThreadSafeFreelist::HeadPtr" href="structwrench_1_1_thread_safe_freelist_1_1_head_ptr.html" />
+    <link rel="prev" title="Struct Freelist::Node" href="structwrench_1_1_freelist_1_1_node.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Wrench
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="wrench_api_root.html">Wrench API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="wrench_api_root.html#class-hierarchy">Class Hierarchy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wrench_api_root.html#file-hierarchy">File Hierarchy</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="wrench_api_root.html#full-api">Full API</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="wrench_api_root.html#namespaces">Namespaces</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="wrench_api_root.html#classes-and-structs">Classes and Structs</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="structwrench_1_1_freelist_1_1_node.html">Struct Freelist::Node</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Struct HeapArena</a></li>
+<li class="toctree-l4"><a class="reference internal" href="structwrench_1_1_thread_safe_freelist_1_1_head_ptr.html">Struct ThreadSafeFreelist::HeadPtr</a></li>
+<li class="toctree-l4"><a class="reference internal" href="structwrench_1_1_thread_safe_freelist_1_1_node.html">Struct ThreadSafeFreelist::Node</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classwrench_1_1_aligned_heap_allocator.html">Class AlignedHeapAllocator</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classwrench_1_1_freelist.html">Class Freelist</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classwrench_1_1_linear_allocator.html">Class LinearAllocator</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classwrench_1_1_pool_allocator.html">Template Class PoolAllocator</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classwrench_1_1_stack_arena.html">Template Class StackArena</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classwrench_1_1_thread_safe_freelist.html">Class ThreadSafeFreelist</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="wrench_api_root.html#functions">Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="wrench_api_root.html#variables">Variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="wrench_api_root.html#typedefs">Typedefs</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Wrench</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="wrench_api_root.html">Wrench API</a> &raquo;</li>
+        
+      <li>Struct HeapArena</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/structwrench_1_1_heap_arena.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="struct-heaparena">
+<span id="exhale-struct-structwrench-1-1-heap-arena"></span><h1>Struct HeapArena<a class="headerlink" href="#struct-heaparena" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_include_wrench_memory_arena.hpp.html#file-include-wrench-memory-arena-hpp"><span class="std std-ref">File arena.hpp</span></a></p></li>
+</ul>
+<div class="section" id="struct-documentation">
+<h2>Struct Documentation<a class="headerlink" href="#struct-documentation" title="Permalink to this headline">¶</a></h2>
+<dl class="cpp struct">
+<dt id="_CPPv4N6wrench9HeapArenaE">
+<span id="_CPPv3N6wrench9HeapArenaE"></span><span id="_CPPv2N6wrench9HeapArenaE"></span><span id="wrench::HeapArena"></span><span class="target" id="structwrench_1_1_heap_arena"></span><em class="property">struct </em><code class="sig-prename descclassname">wrench<code class="sig-prename descclassname">::</code></code><code class="sig-name descname">HeapArena</code><a class="headerlink" href="#_CPPv4N6wrench9HeapArenaE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Defines a heap-based arena. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Types</p>
+<dl class="cpp type">
+<dt id="_CPPv4N6wrench9HeapArena3PtrE">
+<span id="_CPPv3N6wrench9HeapArena3PtrE"></span><span id="_CPPv2N6wrench9HeapArena3PtrE"></span><span class="target" id="structwrench_1_1_heap_arena_1abf7e2a8ae2ed06aa3f9ce8a88710d3fd"></span><em class="property">using </em><code class="sig-name descname">Ptr</code> = void*<a class="headerlink" href="#_CPPv4N6wrench9HeapArena3PtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Pointer type. </p>
+</dd></dl>
+
+<dl class="cpp type">
+<dt id="_CPPv4N6wrench9HeapArena8ConstPtrE">
+<span id="_CPPv3N6wrench9HeapArena8ConstPtrE"></span><span id="_CPPv2N6wrench9HeapArena8ConstPtrE"></span><span class="target" id="structwrench_1_1_heap_arena_1adb4bee94412f05645e0c00be91150e1d"></span><em class="property">using </em><code class="sig-name descname">ConstPtr</code> = void*<a class="headerlink" href="#_CPPv4N6wrench9HeapArena8ConstPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Const pointer type. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="cpp function">
+<dt id="_CPPv4N6wrench9HeapArena9HeapArenaE6size_t">
+<span id="_CPPv3N6wrench9HeapArena9HeapArenaE6size_t"></span><span id="_CPPv2N6wrench9HeapArena9HeapArenaE6size_t"></span><span id="wrench::HeapArena::HeapArena__s"></span><span class="target" id="structwrench_1_1_heap_arena_1aed471e15d42f7c422f887df68d15ad52"></span><code class="sig-name descname">HeapArena</code><span class="sig-paren">(</span>size_t <em>size</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6wrench9HeapArena9HeapArenaE6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Initializes the arena with a specific size. <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">size</span></code>: The size of the arena. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N6wrench9HeapArenaD0Ev">
+<span id="_CPPv3N6wrench9HeapArenaD0Ev"></span><span id="_CPPv2N6wrench9HeapArenaD0Ev"></span><span id="wrench::HeapArena::~HeapArena"></span><span class="target" id="structwrench_1_1_heap_arena_1ada65f06e75acf87da35baa9cb04cb3d0"></span><code class="sig-name descname">~HeapArena</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">noexcept</em><a class="headerlink" href="#_CPPv4N6wrench9HeapArenaD0Ev" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Destructor to release the memory. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N6wrench9HeapArena9HeapArenaERK9HeapArena">
+<span id="_CPPv3N6wrench9HeapArena9HeapArenaERK9HeapArena"></span><span id="_CPPv2N6wrench9HeapArena9HeapArenaERK9HeapArena"></span><span id="wrench::HeapArena::HeapArena__HeapArenaCR"></span><span class="target" id="structwrench_1_1_heap_arena_1ae771f44276d656350302ddc503fd6993"></span><code class="sig-name descname">HeapArena</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N6wrench9HeapArena9HeapArenaERK9HeapArena" title="wrench::HeapArena::HeapArena">HeapArena</a>&amp;<span class="sig-paren">)</span> = delete<a class="headerlink" href="#_CPPv4N6wrench9HeapArena9HeapArenaERK9HeapArena" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Copy constructor  deleted. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N6wrench9HeapArena9HeapArenaERR9HeapArena">
+<span id="_CPPv3N6wrench9HeapArena9HeapArenaERR9HeapArena"></span><span id="_CPPv2N6wrench9HeapArena9HeapArenaERR9HeapArena"></span><span id="wrench::HeapArena::HeapArena__HeapArenaRR"></span><span class="target" id="structwrench_1_1_heap_arena_1ab00f5dcccca54d8880410c8b2f65662b"></span><code class="sig-name descname">HeapArena</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N6wrench9HeapArena9HeapArenaERR9HeapArena" title="wrench::HeapArena::HeapArena">HeapArena</a>&amp;&amp;<span class="sig-paren">)</span> <em class="property">noexcept</em> = delete<a class="headerlink" href="#_CPPv4N6wrench9HeapArena9HeapArenaERR9HeapArena" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Move constructor  deleted. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N6wrench9HeapArenaaSERK9HeapArena">
+<span id="_CPPv3N6wrench9HeapArenaaSERK9HeapArena"></span><span id="_CPPv2N6wrench9HeapArenaaSERK9HeapArena"></span><span id="wrench::HeapArena::assign-operator__HeapArenaCR"></span><span class="target" id="structwrench_1_1_heap_arena_1a0fe90ca188fdbbfef622a6b78e26e98d"></span>auto <code class="sig-name descname">operator=</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N6wrench9HeapArenaE" title="wrench::HeapArena">HeapArena</a>&amp;<span class="sig-paren">)</span> = delete<a class="headerlink" href="#_CPPv4N6wrench9HeapArenaaSERK9HeapArena" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Copy assignment operator  deleted. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N6wrench9HeapArenaaSERR9HeapArena">
+<span id="_CPPv3N6wrench9HeapArenaaSERR9HeapArena"></span><span id="_CPPv2N6wrench9HeapArenaaSERR9HeapArena"></span><span id="wrench::HeapArena::assign-operator__HeapArenaRR"></span><span class="target" id="structwrench_1_1_heap_arena_1a640e912e0fd1dc35441b3fd87132a76a"></span>auto <code class="sig-name descname">operator=</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N6wrench9HeapArenaE" title="wrench::HeapArena">HeapArena</a>&amp;&amp;<span class="sig-paren">)</span> <em class="property">noexcept</em> = delete<a class="headerlink" href="#_CPPv4N6wrench9HeapArenaaSERR9HeapArena" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Move assignment operator  deleted. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt>
+<span class="target" id="structwrench_1_1_heap_arena_1aa6522257009e11f8c513942a1ea191b2"></span><code class="sig-name descname">auto begin () const -&gt; ConstPtr</code></dt>
+<dd><p>Returns a pointer to the beginning of the arena. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt>
+<span class="target" id="structwrench_1_1_heap_arena_1a167ef563a63e4a8866f94afa4ed0aa44"></span><code class="sig-name descname">auto end () const -&gt; ConstPtr</code></dt>
+<dd><p>Returns a pointer to the end of the arena. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt>
+<span class="target" id="structwrench_1_1_heap_arena_1af44082d6a6e7e8bd142317d228c855c5"></span><code class="sig-name descname">auto size () const -&gt; size_t</code></dt>
+<dd><p>Returns the size of the arena. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Static Attributes</p>
+<dl class="cpp var">
+<dt id="_CPPv4N6wrench9HeapArena14constexpr_sizeE">
+<span id="_CPPv3N6wrench9HeapArena14constexpr_sizeE"></span><span id="_CPPv2N6wrench9HeapArena14constexpr_sizeE"></span><span id="wrench::HeapArena::constexpr_size__b"></span><span class="target" id="structwrench_1_1_heap_arena_1a84a528f8bb64b66df9045bff7b369576"></span><em class="property">constexpr</em> bool <code class="sig-name descname">constexpr_size</code> = false<a class="headerlink" href="#_CPPv4N6wrench9HeapArena14constexpr_sizeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Returns that the allocator does not have a constexpr size. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="structwrench_1_1_thread_safe_freelist_1_1_head_ptr.html" class="btn btn-neutral float-right" title="Struct ThreadSafeFreelist::HeadPtr" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="structwrench_1_1_freelist_1_1_node.html" class="btn btn-neutral float-left" title="Struct Freelist::Node" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Rob Clucas
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,568 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Program Listing for File pool_allocator.hpp &mdash; Wrench 1.0.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Wrench
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="wrench_api_root.html">Wrench API</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Wrench</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Program Listing for File pool_allocator.hpp</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/program_listing_file_include_wrench_memory_pool_allocator.hpp.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="program-listing-for-file-pool-allocator-hpp">
+<span id="program-listing-file-include-wrench-memory-pool-allocator-hpp"></span><h1>Program Listing for File pool_allocator.hpp<a class="headerlink" href="#program-listing-for-file-pool-allocator-hpp" title="Permalink to this headline">¶</a></h1>
+<p>↰ <a class="reference internal" href="file_include_wrench_memory_pool_allocator.hpp.html#file-include-wrench-memory-pool-allocator-hpp"><span class="std std-ref">Return to documentation for file</span></a> (<code class="docutils literal notranslate"><span class="pre">include/wrench/memory/pool_allocator.hpp</span></code>)</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">//==--- wrench/memory/pool_allocator.hpp ------------------- -*- C++ -*- ---==//</span>
+<span class="c1">//</span>
+<span class="c1">//                                  Wrench</span>
+<span class="c1">//</span>
+<span class="c1">//                      Copyright (c) 2020 Rob Clucas</span>
+<span class="c1">//</span>
+<span class="c1">//  This file is distributed under the MIT License. See LICENSE for details.</span>
+<span class="c1">//</span>
+<span class="c1">//==------------------------------------------------------------------------==//</span>
+<span class="c1">//</span>
+<span class="c1">//</span>
+<span class="c1">//==------------------------------------------------------------------------==//</span>
+
+<span class="cp">#ifndef WRENCH_MEMORY_POOL_ALLOCATOR_HPP</span>
+<span class="cp">#define WRENCH_MEMORY_POOL_ALLOCATOR_HPP</span>
+
+<span class="cp">#include</span> <span class="cpf">&quot;memory_utils.hpp&quot;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;atomic&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;cstddef&gt;</span><span class="cp"></span>
+
+<span class="k">namespace</span> <span class="n">wrench</span> <span class="p">{</span>
+
+<span class="c1">//==--- [single-threaded free-list] ----------------------------------------==//</span>
+
+<span class="k">class</span> <span class="nc">Freelist</span> <span class="p">{</span>
+ <span class="k">public</span><span class="o">:</span>
+  <span class="c1">//==--- [construction] ---------------------------------------------------==//</span>
+
+  <span class="n">Freelist</span><span class="p">()</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
+
+  <span class="o">~</span><span class="n">Freelist</span><span class="p">()</span> <span class="k">noexcept</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">head_</span> <span class="o">!=</span> <span class="k">nullptr</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">head_</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="n">Freelist</span><span class="p">(</span>
+    <span class="k">const</span> <span class="kt">void</span><span class="o">*</span> <span class="n">start</span><span class="p">,</span>
+    <span class="k">const</span> <span class="kt">void</span><span class="o">*</span> <span class="n">end</span><span class="p">,</span>
+    <span class="kt">size_t</span>      <span class="n">element_size</span><span class="p">,</span>
+    <span class="kt">size_t</span>      <span class="n">alignment</span><span class="p">)</span> <span class="k">noexcept</span>
+  <span class="o">:</span> <span class="n">head_</span><span class="p">(</span><span class="n">initialize</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">element_size</span><span class="p">,</span> <span class="n">alignment</span><span class="p">))</span> <span class="p">{}</span>
+
+  <span class="c1">// clang-format off</span>
+  <span class="n">Freelist</span><span class="p">(</span><span class="n">Freelist</span><span class="o">&amp;&amp;</span> <span class="n">other</span><span class="p">)</span> <span class="k">noexcept</span>                    <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
+  <span class="k">auto</span> <span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="n">Freelist</span><span class="o">&amp;&amp;</span> <span class="n">other</span><span class="p">)</span> <span class="k">noexcept</span> <span class="o">-&gt;</span> <span class="n">Freelist</span><span class="o">&amp;</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
+
+  <span class="c1">//==--- [deleted] --------------------------------------------------------==//</span>
+
+  <span class="n">Freelist</span><span class="p">(</span><span class="k">const</span> <span class="n">Freelist</span><span class="o">&amp;</span><span class="p">)</span>       <span class="o">=</span> <span class="k">delete</span><span class="p">;</span>
+  <span class="k">auto</span> <span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="k">const</span> <span class="n">Freelist</span><span class="o">&amp;</span><span class="p">)</span> <span class="o">=</span> <span class="k">delete</span><span class="p">;</span>
+  <span class="c1">// clang-format on</span>
+
+  <span class="c1">//==--- [interface] ------------------------------------------------------==//</span>
+
+  <span class="k">auto</span> <span class="nf">pop_front</span><span class="p">()</span> <span class="k">noexcept</span> <span class="o">-&gt;</span> <span class="kt">void</span><span class="o">*</span> <span class="p">{</span>
+    <span class="n">Node</span><span class="o">*</span> <span class="k">const</span> <span class="n">popped_head</span> <span class="o">=</span> <span class="n">head_</span><span class="p">;</span>
+    <span class="n">head_</span>                   <span class="o">=</span> <span class="n">popped_head</span> <span class="o">?</span> <span class="n">popped_head</span><span class="o">-&gt;</span><span class="nl">next</span> <span class="p">:</span> <span class="k">nullptr</span><span class="p">;</span>
+    <span class="k">return</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">void</span><span class="o">*&gt;</span><span class="p">(</span><span class="n">popped_head</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="k">auto</span> <span class="nf">push_front</span><span class="p">(</span><span class="kt">void</span><span class="o">*</span> <span class="n">ptr</span><span class="p">)</span> <span class="k">noexcept</span> <span class="o">-&gt;</span> <span class="kt">void</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">ptr</span> <span class="o">==</span> <span class="k">nullptr</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">return</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="n">Node</span><span class="o">*</span> <span class="k">const</span> <span class="n">pushed_head</span> <span class="o">=</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="n">Node</span><span class="o">*&gt;</span><span class="p">(</span><span class="n">ptr</span><span class="p">);</span>
+    <span class="n">pushed_head</span><span class="o">-&gt;</span><span class="n">next</span>       <span class="o">=</span> <span class="n">head_</span><span class="p">;</span>
+    <span class="n">head_</span>                   <span class="o">=</span> <span class="n">pushed_head</span><span class="p">;</span>
+  <span class="p">}</span>
+
+ <span class="k">private</span><span class="o">:</span>
+  <span class="k">struct</span> <span class="n">Node</span> <span class="p">{</span>
+    <span class="n">Node</span><span class="o">*</span> <span class="n">next</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">;</span>
+  <span class="p">};</span>
+
+  <span class="n">Node</span><span class="o">*</span> <span class="n">head_</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">;</span>
+
+  <span class="k">static</span> <span class="k">auto</span> <span class="nf">initialize</span><span class="p">(</span>
+    <span class="k">const</span> <span class="kt">void</span><span class="o">*</span> <span class="n">start</span><span class="p">,</span> <span class="k">const</span> <span class="kt">void</span><span class="o">*</span> <span class="n">end</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">element_size</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">alignment</span><span class="p">)</span>
+    <span class="o">-&gt;</span> <span class="n">Node</span><span class="o">*</span> <span class="p">{</span>
+    <span class="c1">// Create the first and second elements:</span>
+    <span class="kt">void</span><span class="o">*</span> <span class="k">const</span> <span class="n">first</span>  <span class="o">=</span> <span class="n">align_ptr</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">alignment</span><span class="p">);</span>
+    <span class="kt">void</span><span class="o">*</span> <span class="k">const</span> <span class="n">second</span> <span class="o">=</span> <span class="n">align_ptr</span><span class="p">(</span><span class="n">offset_ptr</span><span class="p">(</span><span class="n">first</span><span class="p">,</span> <span class="n">element_size</span><span class="p">),</span> <span class="n">alignment</span><span class="p">);</span>
+
+    <span class="k">const</span> <span class="kt">size_t</span> <span class="n">size</span>     <span class="o">=</span> <span class="kt">uintptr_t</span><span class="p">(</span><span class="n">second</span><span class="p">)</span> <span class="o">-</span> <span class="kt">uintptr_t</span><span class="p">(</span><span class="n">first</span><span class="p">);</span>
+    <span class="k">const</span> <span class="kt">size_t</span> <span class="n">elements</span> <span class="o">=</span> <span class="p">(</span><span class="kt">uintptr_t</span><span class="p">(</span><span class="n">end</span><span class="p">)</span> <span class="o">-</span> <span class="kt">uintptr_t</span><span class="p">(</span><span class="n">first</span><span class="p">))</span> <span class="o">/</span> <span class="n">size</span><span class="p">;</span>
+
+    <span class="c1">// Set the head of the list:</span>
+    <span class="n">Node</span><span class="o">*</span> <span class="n">head</span> <span class="o">=</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="n">Node</span><span class="o">*&gt;</span><span class="p">(</span><span class="n">first</span><span class="p">);</span>
+
+    <span class="c1">// Initialize the rest of the list:</span>
+    <span class="n">Node</span><span class="o">*</span> <span class="n">current</span> <span class="o">=</span> <span class="n">head</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">elements</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">Node</span><span class="o">*</span> <span class="n">next</span>    <span class="o">=</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="n">Node</span><span class="o">*&gt;</span><span class="p">(</span><span class="n">offset_ptr</span><span class="p">(</span><span class="n">current</span><span class="p">,</span> <span class="n">size</span><span class="p">));</span>
+      <span class="n">current</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">next</span><span class="p">;</span>
+      <span class="n">current</span>       <span class="o">=</span> <span class="n">next</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">assert</span><span class="p">(</span>
+      <span class="n">offset_ptr</span><span class="p">(</span><span class="n">current</span><span class="p">,</span> <span class="n">size</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">end</span> <span class="o">&amp;&amp;</span>
+      <span class="s">&quot;Freelist initialization overflows provided arena!&quot;</span><span class="p">);</span>
+
+    <span class="n">current</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">;</span>
+    <span class="k">return</span> <span class="n">head</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="c1">//==--- [multi-threaded free list] -----------------------------------------==//</span>
+
+<span class="k">class</span> <span class="nc">ThreadSafeFreelist</span> <span class="p">{</span>
+  <span class="k">struct</span> <span class="n">Node</span> <span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">atomic</span><span class="o">&lt;</span><span class="n">Node</span><span class="o">*&gt;</span> <span class="n">next</span><span class="p">;</span>
+  <span class="p">};</span>
+
+  <span class="k">static</span> <span class="k">constexpr</span> <span class="kt">size_t</span> <span class="n">head_ptr_alignment_bytes</span> <span class="o">=</span> <span class="mi">8</span><span class="p">;</span>
+
+  <span class="k">struct</span> <span class="nf">alignas</span><span class="p">(</span><span class="n">head_ptr_alignment_bytes</span><span class="p">)</span> <span class="n">HeadPtr</span> <span class="p">{</span>
+    <span class="kt">int32_t</span>  <span class="n">offset</span><span class="p">;</span>
+    <span class="kt">uint32_t</span> <span class="n">tag</span><span class="p">;</span>
+  <span class="p">};</span>
+
+  <span class="k">using</span> <span class="n">AtomicHeadPtr</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">atomic</span><span class="o">&lt;</span><span class="n">HeadPtr</span><span class="o">&gt;</span><span class="p">;</span>
+
+ <span class="k">public</span><span class="o">:</span>
+  <span class="c1">//==--- [construction] ---------------------------------------------------==//</span>
+
+  <span class="n">ThreadSafeFreelist</span><span class="p">()</span> <span class="k">noexcept</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
+
+  <span class="n">ThreadSafeFreelist</span><span class="p">(</span>
+    <span class="k">const</span> <span class="kt">void</span><span class="o">*</span> <span class="n">start</span><span class="p">,</span>
+    <span class="k">const</span> <span class="kt">void</span><span class="o">*</span> <span class="n">end</span><span class="p">,</span>
+    <span class="kt">size_t</span>      <span class="n">element_size</span><span class="p">,</span>
+    <span class="kt">size_t</span>      <span class="n">alignment</span><span class="p">)</span> <span class="k">noexcept</span> <span class="p">{</span>
+    <span class="n">assert</span><span class="p">(</span><span class="n">head_</span><span class="p">.</span><span class="n">is_lock_free</span><span class="p">());</span>
+
+    <span class="kt">void</span><span class="o">*</span> <span class="k">const</span> <span class="n">first</span>  <span class="o">=</span> <span class="n">align_ptr</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">alignment</span><span class="p">);</span>
+    <span class="kt">void</span><span class="o">*</span> <span class="k">const</span> <span class="n">second</span> <span class="o">=</span> <span class="n">align_ptr</span><span class="p">(</span><span class="n">offset_ptr</span><span class="p">(</span><span class="n">first</span><span class="p">,</span> <span class="n">element_size</span><span class="p">),</span> <span class="n">alignment</span><span class="p">);</span>
+
+    <span class="c1">// Check that the resulting pointers are in the arena, and ordered</span>
+    <span class="c1">// correctly:</span>
+    <span class="n">assert</span><span class="p">(</span><span class="n">first</span> <span class="o">&gt;=</span> <span class="n">start</span> <span class="o">&amp;&amp;</span> <span class="n">first</span> <span class="o">&lt;</span> <span class="n">end</span><span class="p">);</span>
+    <span class="n">assert</span><span class="p">(</span><span class="n">second</span> <span class="o">&gt;=</span> <span class="n">start</span> <span class="o">&amp;&amp;</span> <span class="n">second</span> <span class="o">&gt;</span> <span class="n">first</span> <span class="o">&amp;&amp;</span> <span class="n">second</span> <span class="o">&lt;</span> <span class="n">end</span><span class="p">);</span>
+
+    <span class="k">const</span> <span class="kt">size_t</span> <span class="n">size</span>     <span class="o">=</span> <span class="kt">uintptr_t</span><span class="p">(</span><span class="n">second</span><span class="p">)</span> <span class="o">-</span> <span class="kt">uintptr_t</span><span class="p">(</span><span class="n">first</span><span class="p">);</span>
+    <span class="k">const</span> <span class="kt">size_t</span> <span class="n">elements</span> <span class="o">=</span> <span class="p">(</span><span class="kt">uintptr_t</span><span class="p">(</span><span class="n">end</span><span class="p">)</span> <span class="o">-</span> <span class="kt">uintptr_t</span><span class="p">(</span><span class="n">first</span><span class="p">))</span> <span class="o">/</span> <span class="n">size</span><span class="p">;</span>
+
+    <span class="c1">// Set the head to the first element, and the storage to the head.</span>
+    <span class="n">Node</span><span class="o">*</span> <span class="n">head</span> <span class="o">=</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="n">Node</span><span class="o">*&gt;</span><span class="p">(</span><span class="n">first</span><span class="p">);</span>
+    <span class="n">storage_</span>   <span class="o">=</span> <span class="n">head</span><span class="p">;</span>
+
+    <span class="c1">// Link the list:</span>
+    <span class="n">Node</span><span class="o">*</span> <span class="n">current</span> <span class="o">=</span> <span class="n">head</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">elements</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">Node</span><span class="o">*</span> <span class="n">next</span>    <span class="o">=</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="n">Node</span><span class="o">*&gt;</span><span class="p">(</span><span class="n">offset_ptr</span><span class="p">(</span><span class="n">current</span><span class="p">,</span> <span class="n">size</span><span class="p">));</span>
+      <span class="n">current</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">next</span><span class="p">;</span>
+      <span class="n">current</span>       <span class="o">=</span> <span class="n">next</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// Ensure that everything fits in the allocation arena.</span>
+    <span class="n">assert</span><span class="p">(</span><span class="n">current</span> <span class="o">&lt;</span> <span class="n">end</span><span class="p">);</span>
+    <span class="n">assert</span><span class="p">(</span><span class="n">offset_ptr</span><span class="p">(</span><span class="n">current</span><span class="p">,</span> <span class="n">size</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">end</span><span class="p">);</span>
+    <span class="n">current</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">;</span>
+
+    <span class="c1">// Set the head pointer as the offset from the storage to the aligned head</span>
+    <span class="c1">// element, and set the initial tag to zero.</span>
+    <span class="n">head_</span><span class="p">.</span><span class="n">store</span><span class="p">({</span><span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">int32_t</span><span class="o">&gt;</span><span class="p">(</span><span class="n">head</span> <span class="o">-</span> <span class="n">storage_</span><span class="p">),</span> <span class="mi">0</span><span class="p">});</span>
+  <span class="p">}</span>
+
+  <span class="n">ThreadSafeFreelist</span><span class="p">(</span><span class="n">ThreadSafeFreelist</span><span class="o">&amp;&amp;</span> <span class="n">other</span><span class="p">)</span> <span class="k">noexcept</span>
+  <span class="o">:</span> <span class="n">head_</span><span class="p">(</span><span class="n">other</span><span class="p">.</span><span class="n">head_</span><span class="p">.</span><span class="n">load</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">memory_order_relaxed</span><span class="p">)),</span>
+    <span class="n">storage_</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">other</span><span class="p">.</span><span class="n">storage_</span><span class="p">))</span> <span class="p">{</span>
+    <span class="n">other</span><span class="p">.</span><span class="n">head_</span><span class="p">.</span><span class="n">store</span><span class="p">({</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">},</span> <span class="n">std</span><span class="o">::</span><span class="n">memory_order_relaxed</span><span class="p">);</span>
+    <span class="n">other</span><span class="p">.</span><span class="n">storage_</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="k">auto</span> <span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="n">ThreadSafeFreelist</span><span class="o">&amp;&amp;</span> <span class="n">other</span><span class="p">)</span> <span class="k">noexcept</span> <span class="o">-&gt;</span> <span class="n">ThreadSafeFreelist</span><span class="o">&amp;</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="k">this</span> <span class="o">!=</span> <span class="o">&amp;</span><span class="n">other</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">head</span><span class="p">.</span><span class="n">store</span><span class="p">(</span>
+        <span class="n">other</span><span class="p">.</span><span class="n">head_</span><span class="p">.</span><span class="n">load</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">memory_order_relaxed</span><span class="p">),</span> <span class="n">std</span><span class="o">::</span><span class="n">memory_order_relaxed</span><span class="p">);</span>
+      <span class="n">storage_</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">other</span><span class="p">.</span><span class="n">storage_</span><span class="p">);</span>
+      <span class="n">other</span><span class="p">.</span><span class="n">head_</span><span class="p">.</span><span class="n">store</span><span class="p">({</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">},</span> <span class="n">std</span><span class="o">::</span><span class="n">memory_order_relaxed</span><span class="p">);</span>
+      <span class="n">other</span><span class="p">.</span><span class="n">storage_</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="o">*</span><span class="k">this</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="c1">//==--- [deleted] --------------------------------------------------------==//</span>
+
+  <span class="c1">//clang-format off</span>
+  <span class="n">ThreadSafeFreelist</span><span class="p">(</span><span class="k">const</span> <span class="n">ThreadSafeFreelist</span><span class="o">&amp;</span><span class="p">)</span> <span class="o">=</span> <span class="k">delete</span><span class="p">;</span>
+  <span class="k">auto</span> <span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="k">const</span> <span class="n">ThreadSafeFreelist</span><span class="o">&amp;</span><span class="p">)</span> <span class="o">=</span> <span class="k">delete</span><span class="p">;</span>
+  <span class="c1">// clang-format on</span>
+
+  <span class="c1">//==--- [interface] ------------------------------------------------------==//</span>
+
+  <span class="k">auto</span> <span class="nf">pop_front</span><span class="p">()</span> <span class="k">noexcept</span> <span class="o">-&gt;</span> <span class="kt">void</span><span class="o">*</span> <span class="p">{</span>
+    <span class="n">Node</span><span class="o">*</span> <span class="k">const</span> <span class="n">storage</span> <span class="o">=</span> <span class="n">storage_</span><span class="p">;</span>
+
+    <span class="c1">// Here we acquire to synchronize with other popping threads which may</span>
+    <span class="c1">// succeed first, and well as with other pushing threads which may push</span>
+    <span class="c1">// before we pop, in which case we want to try and pop the newly pushed</span>
+    <span class="c1">// head.</span>
+    <span class="n">HeadPtr</span> <span class="n">current_head</span> <span class="o">=</span> <span class="n">head_</span><span class="p">.</span><span class="n">load</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">memory_order_acquire</span><span class="p">);</span>
+
+    <span class="k">while</span> <span class="p">(</span><span class="n">current_head</span><span class="p">.</span><span class="n">offset</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+      <span class="c1">// If another thread tries to pop, and does it faster than here, then this</span>
+      <span class="c1">// pointer will contain data from the application. However, the new_head</span>
+      <span class="c1">// which we compute just now, using this next pointer, will be discarded</span>
+      <span class="c1">// because _head will have been replaced, and hence current_head will not</span>
+      <span class="c1">// compare equal with _head, and thus the compare_exhange will fail and we</span>
+      <span class="c1">// will try again.</span>
+      <span class="n">Node</span><span class="o">*</span> <span class="k">const</span> <span class="n">next</span> <span class="o">=</span>
+        <span class="n">storage</span><span class="p">[</span><span class="n">current_head</span><span class="p">.</span><span class="n">offset</span><span class="p">].</span><span class="n">next</span><span class="p">.</span><span class="n">load</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">memory_order_relaxed</span><span class="p">);</span>
+
+      <span class="c1">// Get the new head element. If the next pointer is a nullptr, then we are</span>
+      <span class="c1">// at the end of the list, and if we succeed then another thread cannot</span>
+      <span class="c1">// pop, so we set the offset to -1 so that on success, if _head is</span>
+      <span class="c1">// replaced with new_head, then other threads will not execute this loop</span>
+      <span class="c1">// and just return a nullptr.</span>
+      <span class="k">const</span> <span class="n">HeadPtr</span> <span class="n">new_head</span><span class="p">{</span>
+        <span class="n">next</span> <span class="o">?</span> <span class="kt">int32_t</span><span class="p">(</span><span class="n">next</span> <span class="o">-</span> <span class="n">storage</span><span class="p">)</span> <span class="o">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">current_head</span><span class="p">.</span><span class="n">tag</span> <span class="o">+</span> <span class="mi">1</span><span class="p">};</span>
+
+      <span class="c1">// If another thread was trying to pop, and got here just before us, then</span>
+      <span class="c1">// the _head element would have moved, and it will have a different .tag</span>
+      <span class="c1">// value than the tag value of current_head, so this will fail, and we</span>
+      <span class="c1">// will try again.</span>
+      <span class="c1">//</span>
+      <span class="c1">// This is also how we avoid the ABA problem, where another thread might</span>
+      <span class="c1">// have popped, and then pushed, leaving the head in the same place as the</span>
+      <span class="c1">// current_head we now have, but with different data. The tag will prevent</span>
+      <span class="c1">// this.</span>
+      <span class="c1">//</span>
+      <span class="c1">// Also, we need memory_order_release here to make the change visible on</span>
+      <span class="c1">// success, for threads which load the upated _head. We use</span>
+      <span class="c1">// memory_order_acquire for the failure case, because we want to</span>
+      <span class="c1">// synchronize as at the beginning of the function.</span>
+      <span class="k">if</span> <span class="p">(</span><span class="n">head_</span><span class="p">.</span><span class="n">compare_exchange_weak</span><span class="p">(</span>
+            <span class="n">current_head</span><span class="p">,</span>
+            <span class="n">new_head</span><span class="p">,</span>
+            <span class="n">std</span><span class="o">::</span><span class="n">memory_order_release</span><span class="p">,</span>
+            <span class="n">std</span><span class="o">::</span><span class="n">memory_order_acquire</span><span class="p">))</span> <span class="p">{</span>
+        <span class="c1">// Lastly, we need the assert here for that case that another thread</span>
+        <span class="c1">// performed a pop between our load of _head and _head.next. In this</span>
+        <span class="c1">// case, the next that we loaded will contain application data, and</span>
+        <span class="c1">// therefore could be invalid. So we check that we either have a</span>
+        <span class="c1">// nullptr, in the case that we are at the last element, or that the</span>
+        <span class="c1">// next pointer is in the memory arena, otherwise something went wrong.</span>
+        <span class="n">assert</span><span class="p">(</span><span class="o">!</span><span class="n">next</span> <span class="o">||</span> <span class="n">next</span> <span class="o">&gt;=</span> <span class="n">storage</span><span class="p">);</span>
+        <span class="k">break</span><span class="p">;</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="c1">// Either we have the head, and we can return it, or we ran out of elements,</span>
+    <span class="c1">// and we have to return a nullptr.</span>
+    <span class="c1">// clang-format off</span>
+    <span class="kt">void</span><span class="o">*</span> <span class="n">p</span> <span class="o">=</span> <span class="p">(</span><span class="n">current_head</span><span class="p">.</span><span class="n">offset</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">)</span>
+            <span class="o">?</span> <span class="n">storage</span> <span class="o">+</span> <span class="n">current_head</span><span class="p">.</span><span class="nl">offset</span> <span class="p">:</span> <span class="k">nullptr</span><span class="p">;</span>
+    <span class="c1">// clang-format on</span>
+    <span class="k">return</span> <span class="n">p</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="k">auto</span> <span class="nf">push_front</span><span class="p">(</span><span class="kt">void</span><span class="o">*</span> <span class="n">ptr</span><span class="p">)</span> <span class="k">noexcept</span> <span class="o">-&gt;</span> <span class="kt">void</span> <span class="p">{</span>
+    <span class="n">Node</span><span class="o">*</span> <span class="k">const</span> <span class="n">storage</span> <span class="o">=</span> <span class="n">storage_</span><span class="p">;</span>
+    <span class="n">assert</span><span class="p">(</span><span class="n">ptr</span> <span class="o">&amp;&amp;</span> <span class="n">ptr</span> <span class="o">&gt;=</span> <span class="n">storage</span><span class="p">);</span>
+    <span class="n">Node</span><span class="o">*</span> <span class="k">const</span> <span class="n">node</span> <span class="o">=</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="n">Node</span><span class="o">*&gt;</span><span class="p">(</span><span class="n">ptr</span><span class="p">);</span>
+
+    <span class="c1">// Here we don&#39;t care about synchronization with stores to _head from other</span>
+    <span class="c1">// threads which are either trying to push or to pop. If that happens, the</span>
+    <span class="c1">// compare exchange will fail and we will just try with the newly updated</span>
+    <span class="c1">// head.</span>
+    <span class="n">HeadPtr</span> <span class="n">current_head</span> <span class="o">=</span> <span class="n">head_</span><span class="p">.</span><span class="n">load</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">memory_order_relaxed</span><span class="p">);</span>
+    <span class="n">HeadPtr</span> <span class="n">new_head</span>     <span class="o">=</span> <span class="p">{</span><span class="kt">int32_t</span><span class="p">(</span><span class="n">node</span> <span class="o">-</span> <span class="n">storage</span><span class="p">),</span> <span class="n">current_head</span><span class="p">.</span><span class="n">tag</span> <span class="o">+</span> <span class="mi">1</span><span class="p">};</span>
+
+    <span class="c1">// Here we use memory_order_release in the success case, so that other</span>
+    <span class="c1">// threads can synchronize with the updated head, but we don&#39;t care about</span>
+    <span class="c1">// synchronizing the update of the current head because as above, if another</span>
+    <span class="c1">// thread races ahead, we will just try again. The memory ordering with</span>
+    <span class="c1">// respect to the current_head update is not important.</span>
+    <span class="k">do</span> <span class="p">{</span>
+      <span class="c1">// clang-format off</span>
+      <span class="n">new_head</span><span class="p">.</span><span class="n">tag</span>     <span class="o">=</span> <span class="n">current_head</span><span class="p">.</span><span class="n">tag</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+      <span class="n">Node</span><span class="o">*</span> <span class="k">const</span> <span class="n">next</span> <span class="o">=</span> <span class="p">(</span><span class="n">current_head</span><span class="p">.</span><span class="n">offset</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">)</span>
+                       <span class="o">?</span> <span class="p">(</span><span class="n">storage</span> <span class="o">+</span> <span class="n">current_head</span><span class="p">.</span><span class="n">offset</span><span class="p">)</span> <span class="o">:</span> <span class="k">nullptr</span><span class="p">;</span>
+      <span class="n">node</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">.</span><span class="n">store</span><span class="p">(</span><span class="n">next</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">memory_order_relaxed</span><span class="p">);</span>
+      <span class="c1">// clang-format on</span>
+    <span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="n">head_</span><span class="p">.</span><span class="n">compare_exchange_weak</span><span class="p">(</span>
+      <span class="n">current_head</span><span class="p">,</span>
+      <span class="n">new_head</span><span class="p">,</span>
+      <span class="n">std</span><span class="o">::</span><span class="n">memory_order_release</span><span class="p">,</span>
+      <span class="n">std</span><span class="o">::</span><span class="n">memory_order_relaxed</span><span class="p">));</span>
+  <span class="p">}</span>
+
+ <span class="k">private</span><span class="o">:</span>
+  <span class="n">AtomicHeadPtr</span> <span class="n">head_</span><span class="p">{};</span>
+  <span class="n">Node</span><span class="o">*</span>         <span class="n">storage_</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="c1">//==--- [pool allocator] ---------------------------------------------------==//</span>
+
+<span class="c1">// clang-format off</span>
+
+<span class="k">template</span> <span class="o">&lt;</span>
+  <span class="kt">size_t</span>   <span class="n">ElementSize</span><span class="p">,</span>
+  <span class="kt">size_t</span>   <span class="n">Alignment</span><span class="p">,</span>
+  <span class="k">typename</span> <span class="n">FreelistImpl</span> <span class="o">=</span> <span class="n">Freelist</span><span class="o">&gt;</span>
+<span class="k">class</span> <span class="nc">PoolAllocator</span> <span class="p">{</span>
+ <span class="k">private</span><span class="o">:</span>
+  <span class="c1">// clang-format off</span>
+  <span class="k">static</span> <span class="k">constexpr</span> <span class="kt">size_t</span> <span class="n">element_size</span> <span class="o">=</span> <span class="n">ElementSize</span><span class="p">;</span>
+  <span class="k">static</span> <span class="k">constexpr</span> <span class="kt">size_t</span> <span class="n">alignment</span>    <span class="o">=</span> <span class="n">Alignment</span><span class="p">;</span>
+  <span class="c1">// clang-format on</span>
+
+ <span class="k">public</span><span class="o">:</span>
+  <span class="c1">//==--- [construction] ---------------------------------------------------==//</span>
+
+  <span class="c1">// clang-format off</span>
+  <span class="n">PoolAllocator</span><span class="p">()</span> <span class="k">noexcept</span>  <span class="o">=</span> <span class="k">delete</span><span class="p">;</span>
+  <span class="o">~</span><span class="n">PoolAllocator</span><span class="p">()</span> <span class="k">noexcept</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
+  <span class="c1">// clang-format on</span>
+
+  <span class="n">PoolAllocator</span><span class="p">(</span><span class="k">const</span> <span class="kt">void</span><span class="o">*</span> <span class="n">begin</span><span class="p">,</span> <span class="k">const</span> <span class="kt">void</span><span class="o">*</span> <span class="n">end</span><span class="p">)</span> <span class="k">noexcept</span>
+  <span class="o">:</span> <span class="n">freelist_</span><span class="p">(</span><span class="n">begin</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">element_size</span><span class="p">,</span> <span class="n">alignment</span><span class="p">),</span> <span class="n">begin_</span><span class="p">(</span><span class="n">begin</span><span class="p">),</span> <span class="n">end_</span><span class="p">(</span><span class="n">end</span><span class="p">)</span> <span class="p">{}</span>
+
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">Arena</span><span class="o">&gt;</span>
+  <span class="k">explicit</span> <span class="n">PoolAllocator</span><span class="p">(</span><span class="k">const</span> <span class="n">Arena</span><span class="o">&amp;</span> <span class="n">arena</span><span class="p">)</span> <span class="k">noexcept</span>
+  <span class="o">:</span> <span class="n">PoolAllocator</span><span class="p">(</span><span class="n">arena</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">arena</span><span class="p">.</span><span class="n">end</span><span class="p">())</span> <span class="p">{}</span>
+
+  <span class="n">PoolAllocator</span><span class="p">(</span><span class="n">PoolAllocator</span><span class="o">&amp;&amp;</span> <span class="n">other</span><span class="p">)</span> <span class="k">noexcept</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
+
+  <span class="k">auto</span> <span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="n">PoolAllocator</span><span class="o">&amp;&amp;</span> <span class="n">other</span><span class="p">)</span> <span class="k">noexcept</span> <span class="o">-&gt;</span> <span class="n">PoolAllocator</span><span class="o">&amp;</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
+
+  <span class="c1">//==--- [deleted] --------------------------------------------------------==//</span>
+
+  <span class="c1">// clang-format off</span>
+  <span class="n">PoolAllocator</span><span class="p">(</span><span class="k">const</span> <span class="n">PoolAllocator</span><span class="o">&amp;</span><span class="p">)</span>  <span class="o">=</span> <span class="k">delete</span><span class="p">;</span>
+  <span class="k">auto</span> <span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="k">const</span> <span class="n">PoolAllocator</span><span class="o">&amp;</span><span class="p">)</span> <span class="o">=</span> <span class="k">delete</span><span class="p">;</span>
+  <span class="c1">// clang-format on</span>
+
+  <span class="c1">//==--- [interface] ------------------------------------------------------==//</span>
+
+  <span class="k">auto</span> <span class="nf">alloc</span><span class="p">(</span><span class="kt">size_t</span> <span class="n">size</span> <span class="o">=</span> <span class="n">element_size</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">align</span> <span class="o">=</span> <span class="n">alignment</span><span class="p">)</span> <span class="k">noexcept</span>
+    <span class="o">-&gt;</span> <span class="kt">void</span><span class="o">*</span> <span class="p">{</span>
+    <span class="n">assert</span><span class="p">(</span><span class="n">size</span> <span class="o">&lt;=</span> <span class="n">element_size</span> <span class="o">&amp;&amp;</span> <span class="n">align</span> <span class="o">&lt;=</span> <span class="n">alignment</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">freelist_</span><span class="p">.</span><span class="n">pop_front</span><span class="p">();</span>
+  <span class="p">}</span>
+
+  <span class="k">auto</span> <span class="nf">free</span><span class="p">(</span><span class="kt">void</span><span class="o">*</span> <span class="n">ptr</span><span class="p">,</span> <span class="kt">size_t</span> <span class="o">=</span> <span class="n">element_size</span><span class="p">)</span> <span class="k">noexcept</span> <span class="o">-&gt;</span> <span class="kt">void</span> <span class="p">{</span>
+    <span class="n">freelist_</span><span class="p">.</span><span class="n">push_front</span><span class="p">(</span><span class="n">ptr</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="k">auto</span> <span class="nf">owns</span><span class="p">(</span><span class="kt">void</span><span class="o">*</span> <span class="n">ptr</span><span class="p">)</span> <span class="k">const</span> <span class="k">noexcept</span> <span class="o">-&gt;</span> <span class="kt">bool</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="kt">uintptr_t</span><span class="p">(</span><span class="n">ptr</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="kt">uintptr_t</span><span class="p">(</span><span class="n">begin_</span><span class="p">)</span> <span class="o">&amp;&amp;</span>
+           <span class="kt">uintptr_t</span><span class="p">(</span><span class="n">ptr</span><span class="p">)</span> <span class="o">&lt;</span> <span class="kt">uintptr_t</span><span class="p">(</span><span class="n">end_</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="k">auto</span> <span class="nf">reset</span><span class="p">()</span> <span class="k">noexcept</span> <span class="o">-&gt;</span> <span class="kt">void</span> <span class="p">{}</span>
+
+ <span class="k">private</span><span class="o">:</span>
+  <span class="n">FreelistImpl</span> <span class="n">freelist_</span><span class="p">;</span>
+  <span class="k">const</span> <span class="kt">void</span><span class="o">*</span>  <span class="n">begin_</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">;</span>
+  <span class="k">const</span> <span class="kt">void</span><span class="o">*</span>  <span class="n">end_</span>   <span class="o">=</span> <span class="k">nullptr</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="p">}</span> <span class="c1">// namespace wrench</span>
+
+<span class="cp">#endif </span><span class="c1">// WRENCH_MEMORY_POOL_ALLOCATOR_HPP</span>
+</pre></div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Rob Clucas
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
