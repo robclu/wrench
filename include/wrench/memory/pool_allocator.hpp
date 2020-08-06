@@ -159,31 +159,33 @@ class ThreadSafeFreelist {
   /// pushing thread, since it has the correct head. The failed popping thread
   /// will then try again, and everything is fine. It looks as follows:
   ///
-  ///     Thread 1                   Thread 2
-  ///        |                          |
-  ///     pop_front()                   |
-  ///        |                          |
-  ///   read head->next                 |
-  ///        |                      pop_front()
-  ///        |                          |
-  ///        |                     read head->next
-  ///        |                          |
-  ///        |             compare_exchange success, tag++
-  ///        |                          |
-  ///        |                     push_front()
-  ///        |                          |
-  ///   data race on               data race on
-  ///  write head->next           write head->next
-  ///        |                          |
-  /// compare_exchange           compare_exhange
-  ///   always fails           always succeeds, tag++
-  ///        |                          |
-  ///        |                        return
-  ///     try again                     |
-  ///   read head->next                 |
-  ///        |                          |
-  ///   compare_exchange                |
-  ///   succeeds, tag++                 |
+  /// ~~~
+  ///       Thread 1                   Thread 2
+  ///          |                          |
+  ///      pop_front()                    |
+  ///          |                          |
+  ///    read head->next                  |
+  ///          |                      pop_front()
+  ///          |                          |
+  ///          |                     read head->next
+  ///          |                          |
+  ///          |             compare_exchange success, tag++
+  ///          |                          |
+  ///          |                     push_front()
+  ///          |                          |
+  ///     data race on               data race on
+  ///   write head->next           write head->next
+  ///          |                          |
+  ///   compare_exchange           compare_exhange
+  ///     always fails           always succeeds, tag++
+  ///          |                          |
+  ///          |                        return
+  ///       try again                     |
+  ///    read head->next                  |
+  ///          |                          |
+  ///   compare_exchange                  |
+  ///   succeeds, tag++                   |
+  /// ~~~
   ///
   /// While this doesn't cause any problems, we just make the next pointer
   /// atomic and use it with relaxed ordering, which doesn't reduce performance
@@ -367,7 +369,7 @@ class ThreadSafeFreelist {
     return p;
   }
 
-  /// Pushes the \ptr onto the front of the free list.
+  /// Pushes the \p ptr onto the front of the free list.
   /// \param ptr The pointer to push onto the front.
   auto push_front(void* ptr) noexcept -> void {
     Node* const storage = storage_;
@@ -445,7 +447,7 @@ class PoolAllocator {
 
   /// Constructor which initializes the freelist with the \p start and \p end
   /// pointers to the memory arena for the pool.
-  /// \param start A pointer to the start of the arena for the pool.
+  /// \param begin A pointer to the start of the arena for the pool.
   /// \param end   A pointer to the end of the arena for the pool.
   PoolAllocator(const void* begin, const void* end) noexcept
   : freelist_(begin, end, element_size, alignment), begin_(begin), end_(end) {}

@@ -42,9 +42,9 @@ class AlignedHeapAllocator {
   AlignedHeapAllocator(const Arena& arena) {}
 
   /// Move construcor -- defaulted.
-  AlignedHeapAllocator(AlignedHeapAllocator&&)                    = default;
+  AlignedHeapAllocator(AlignedHeapAllocator&&) = default;
   /// Move assignment -- defaulted.
-  auto operator=(AlignedHeapAllocator&&) -> AlignedHeapAllocator& = default;
+  auto operator=(AlignedHeapAllocator&&)       = default;
 
   //==--- [deleted] --------------------------------------------------------==//
 
@@ -57,8 +57,8 @@ class AlignedHeapAllocator {
   //==--- [interface] ------------------------------------------------------==//
 
   /// Allocates \p size bytes of memory with \p align alignment.
-  /// \param size  The size of the memory to allocate.
-  /// \param align The alignment of the allocation.
+  /// \param size      The size of the memory to allocate.
+  /// \param alignment The alignment of the allocation.
   auto alloc(size_t size, size_t alignment) noexcept -> void* {
     return aligned_alloc(alignment, size);
   }
@@ -69,8 +69,8 @@ class AlignedHeapAllocator {
     std::free(ptr);
   }
 
-  /// Frees the memory pointed to by \ptr, with a size of \p size.
-  /// \param ptr  The pointer to the memory to free.
+  /// Frees the memory pointed to by \ptr.
+  /// \param ptr The pointer to the memory to free.
   auto free(void* ptr, size_t) noexcept -> void {
     std::free(ptr);
   }
