@@ -26,8 +26,6 @@
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
         <script src="_static/language_data.js"></script>
-        <script src="_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
-        <script src="_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
@@ -36,7 +34,7 @@
   
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="_static/collapsible-lists/css/tree_view.css" type="text/css" />
+  <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
     <link rel="index" title="Index" href="#" />
     <link rel="search" title="Search" href="search.html" /> 
 </head>
@@ -165,7 +163,7 @@
 </li>
       <li><a href="api/classwrench_1_1_aligned_heap_allocator.html#_CPPv4I0EN6wrench20AlignedHeapAllocator20AlignedHeapAllocatorERK5Arena">wrench::AlignedHeapAllocator::AlignedHeapAllocator (C++ function)</a>, <a href="api/classwrench_1_1_aligned_heap_allocator.html#_CPPv4N6wrench20AlignedHeapAllocator20AlignedHeapAllocatorERK20AlignedHeapAllocator">[1]</a>, <a href="api/classwrench_1_1_aligned_heap_allocator.html#_CPPv4N6wrench20AlignedHeapAllocator20AlignedHeapAllocatorERR20AlignedHeapAllocator">[2]</a>, <a href="api/classwrench_1_1_aligned_heap_allocator.html#_CPPv4N6wrench20AlignedHeapAllocator20AlignedHeapAllocatorEv">[3]</a>
 </li>
-      <li><a href="api/classwrench_1_1_aligned_heap_allocator.html#_CPPv4N6wrench20AlignedHeapAllocatoraSERK20AlignedHeapAllocator">wrench::AlignedHeapAllocator::operator= (C++ function)</a>
+      <li><a href="api/classwrench_1_1_aligned_heap_allocator.html#_CPPv4N6wrench20AlignedHeapAllocatoraSERK20AlignedHeapAllocator">wrench::AlignedHeapAllocator::operator= (C++ function)</a>, <a href="api/classwrench_1_1_aligned_heap_allocator.html#_CPPv4N6wrench20AlignedHeapAllocatoraSERR20AlignedHeapAllocator">[1]</a>
 </li>
       <li><a href="api/classwrench_1_1_aligned_heap_allocator.html#_CPPv4N6wrench20AlignedHeapAllocatorD0Ev">wrench::AlignedHeapAllocator::~AlignedHeapAllocator (C++ function)</a>
 </li>
@@ -203,10 +201,10 @@
 </li>
       <li><a href="api/structwrench_1_1_heap_arena.html#_CPPv4N6wrench9HeapArenaD0Ev">wrench::HeapArena::~HeapArena (C++ function)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/classwrench_1_1_linear_allocator.html#_CPPv4N6wrench15LinearAllocatorE">wrench::LinearAllocator (C++ class)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/classwrench_1_1_linear_allocator.html#_CPPv4I0EN6wrench15LinearAllocator15LinearAllocatorERK5Arena">wrench::LinearAllocator::LinearAllocator (C++ function)</a>, <a href="api/classwrench_1_1_linear_allocator.html#_CPPv4N6wrench15LinearAllocator15LinearAllocatorEPvPv">[1]</a>, <a href="api/classwrench_1_1_linear_allocator.html#_CPPv4N6wrench15LinearAllocator15LinearAllocatorERK15LinearAllocator">[2]</a>, <a href="api/classwrench_1_1_linear_allocator.html#_CPPv4N6wrench15LinearAllocator15LinearAllocatorERR15LinearAllocator">[3]</a>
 </li>
       <li><a href="api/classwrench_1_1_linear_allocator.html#_CPPv4N6wrench15LinearAllocatoraSERK15LinearAllocator">wrench::LinearAllocator::operator= (C++ function)</a>
@@ -220,6 +218,12 @@
       <li><a href="api/classwrench_1_1_pool_allocator.html#_CPPv4I0EN6wrench13PoolAllocator13PoolAllocatorERK5Arena">wrench::PoolAllocator::PoolAllocator (C++ function)</a>, <a href="api/classwrench_1_1_pool_allocator.html#_CPPv4N6wrench13PoolAllocator13PoolAllocatorEPKvPKv">[1]</a>, <a href="api/classwrench_1_1_pool_allocator.html#_CPPv4N6wrench13PoolAllocator13PoolAllocatorERK13PoolAllocator">[2]</a>, <a href="api/classwrench_1_1_pool_allocator.html#_CPPv4N6wrench13PoolAllocator13PoolAllocatorERR13PoolAllocator">[3]</a>, <a href="api/classwrench_1_1_pool_allocator.html#_CPPv4N6wrench13PoolAllocator13PoolAllocatorEv">[4]</a>
 </li>
       <li><a href="api/classwrench_1_1_pool_allocator.html#_CPPv4N6wrench13PoolAllocatorD0Ev">wrench::PoolAllocator::~PoolAllocator (C++ function)</a>
+</li>
+      <li><a href="api/structwrench_1_1_spinlock.html#_CPPv4N6wrench8SpinlockE">wrench::Spinlock (C++ struct)</a>
+</li>
+      <li><a href="api/structwrench_1_1_spinlock_1_1_sleeper.html#_CPPv4N6wrench8Spinlock7SleeperE">wrench::Spinlock::Sleeper (C++ struct)</a>
+</li>
+      <li><a href="api/structwrench_1_1_spinlock_1_1_sleeper.html#_CPPv4N6wrench8Spinlock7Sleeper9max_spinsE">wrench::Spinlock::Sleeper::max_spins (C++ member)</a>
 </li>
       <li><a href="api/classwrench_1_1_stack_arena.html#_CPPv4I_6size_tEN6wrench10StackArenaE">wrench::StackArena (C++ class)</a>
 </li>
@@ -288,7 +292,13 @@
   
   
     
-   
+  
+
+<script>window.markdeepOptions = { mode: 'doxygen' };</script>
+<script src="markdeep.min.js"></script>
+<script src="https://morgan3d.github.io/markdeep/latest/markdeep.min.js"></script>
+
+
 
 </body>
 </html>

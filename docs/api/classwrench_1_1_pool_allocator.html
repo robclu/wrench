@@ -25,8 +25,6 @@
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
         <script src="../_static/language_data.js"></script>
-        <script src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
-        <script src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -35,7 +33,7 @@
   
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Template Class StackArena" href="classwrench_1_1_stack_arena.html" />
@@ -97,6 +95,8 @@
 <li class="toctree-l3 current"><a class="reference internal" href="wrench_api_root.html#classes-and-structs">Classes and Structs</a><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="structwrench_1_1_freelist_1_1_node.html">Struct Freelist::Node</a></li>
 <li class="toctree-l4"><a class="reference internal" href="structwrench_1_1_heap_arena.html">Struct HeapArena</a></li>
+<li class="toctree-l4"><a class="reference internal" href="structwrench_1_1_spinlock.html">Struct Spinlock</a></li>
+<li class="toctree-l4"><a class="reference internal" href="structwrench_1_1_spinlock_1_1_sleeper.html">Struct Spinlock::Sleeper</a></li>
 <li class="toctree-l4"><a class="reference internal" href="structwrench_1_1_thread_safe_freelist_1_1_head_ptr.html">Struct ThreadSafeFreelist::HeadPtr</a></li>
 <li class="toctree-l4"><a class="reference internal" href="structwrench_1_1_thread_safe_freelist_1_1_node.html">Struct ThreadSafeFreelist::Node</a></li>
 <li class="toctree-l4"><a class="reference internal" href="classwrench_1_1_aligned_heap_allocator.html">Class AlignedHeapAllocator</a></li>
@@ -220,7 +220,7 @@
 <span id="_CPPv3N6wrench13PoolAllocator13PoolAllocatorEPKvPKv"></span><span id="_CPPv2N6wrench13PoolAllocator13PoolAllocatorEPKvPKv"></span><span id="wrench::PoolAllocator::PoolAllocator__voidCP.voidCP"></span><span class="target" id="classwrench_1_1_pool_allocator_1a3711a4db7ff35a8a4836c4afcaaa6a11"></span><code class="sig-name descname">PoolAllocator</code><span class="sig-paren">(</span><em class="property">const</em> void *<em>begin</em>, <em class="property">const</em> void *<em>end</em><span class="sig-paren">)</span> <em class="property">noexcept</em><a class="headerlink" href="#_CPPv4N6wrench13PoolAllocator13PoolAllocatorEPKvPKv" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Constructor which initializes the freelist with the <code class="docutils literal notranslate"><span class="pre">start</span></code> and <code class="docutils literal notranslate"><span class="pre">end</span></code> pointers to the memory arena for the pool. <dl class="simple">
 <dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">start</span></code>: A pointer to the start of the arena for the pool. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">begin</span></code>: A pointer to the start of the arena for the pool. </p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">end</span></code>: A pointer to the end of the arena for the pool. </p></li>
 </ul>
 </dd>
@@ -377,7 +377,13 @@
   
   
     
-   
+  
+
+<script>window.markdeepOptions = { mode: 'doxygen' };</script>
+<script src="markdeep.min.js"></script>
+<script src="https://morgan3d.github.io/markdeep/latest/markdeep.min.js"></script>
+
+
 
 </body>
 </html>

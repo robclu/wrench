@@ -28,6 +28,16 @@ Classes and Structs
 .. toctree::
    :maxdepth: 5
 
+   structwrench_1_1_spinlock.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   structwrench_1_1_spinlock_1_1_sleeper.rst
+
+.. toctree::
+   :maxdepth: 5
+
    structwrench_1_1_thread_safe_freelist_1_1_head_ptr.rst
 
 .. toctree::

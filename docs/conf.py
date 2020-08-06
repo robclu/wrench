@@ -30,29 +30,20 @@
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
+import sphinx_rtd_theme
 extensions = [
     'sphinx.ext.mathjax',
     'sphinx.ext.githubpages',
+    'sphinx.ext.todo',
+    'sphinx.ext.coverage',
+    'sphinx.ext.ifconfig',
+    'sphinx.ext.viewcode',
+    'sphinx.ext.inheritance_diagram',
     'breathe',
-    'exhale'
 ]
 
 # Setup the breathe extension.
-breathe_projects = {
-    "Wrench" : "./doxyoutput"
-}
 breathe_default_project = "Wrench"
-
-# Setup the exhale extensions.
-exhale_args = {
-    "containmentFolder"     : "./api",
-    "rootFileName"          : "wrench_api_root.rst",
-    "rootFileTitle"         : "Wrench API",
-    "doxygenStripFromPath"  : "..",
-    "createTreeView"        : True,
-    "exhaleExecutesDoxygen" : True,
-    "exhaleUseDoxyfile"     : True
-}
 
 # Specify which language is the primary one.
 primary_domain = 'cpp'
@@ -109,7 +100,6 @@ todo_include_todos = False
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
-import sphinx_rtd_theme
 html_theme = 'sphinx_rtd_theme'
 html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
 
@@ -136,12 +126,10 @@ html_sidebars = {
     ]
 }
 
-
 # -- Options for HTMLHelp output ------------------------------------------
 
 # Output file base name for HTML help builder.
 htmlhelp_basename = 'Wrench'
-
 
 # -- Options for LaTeX output ---------------------------------------------
 

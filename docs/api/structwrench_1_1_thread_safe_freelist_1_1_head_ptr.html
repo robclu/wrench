@@ -25,8 +25,6 @@
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
         <script src="../_static/language_data.js"></script>
-        <script src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
-        <script src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -35,11 +33,11 @@
   
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Struct ThreadSafeFreelist::Node" href="structwrench_1_1_thread_safe_freelist_1_1_node.html" />
-    <link rel="prev" title="Struct HeapArena" href="structwrench_1_1_heap_arena.html" /> 
+    <link rel="prev" title="Struct Spinlock::Sleeper" href="structwrench_1_1_spinlock_1_1_sleeper.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -97,6 +95,8 @@
 <li class="toctree-l3 current"><a class="reference internal" href="wrench_api_root.html#classes-and-structs">Classes and Structs</a><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="structwrench_1_1_freelist_1_1_node.html">Struct Freelist::Node</a></li>
 <li class="toctree-l4"><a class="reference internal" href="structwrench_1_1_heap_arena.html">Struct HeapArena</a></li>
+<li class="toctree-l4"><a class="reference internal" href="structwrench_1_1_spinlock.html">Struct Spinlock</a></li>
+<li class="toctree-l4"><a class="reference internal" href="structwrench_1_1_spinlock_1_1_sleeper.html">Struct Spinlock::Sleeper</a></li>
 <li class="toctree-l4 current"><a class="current reference internal" href="#">Struct ThreadSafeFreelist::HeadPtr</a></li>
 <li class="toctree-l4"><a class="reference internal" href="structwrench_1_1_thread_safe_freelist_1_1_node.html">Struct ThreadSafeFreelist::Node</a></li>
 <li class="toctree-l4"><a class="reference internal" href="classwrench_1_1_aligned_heap_allocator.html">Class AlignedHeapAllocator</a></li>
@@ -196,7 +196,7 @@
 <span id="_CPPv3N6wrench18ThreadSafeFreelist7HeadPtrE"></span><span id="_CPPv2N6wrench18ThreadSafeFreelist7HeadPtrE"></span><span id="wrench::ThreadSafeFreelist::HeadPtr"></span><span class="target" id="structwrench_1_1_thread_safe_freelist_1_1_head_ptr"></span><em class="property">struct </em><code class="sig-prename descclassname">wrench::<a class="reference internal" href="classwrench_1_1_thread_safe_freelist.html#_CPPv4N6wrench18ThreadSafeFreelistE" title="wrench::ThreadSafeFreelist">ThreadSafeFreelist</a><code class="sig-prename descclassname">::</code></code><code class="sig-name descname">HeadPtr</code><a class="headerlink" href="#_CPPv4N6wrench18ThreadSafeFreelist7HeadPtrE" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>This struct is using a 32-bit offset into the freelist arena rather than a direct pointer, because together with the 32-bit tag, it needs to fit into 8 bytes to be atomic, which would not be the case if the offset was a pointer (even if the range of the tag was limited.</p>
 <p>The tag is required so that there is no ABA problem where there is a pop in one thread, and a pop -&gt; push in another, causing the new pushed head in the one thread to be in the same place as the popped head in the other, but with potentially different data. Updating the tag prevents this.</p>
-<p>See the description in Node. </p>
+<p>See the description in <a class="reference internal" href="structwrench_1_1_thread_safe_freelist_1_1_node.html#structwrench_1_1_thread_safe_freelist_1_1_node"><span class="std std-ref">Node</span></a>. </p>
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric">Public Members</p>
 <dl class="cpp var">
@@ -228,7 +228,7 @@
         <a href="structwrench_1_1_thread_safe_freelist_1_1_node.html" class="btn btn-neutral float-right" title="Struct ThreadSafeFreelist::Node" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="structwrench_1_1_heap_arena.html" class="btn btn-neutral float-left" title="Struct HeapArena" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="structwrench_1_1_spinlock_1_1_sleeper.html" class="btn btn-neutral float-left" title="Struct Spinlock::Sleeper" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -263,7 +263,13 @@
   
   
     
-   
+  
+
+<script>window.markdeepOptions = { mode: 'doxygen' };</script>
+<script src="markdeep.min.js"></script>
+<script src="https://morgan3d.github.io/markdeep/latest/markdeep.min.js"></script>
+
+
 
 </body>
 </html>

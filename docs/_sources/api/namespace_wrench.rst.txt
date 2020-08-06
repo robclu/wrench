@@ -21,6 +21,10 @@ Classes
 
 - :ref:`exhale_struct_structwrench_1_1_heap_arena`
 
+- :ref:`exhale_struct_structwrench_1_1_spinlock`
+
+- :ref:`exhale_struct_structwrench_1_1_spinlock_1_1_sleeper`
+
 - :ref:`exhale_struct_structwrench_1_1_thread_safe_freelist_1_1_head_ptr`
 
 - :ref:`exhale_struct_structwrench_1_1_thread_safe_freelist_1_1_node`
