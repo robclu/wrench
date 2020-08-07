@@ -29,6 +29,10 @@ namespace wrench {
 /// nodes are allocated from.
 class Freelist {
  public:
+  //==--- [traits] ---------------------------------------------------------==//
+  /// Specifies that the freelist is not resettable.
+  static constexpr bool resettable = false;
+
   //==--- [construction] ---------------------------------------------------==//
 
   /// Default constructor.
@@ -217,6 +221,11 @@ class ThreadSafeFreelist {
   using AtomicHeadPtr = std::atomic<HeadPtr>;
 
  public:
+  //==--- [traits] ---------------------------------------------------------==//
+
+  /// Specifies that the freelist is not resettable.
+  static constexpr bool resettable = false;
+
   //==--- [construction] ---------------------------------------------------==//
 
   /// Default constructor.
@@ -281,7 +290,7 @@ class ThreadSafeFreelist {
   /// \param other The other freelist to move.
   auto operator=(ThreadSafeFreelist&& other) noexcept -> ThreadSafeFreelist& {
     if (this != &other) {
-      head.store(
+      head_.store(
         other.head_.load(std::memory_order_relaxed), std::memory_order_relaxed);
       storage_ = std::move(other.storage_);
       other.head_.store({-1, 0}, std::memory_order_relaxed);
@@ -417,7 +426,8 @@ class ThreadSafeFreelist {
 /// allocator to allocate elements of different types but which are the same
 /// size, or smaller, than the element size for the pool.
 ///
-/// The allocator has `create()` and `destroy()` for allocating typed elements.
+/// This allocator should be used as an allocator implementation in the
+/// Allocator class, which will allow typed objects to be allocated.
 ///
 /// \tparam ElementSize  The byte size of the elements in the pool.
 /// \tparam Alignment    The alignment for the elements.
@@ -436,6 +446,11 @@ class PoolAllocator {
   // clang-format on
 
  public:
+  //==--- [traits] ---------------------------------------------------------==//
+
+  /// Specifies that the allocator cannot reset.
+  static constexpr bool resettable = FreelistImpl::resettable;
+
   //==--- [construction] ---------------------------------------------------==//
 
   // clang-format off
@@ -505,9 +520,12 @@ class PoolAllocator {
            uintptr_t(ptr) < uintptr_t(end_);
   }
 
-  /// Resets the pool. Since the freelist doesn't support restting, this doesn't
-  /// do anything.
-  auto reset() noexcept -> void {}
+  /// Resets the pool, if the freelist supports resetting.
+  auto reset() noexcept -> void {
+    if constexpr (resettable) {
+      freelist_.reset();
+    }
+  }
 
  private:
   FreelistImpl freelist_;        //!< The freelist for the pool.
