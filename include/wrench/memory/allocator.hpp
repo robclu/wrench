@@ -123,7 +123,7 @@ class Allocator {
   //==--- [aliases] --------------------------------------------------------==//
 
   /// Defines the type of the lock guard.
-  using guard_t = std::lock_guard<LockingPolicy>;
+  using Guard = std::lock_guard<LockingPolicy>;
 
   //==--- [construction] ---------------------------------------------------==//
 
@@ -166,8 +166,8 @@ class Allocator {
   /// \param alignment The alignment of the allocation.
   auto alloc(size_t size, size_t alignment = alignof(std::max_align_t)) noexcept
     -> void* {
-    guard_t g(lock_);
-    void*   ptr = primary_.alloc(size, alignment);
+    Guard g(lock_);
+    void* ptr = primary_.alloc(size, alignment);
     if (ptr == nullptr) {
       ptr = fallback_.alloc(size, alignment);
     }
@@ -181,7 +181,7 @@ class Allocator {
       return;
     }
 
-    guard_t g(lock_);
+    Guard g(lock_);
     if (primary_.owns(ptr)) {
       primary_.free(ptr);
       return;
@@ -198,7 +198,7 @@ class Allocator {
       return;
     }
 
-    guard_t g(lock_);
+    Guard g(lock_);
     if (primary_.owns(ptr)) {
       primary_.free(ptr, size);
       return;
@@ -208,7 +208,7 @@ class Allocator {
 
   /// Resets the primary and fallback allocators.
   auto reset() noexcept -> void {
-    guard_t g(lock_);
+    Guard g(lock_);
     primary_.reset();
   }
 
