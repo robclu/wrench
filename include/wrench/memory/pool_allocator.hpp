@@ -69,9 +69,9 @@ class Freelist {
   //==--- [deleted] --------------------------------------------------------==//
 
   /// Copy constructor -- deleted since the freelist can't be copied.
-  Freelist(const Freelist&)       = delete;
+  Freelist(const Freelist&)                    = delete;
   /// Copy assignment -- deleted since the freelist can't be copied.
-  auto operator=(const Freelist&) = delete;
+  auto operator=(const Freelist&) -> Freelist& = delete;
   // clang-format on
 
   //==--- [interface] ------------------------------------------------------==//
@@ -301,11 +301,11 @@ class ThreadSafeFreelist {
 
   //==--- [deleted] --------------------------------------------------------==//
 
-  //clang-format off
+  // clang-format off
   /// Copy constructor -- deleted since the freelist can't be copied.
-  ThreadSafeFreelist(const ThreadSafeFreelist&) = delete;
+  ThreadSafeFreelist(const ThreadSafeFreelist&)                    = delete;
   /// Copy assignment -- deleted since the freelist can't be copied.
-  auto operator=(const ThreadSafeFreelist&) = delete;
+  auto operator=(const ThreadSafeFreelist&) -> ThreadSafeFreelist& = delete;
   // clang-format on
 
   //==--- [interface] ------------------------------------------------------==//
@@ -486,9 +486,9 @@ class PoolAllocator {
 
   // clang-format off
   /// Copy constructor -- deleted, allocators can't be copied.
-  PoolAllocator(const PoolAllocator&)  = delete;
+  PoolAllocator(const PoolAllocator&)                    = delete;
   /// Copy assignment -- deleted, allocators can't be copied.
-  auto operator=(const PoolAllocator&) = delete;
+  auto operator=(const PoolAllocator&) -> PoolAllocator& = delete;
   // clang-format on
 
   //==--- [interface] ------------------------------------------------------==//

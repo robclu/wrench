@@ -35,15 +35,15 @@ struct Spinlock {
   /// then sleep if the iteration count has been reached.
   struct Sleeper {
     /// Max number of spins before sleeping.
-    static constexpr uint32_t max_spins = 4000;
+    static constexpr uint32_t max_spins = 2000;
 
     /// Puts the thread to sleep for a duration which is __usually__ less than
     /// the minimum sleep time for the kernel, so the kernel will __usually__
     /// schedule this thread to sleep for the minimum duration, which is usually
     /// somewhere between 1 and 10 ms.
-    static auto sleep() noexcept -> void {
+    static inline auto sleep() noexcept -> void {
       using namespace std::chrono_literals;
-      std::this_thread::sleep_for(500us);
+      std::this_thread::sleep_for(200us);
     }
 
     /// Causes the CPU to wait if the spin count is less than the maximum number

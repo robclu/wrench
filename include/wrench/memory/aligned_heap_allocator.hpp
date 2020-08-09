@@ -26,6 +26,9 @@ namespace wrench {
 /// the last resort allocator.
 class AlignedHeapAllocator {
  public:
+  /// Defines the type of the allocator.
+  using Self = AlignedHeapAllocator;
+
   //==--- [construction] ---------------------------------------------------==//
 
   // clang-format off
@@ -42,16 +45,16 @@ class AlignedHeapAllocator {
   AlignedHeapAllocator(const Arena& arena) {}
 
   /// Move construcor -- defaulted.
-  AlignedHeapAllocator(AlignedHeapAllocator&&) = default;
+  AlignedHeapAllocator(AlignedHeapAllocator&&) noexcept    = default;
   /// Move assignment -- defaulted.
-  auto operator=(AlignedHeapAllocator&&)       = default;
+  auto operator=(AlignedHeapAllocator&&) noexcept -> Self& = default;
 
   //==--- [deleted] --------------------------------------------------------==//
 
   /// Copy constructor -- deleted since allocators can't be moved.
-  AlignedHeapAllocator(const AlignedHeapAllocator&) = delete;
+  AlignedHeapAllocator(const AlignedHeapAllocator&)    = delete;
   /// Copy assignment -- deleted since allocators can't be copied.
-  auto operator=(const AlignedHeapAllocator&)       = delete;
+  auto operator=(const AlignedHeapAllocator&) -> Self& = delete;
   // clang-format on
 
   //==--- [interface] ------------------------------------------------------==//

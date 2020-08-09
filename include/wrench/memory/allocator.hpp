@@ -146,7 +146,7 @@ class Allocator {
   // clang-format off
   /// Move constructor, defaulted.
   /// \param other The other allocator to move into this one.
-  Allocator(Allocator&& other) noexcept                    = default;
+  Allocator(Allocator&& other) noexcept                   = default;
   /// Move assignment, defaulted.
   /// \param other The other allocator to move into this one.
   auto operator=(Allocator&& other) noexcept -> Allocator& = default;
@@ -154,9 +154,9 @@ class Allocator {
   //==--- [deleted] --------------------------------------------------------==//
 
   /// Copy constructor -- deleted, allocator can't be copied.
-  Allocator(const Allocator&)      = delete;
+  Allocator(const Allocator&)                    = delete;
   /// Copy assignment -- deleted, allocator can't be copied.
-  auto operator=(const Allocator&) = delete;
+  auto operator=(const Allocator&) -> Allocator& = delete;
   // clang-format on
 
   //==--- [alloc/free interface] -------------------------------------------==//

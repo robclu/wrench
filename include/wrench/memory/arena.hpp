@@ -47,17 +47,17 @@ class StackArena {
   //==--- [interface] ------------------------------------------------------==//
 
   /// Returns a pointer to the beginning of the arena.
-  [[nodiscard]] auto begin() const -> ConstPtr {
+  [[nodiscard]] auto begin() const noexcept -> ConstPtr {
     return static_cast<ConstPtr>(&buffer_[0]);
   }
 
   /// Returns a pointer to the end of the arena.
-  [[nodiscard]] auto end() const -> ConstPtr {
+  [[nodiscard]] auto end() const noexcept -> ConstPtr {
     return static_cast<ConstPtr>(&buffer_[stack_size]);
   }
 
   /// Returns the size of the arena.
-  [[nodiscard]] constexpr auto size() const -> size_t {
+  [[nodiscard]] constexpr auto size() const noexcept -> size_t {
     return stack_size;
   }
 
@@ -105,25 +105,25 @@ struct HeapArena {
   HeapArena(HeapArena&&) noexcept = delete;
 
   /// Copy assignment operator -- deleted.
-  auto operator=(const HeapArena&)     = delete;
+  auto operator=(const HeapArena&) -> HeapArena&     = delete;
   /// Move assignment operator -- deleted.
-  auto operator=(HeapArena&&) noexcept = delete;
+  auto operator=(HeapArena&&) noexcept -> HeapArena& = delete;
   // clang-format on
 
   //==--- [interface] ------------------------------------------------------==//
 
   /// Returns a pointer to the beginning of the arena.
-  [[nodiscard]] auto begin() const -> ConstPtr {
+  [[nodiscard]] auto begin() const noexcept -> ConstPtr {
     return start_;
   }
 
   /// Returns a pointer to the end of the arena.
-  [[nodiscard]] auto end() const -> ConstPtr {
+  [[nodiscard]] auto end() const noexcept -> ConstPtr {
     return end_;
   }
 
   /// Returns the size of the arena.
-  [[nodiscard]] auto size() const -> size_t {
+  [[nodiscard]] auto size() const noexcept -> size_t {
     return uintptr_t(end_) - uintptr_t(start_);
   }
 

@@ -108,7 +108,7 @@ class LinearAllocator {
   //==--- [utils] ----------------------------------------------------------==//
 
   /// Returns a pointer to the current pointer.
-  [[nodiscard]] auto current() const noexcept -> void* {
+  auto current() const noexcept -> void* {
     return offset_ptr(begin_, current_);
   }
 
@@ -120,7 +120,7 @@ class LinearAllocator {
   }
 
   /// Returns the end of the allocator's allocation arena.
-  [[nodiscard]] auto end() const noexcept -> void* {
+  auto end() const noexcept -> void* {
     return offset_ptr(begin_, size_);
   }
 
