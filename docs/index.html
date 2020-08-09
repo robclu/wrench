@@ -170,6 +170,35 @@ implementations of things that I have used in projects. It’s free to either us
 in its entirety, or take what you want from it. I hope it’s somewhat useful to
 someone.</p>
 </div>
+<div class="section" id="versions-and-release">
+<h1>Versions and Release<a class="headerlink" href="#versions-and-release" title="Permalink to this headline">¶</a></h1>
+<p>This project is always on going, and master will always be a work in progress.
+When stable releases are available, they will be put into their own branches.</p>
+</div>
+<div class="section" id="os-support">
+<h1>OS Support<a class="headerlink" href="#os-support" title="Permalink to this headline">¶</a></h1>
+<p>Wrench has been developed on OSX and linux, and works there. It should work on
+Windows, but is not tested. Features which are only available on some OS’s are
+documented.</p>
+</div>
+<div class="section" id="installing">
+<h1>Installing<a class="headerlink" href="#installing" title="Permalink to this headline">¶</a></h1>
+<p>Currently this is a header-only library, and can either be used as a
+subdirectory in an existing CMake project by <code class="code cmake docutils literal notranslate"><span class="name builtin"><span class="pre">add_subdirectory</span></span><span class="punctuation"><span class="pre">(</span></span><span class="literal string"><span class="pre">wrench</span></span><span class="punctuation"><span class="pre">)</span></span></code>,
+or by installing as follows (from the root directory):</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">mkdir</span> <span class="n">build</span> <span class="o">&amp;&amp;</span> <span class="n">cd</span> <span class="n">build</span>
+<span class="n">cmake</span> <span class="o">-</span><span class="n">DCMAKE_BUILD_TYPE</span><span class="o">=</span><span class="n">Release</span> <span class="o">-</span><span class="n">DCMAKE_INSTALL_PREFIX</span><span class="o">=</span><span class="p">{</span><span class="n">PREFIX</span><span class="p">}</span> <span class="p">..</span>
+<span class="n">make</span> <span class="o">-</span><span class="n">j4</span>
+<span class="n">make</span> <span class="n">install</span>
+</pre></div>
+</div>
+<p>which will install wrench to <code class="code bash docutils literal notranslate"><span class="pre">PREFIX</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You will need to add <code class="code bash docutils literal notranslate"><span class="pre">PREFIX</span></code> to <code class="code bash docutils literal notranslate"><span class="pre">CMAKE_PREFIX_PATH</span></code> if
+<code class="code cmake docutils literal notranslate"><span class="name builtin"><span class="pre">find_package</span></span><span class="punctuation"><span class="pre">(</span></span><span class="literal string"><span class="pre">wrench</span></span><span class="punctuation"><span class="pre">)</span></span></code> doesn’t work after installation.</p>
+</div>
+</div>
 
 
            </div>

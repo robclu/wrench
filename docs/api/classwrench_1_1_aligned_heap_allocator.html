@@ -192,6 +192,15 @@
 <span id="_CPPv3N6wrench20AlignedHeapAllocatorE"></span><span id="_CPPv2N6wrench20AlignedHeapAllocatorE"></span><span id="wrench::AlignedHeapAllocator"></span><span class="target" id="classwrench_1_1_aligned_heap_allocator"></span><em class="property">class </em><code class="sig-prename descclassname">wrench<code class="sig-prename descclassname">::</code></code><code class="sig-name descname">AlignedHeapAllocator</code><a class="headerlink" href="#_CPPv4N6wrench20AlignedHeapAllocatorE" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>This type implements an allocator which allocates aligned memory on the heap. It’s the slowest allocator, and should therefore always be used as the last resort allocator. </p>
 <div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Types</p>
+<dl class="cpp type">
+<dt id="_CPPv4N6wrench20AlignedHeapAllocator4SelfE">
+<span id="_CPPv3N6wrench20AlignedHeapAllocator4SelfE"></span><span id="_CPPv2N6wrench20AlignedHeapAllocator4SelfE"></span><span class="target" id="classwrench_1_1_aligned_heap_allocator_1a81fea0da93fe14bf3f6e4cb571619f4a"></span><em class="property">using </em><code class="sig-name descname">Self</code> = <a class="reference internal" href="#_CPPv4N6wrench20AlignedHeapAllocatorE" title="wrench::AlignedHeapAllocator">AlignedHeapAllocator</a><a class="headerlink" href="#_CPPv4N6wrench20AlignedHeapAllocator4SelfE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Defines the type of the allocator. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric">Public Functions</p>
 <dl class="cpp function">
 <dt id="_CPPv4N6wrench20AlignedHeapAllocator20AlignedHeapAllocatorEv">
@@ -223,13 +232,13 @@
 
 <dl class="cpp function">
 <dt id="_CPPv4N6wrench20AlignedHeapAllocator20AlignedHeapAllocatorERR20AlignedHeapAllocator">
-<span id="_CPPv3N6wrench20AlignedHeapAllocator20AlignedHeapAllocatorERR20AlignedHeapAllocator"></span><span id="_CPPv2N6wrench20AlignedHeapAllocator20AlignedHeapAllocatorERR20AlignedHeapAllocator"></span><span id="wrench::AlignedHeapAllocator::AlignedHeapAllocator__AlignedHeapAllocatorRR"></span><span class="target" id="classwrench_1_1_aligned_heap_allocator_1a4f612e289768040bf9d6fa494f6a8cff"></span><code class="sig-name descname">AlignedHeapAllocator</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N6wrench20AlignedHeapAllocator20AlignedHeapAllocatorERR20AlignedHeapAllocator" title="wrench::AlignedHeapAllocator::AlignedHeapAllocator">AlignedHeapAllocator</a>&amp;&amp;<span class="sig-paren">)</span> = default<a class="headerlink" href="#_CPPv4N6wrench20AlignedHeapAllocator20AlignedHeapAllocatorERR20AlignedHeapAllocator" title="Permalink to this definition">¶</a><br /></dt>
+<span id="_CPPv3N6wrench20AlignedHeapAllocator20AlignedHeapAllocatorERR20AlignedHeapAllocator"></span><span id="_CPPv2N6wrench20AlignedHeapAllocator20AlignedHeapAllocatorERR20AlignedHeapAllocator"></span><span id="wrench::AlignedHeapAllocator::AlignedHeapAllocator__AlignedHeapAllocatorRR"></span><span class="target" id="classwrench_1_1_aligned_heap_allocator_1ae3ce64e1ae23b8c37fca0e0278083e31"></span><code class="sig-name descname">AlignedHeapAllocator</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N6wrench20AlignedHeapAllocator20AlignedHeapAllocatorERR20AlignedHeapAllocator" title="wrench::AlignedHeapAllocator::AlignedHeapAllocator">AlignedHeapAllocator</a>&amp;&amp;<span class="sig-paren">)</span> <em class="property">noexcept</em> = default<a class="headerlink" href="#_CPPv4N6wrench20AlignedHeapAllocator20AlignedHeapAllocatorERR20AlignedHeapAllocator" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Move construcor  defaulted. </p>
 </dd></dl>
 
 <dl class="cpp function">
-<dt id="_CPPv4N6wrench20AlignedHeapAllocatoraSERR20AlignedHeapAllocator">
-<span id="_CPPv3N6wrench20AlignedHeapAllocatoraSERR20AlignedHeapAllocator"></span><span id="_CPPv2N6wrench20AlignedHeapAllocatoraSERR20AlignedHeapAllocator"></span><span id="wrench::AlignedHeapAllocator::assign-operator__AlignedHeapAllocatorRR"></span><span class="target" id="classwrench_1_1_aligned_heap_allocator_1ad697c203ef5826b3b209330de370b1c8"></span>auto <code class="sig-name descname">operator=</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N6wrench20AlignedHeapAllocatorE" title="wrench::AlignedHeapAllocator">AlignedHeapAllocator</a>&amp;&amp;<span class="sig-paren">)</span> = default<a class="headerlink" href="#_CPPv4N6wrench20AlignedHeapAllocatoraSERR20AlignedHeapAllocator" title="Permalink to this definition">¶</a><br /></dt>
+<dt>
+<span class="target" id="classwrench_1_1_aligned_heap_allocator_1ad33f63cba27c090df16b48910cc9d66d"></span><code class="sig-name descname">auto operator= (AlignedHeapAllocator &amp;&amp;) noexcept -&gt; Self &amp;=default</code></dt>
 <dd><p>Move assignment  defaulted. </p>
 </dd></dl>
 
@@ -240,8 +249,8 @@
 </dd></dl>
 
 <dl class="cpp function">
-<dt id="_CPPv4N6wrench20AlignedHeapAllocatoraSERK20AlignedHeapAllocator">
-<span id="_CPPv3N6wrench20AlignedHeapAllocatoraSERK20AlignedHeapAllocator"></span><span id="_CPPv2N6wrench20AlignedHeapAllocatoraSERK20AlignedHeapAllocator"></span><span id="wrench::AlignedHeapAllocator::assign-operator__AlignedHeapAllocatorCR"></span><span class="target" id="classwrench_1_1_aligned_heap_allocator_1a79d3ff7b6671523b096f97da258b2074"></span>auto <code class="sig-name descname">operator=</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N6wrench20AlignedHeapAllocatorE" title="wrench::AlignedHeapAllocator">AlignedHeapAllocator</a>&amp;<span class="sig-paren">)</span> = delete<a class="headerlink" href="#_CPPv4N6wrench20AlignedHeapAllocatoraSERK20AlignedHeapAllocator" title="Permalink to this definition">¶</a><br /></dt>
+<dt>
+<span class="target" id="classwrench_1_1_aligned_heap_allocator_1a990545318b7b3dbb0868226934895954"></span><code class="sig-name descname">auto operator= (const AlignedHeapAllocator &amp;) -&gt; Self &amp;=delete</code></dt>
 <dd><p>Copy assignment  deleted since allocators can’t be copied. </p>
 </dd></dl>
 

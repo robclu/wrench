@@ -191,7 +191,7 @@
 <dt id="_CPPv4I_6size_t_6size_t0EN6wrench13PoolAllocatorE">
 <span id="_CPPv3I_6size_t_6size_t0EN6wrench13PoolAllocatorE"></span><span id="_CPPv2I_6size_t_6size_t0EN6wrench13PoolAllocatorE"></span>template&lt;size_t <code class="sig-name descname">ElementSize</code>, size_t <code class="sig-name descname">Alignment</code>, typename <code class="sig-name descname">FreelistImpl</code> = <a class="reference internal" href="classwrench_1_1_freelist.html#_CPPv4N6wrench8FreelistE" title="wrench::Freelist">Freelist</a>&gt;<br /><span class="target" id="classwrench_1_1_pool_allocator"></span><em class="property">class </em><code class="sig-prename descclassname">wrench<code class="sig-prename descclassname">::</code></code><code class="sig-name descname">PoolAllocator</code><a class="headerlink" href="#_CPPv4I_6size_t_6size_t0EN6wrench13PoolAllocatorE" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Allocator to allocate elements of size ElementSize, with a given Alignment, and using the given FreelistImpl. We don’t use a templated type for the pooled allocator to allow the allocator to allocate elements of different types but which are the same size, or smaller, than the element size for the pool.</p>
-<p>The allocator has <code class="docutils literal notranslate"><span class="pre">create()</span></code> and <code class="docutils literal notranslate"><span class="pre">destroy()</span></code> for allocating typed elements.</p>
+<p>This allocator should be used as an allocator implementation in the Allocator class, which will allow typed objects to be allocated.</p>
 <p><dl class="simple">
 <dt><strong>Template Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">ElementSize</span></code>: The byte size of the elements in the pool. </p></li>
@@ -275,8 +275,8 @@
 </dd></dl>
 
 <dl class="cpp function">
-<dt id="_CPPv4N6wrench13PoolAllocatoraSERK13PoolAllocator">
-<span id="_CPPv3N6wrench13PoolAllocatoraSERK13PoolAllocator"></span><span id="_CPPv2N6wrench13PoolAllocatoraSERK13PoolAllocator"></span><span id="wrench::PoolAllocator::assign-operator__PoolAllocatorCR"></span><span class="target" id="classwrench_1_1_pool_allocator_1aef982c15ba1673b1e69279c806e52213"></span>auto <code class="sig-name descname">operator=</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4I_6size_t_6size_t0EN6wrench13PoolAllocatorE" title="wrench::PoolAllocator">PoolAllocator</a>&amp;<span class="sig-paren">)</span> = delete<a class="headerlink" href="#_CPPv4N6wrench13PoolAllocatoraSERK13PoolAllocator" title="Permalink to this definition">¶</a><br /></dt>
+<dt>
+<span class="target" id="classwrench_1_1_pool_allocator_1a40252c3d33e6603ccadd9452b1666e4c"></span><code class="sig-name descname">auto operator= (const PoolAllocator &amp;) -&gt; PoolAllocator &amp;=delete</code></dt>
 <dd><p>Copy assignment  deleted, allocators can’t be copied. </p>
 </dd></dl>
 
@@ -322,7 +322,16 @@
 <dl class="cpp function">
 <dt>
 <span class="target" id="classwrench_1_1_pool_allocator_1ad859273ee1c033d3683d84977e264b76"></span><code class="sig-name descname">auto reset () noexcept -&gt; void</code></dt>
-<dd><p>Resets the pool. Since the freelist doesn’t support restting, this doesn’t do anything. </p>
+<dd><p>Resets the pool, if the freelist supports resetting. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Static Attributes</p>
+<dl class="cpp var">
+<dt id="_CPPv4N6wrench13PoolAllocator10resettableE">
+<span id="_CPPv3N6wrench13PoolAllocator10resettableE"></span><span id="_CPPv2N6wrench13PoolAllocator10resettableE"></span><span id="wrench::PoolAllocator::resettable__b"></span><span class="target" id="classwrench_1_1_pool_allocator_1a362fb043d041d12a742af5120103b812"></span><em class="property">constexpr</em> bool <code class="sig-name descname">resettable</code> = <a class="reference internal" href="#_CPPv4I_6size_t_6size_t0EN6wrench13PoolAllocatorE" title="wrench::PoolAllocator::FreelistImpl">FreelistImpl</a>::resettable<a class="headerlink" href="#_CPPv4N6wrench13PoolAllocator10resettableE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Specifies that the allocator cannot reset. </p>
 </dd></dl>
 
 </div>
