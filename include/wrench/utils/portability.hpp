@@ -16,20 +16,19 @@
 #ifndef WRENCH_UTILS_PORTABILITY_HPP
 #define WRENCH_UTILS_PORTABILITY_HPP
 
-/// Defines a macro for linux
-#ifndef wrench_linux
-  #define wrench_linux __linux__
+#if defined(__linux__)
+  /// Defines a macro for linux
+  #define wrench_linux 1
 #endif
 
-/// Defines a macro for osx
-#ifndef wrench_osx
-  #define wrench_osx (__APPLE__ && __MACH__)
+#if defined(__APPLE__) && (__MACH__)
+  /// Defines a macro for osx
+  #define wrench_osx 1
 #endif
 
-/// Defines a macro for unix
-#ifndef wrench_unix
-  #define wrench_unix (wrench_linux || wrench_osx)
+#if defined(wrench_osx) || defined(wrench_linux)
+  /// Defines a macro for unix
+  #define wrench_unix 1
 #endif
-// clang-format on
 
 #endif // WRENCH_UTILS_PORTABILITY_HPP

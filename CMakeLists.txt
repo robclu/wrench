@@ -26,23 +26,28 @@ set(CMAKE_CXX_STANDARD 17)
 
 cmake_policy(SET CMP0076 NEW)
 set(headers 
-  include/wrench/memory/aligned_heap_allocator.hpp
-  include/wrench/memory/allocator.hpp
-  include/wrench/memory/arena.hpp
-  include/wrench/memory/linear_allocator.hpp
-  include/wrench/memory/memory_utils.hpp
-  include/wrench/memory/pool_allocator.hpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/include/wrench/memory/aligned_heap_allocator.hpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/include/wrench/memory/allocator.hpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/include/wrench/memory/arena.hpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/include/wrench/memory/linear_allocator.hpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/include/wrench/memory/memory_utils.hpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/include/wrench/memory/pool_allocator.hpp
   include/wrench/multithreading/spinlock.hpp
+  include/wrench/perf/profiler.hpp
   include/wrench/utils/portability.hpp
 )
 
-add_library(wrench INTERFACE)
-add_library(wrench::wrench ALIAS wrench)
-target_sources(wrench INTERFACE "<BUILD_INTERFACE:${headers}>")
-target_include_directories(wrench INTERFACE 
-  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include/>
+set(sources
+  ${CMAKE_CURRENT_SOURCE_DIR}/src/perf/profiler.cpp
 )
-target_include_directories(wrench SYSTEM INTERFACE 
+
+add_library(wrench STATIC ${sources})
+add_library(wrench::wrench ALIAS wrench)
+#target_sources(wrench PUBLIC "<BUILD_INTERFACE:${headers}>")
+target_include_directories(wrench PUBLIC
+  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+)
+target_include_directories(wrench SYSTEM PUBLIC
   $<INSTALL_INTERFACE:$<INSTALL_PREFIX>/include>
 )
 
@@ -51,6 +56,7 @@ include(CMakePackageConfigHelpers)
 set(WRENCH_CMAKE_DIR "lib/cmake/wrench")
 set(version_config "${CMAKE_CURRENT_BINARY_DIR}/wrench-config-version.cmake")
 set(project_config "${CMAKE_CURRENT_BINARY_DIR}/wrench-config.cmake")
+set(targets_export_name wrench-targets)
 
 write_basic_package_version_file(
   ${version_config}
@@ -62,11 +68,26 @@ configure_package_config_file(
   ${project_config}
   INSTALL_DESTINATION ${WRENCH_CMAKE_DIR}
 )
+
+# Export targets for non-install use:
+export(
+  TARGETS   wrench 
+  NAMESPACE wrench:: 
+  FILE      ${CMAKE_CURRENT_BINARY_DIR}/${targets_export_name}.cmake
+)
+
+# Install version:
 install(
   FILES ${project_config} ${version_config} DESTINATION ${WRENCH_CMAKE_DIR}
 )
 
-# Install target
+# Install target:
+install(TARGETS wrench DESTINATION lib EXPORT ${targets_export_name})
+install(
+  EXPORT      ${targets_export_name}
+  DESTINATION lib
+  NAMESPACE   wrench::
+)
 install(DIRECTORY include/wrench DESTINATION include)
 
 #===== [subdirs] ==============================================================#
