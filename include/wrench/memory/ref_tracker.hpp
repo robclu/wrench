@@ -62,12 +62,12 @@ static constexpr bool is_ref_tracker_v =
 template <typename Impl>
 class RefTracker {
   /// Returns a pointer to the implementation.
-  auto impl() noexcept -> Impl* {
+  [[nodiscard]] auto impl() noexcept -> Impl* {
     return static_cast<Impl*>(this);
   }
 
   /// Returns a const pointer to the implementation.
-  auto impl() const noexcept -> const Impl* {
+  [[nodiscard]] auto impl() const noexcept -> const Impl* {
     return static_cast<const Impl*>(this);
   }
 
@@ -165,6 +165,8 @@ class MultiThreadedRefTracker : public RefTracker<MultiThreadedRefTracker> {
     ref_count_.store(1, std::memory_order_relaxed);
   }
 
+  //==--- [move] -----------------------------------------------------------==//
+
   /// Adds to the reference count.
   auto add_reference_impl() noexcept -> void {
     // Memory order relaxed because new references can only be created from
@@ -226,7 +228,7 @@ class MultiThreadedRefTracker : public RefTracker<MultiThreadedRefTracker> {
   }
 
  private:
-  Counter ref_count_; //!< The reference count.
+  Counter ref_count_ = 1; //!< The reference count.
 };
 
 } // namespace wrench
