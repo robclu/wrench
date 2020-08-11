@@ -1,0 +1,511 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Template Class IntrusivePtr &mdash; Wrench 1.0.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Template Class IntrusivePtrEnabled" href="classwrench_1_1_intrusive_ptr_enabled.html" />
+    <link rel="prev" title="Class Freelist" href="classwrench_1_1_freelist.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Wrench
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="wrench_api_root.html">Wrench API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="wrench_api_root.html#class-hierarchy">Class Hierarchy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wrench_api_root.html#file-hierarchy">File Hierarchy</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="wrench_api_root.html#full-api">Full API</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="wrench_api_root.html#namespaces">Namespaces</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="wrench_api_root.html#classes-and-structs">Classes and Structs</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="structwrench_1_1_freelist_1_1_node.html">Struct Freelist::Node</a></li>
+<li class="toctree-l4"><a class="reference internal" href="structwrench_1_1_heap_arena.html">Struct HeapArena</a></li>
+<li class="toctree-l4"><a class="reference internal" href="structwrench_1_1_profiler_1_1_counters_1_1_counter.html">Struct Counters::Counter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="structwrench_1_1_spinlock.html">Struct Spinlock</a></li>
+<li class="toctree-l4"><a class="reference internal" href="structwrench_1_1_spinlock_1_1_sleeper.html">Struct Spinlock::Sleeper</a></li>
+<li class="toctree-l4"><a class="reference internal" href="structwrench_1_1_thread_safe_freelist_1_1_head_ptr.html">Struct ThreadSafeFreelist::HeadPtr</a></li>
+<li class="toctree-l4"><a class="reference internal" href="structwrench_1_1_thread_safe_freelist_1_1_node.html">Struct ThreadSafeFreelist::Node</a></li>
+<li class="toctree-l4"><a class="reference internal" href="structwrench_1_1_void_lock.html">Struct VoidLock</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classwrench_1_1_aligned_heap_allocator.html">Class AlignedHeapAllocator</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classwrench_1_1_allocator.html">Template Class Allocator</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classwrench_1_1_freelist.html">Class Freelist</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Template Class IntrusivePtr</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classwrench_1_1_intrusive_ptr_enabled.html">Template Class IntrusivePtrEnabled</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classwrench_1_1_linear_allocator.html">Class LinearAllocator</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classwrench_1_1_multi_threaded_ref_tracker.html">Class MultiThreadedRefTracker</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classwrench_1_1_pool_allocator.html">Template Class PoolAllocator</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classwrench_1_1_profiler.html">Class Profiler</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classwrench_1_1_profiler_1_1_counters.html">Class Profiler::Counters</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classwrench_1_1_ref_tracker.html">Template Class RefTracker</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classwrench_1_1_single_threaded_ref_tracker.html">Class SingleThreadedRefTracker</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classwrench_1_1_stack_arena.html">Template Class StackArena</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classwrench_1_1_thread_safe_freelist.html">Class ThreadSafeFreelist</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="wrench_api_root.html#functions">Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="wrench_api_root.html#variables">Variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="wrench_api_root.html#typedefs">Typedefs</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Wrench</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="wrench_api_root.html">Wrench API</a> &raquo;</li>
+        
+      <li>Template Class IntrusivePtr</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/classwrench_1_1_intrusive_ptr.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="template-class-intrusiveptr">
+<span id="exhale-class-classwrench-1-1-intrusive-ptr"></span><h1>Template Class IntrusivePtr<a class="headerlink" href="#template-class-intrusiveptr" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_include_wrench_memory_intrusive_ptr.hpp.html#file-include-wrench-memory-intrusive-ptr-hpp"><span class="std std-ref">File intrusive_ptr.hpp</span></a></p></li>
+</ul>
+<div class="section" id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline">¶</a></h2>
+<dl class="cpp class">
+<dt id="_CPPv4I0EN6wrench12IntrusivePtrE">
+<span id="_CPPv3I0EN6wrench12IntrusivePtrE"></span><span id="_CPPv2I0EN6wrench12IntrusivePtrE"></span>template&lt;typename <code class="sig-name descname">T</code>&gt;<br /><span class="target" id="classwrench_1_1_intrusive_ptr"></span><em class="property">class </em><code class="sig-prename descclassname">wrench<code class="sig-prename descclassname">::</code></code><code class="sig-name descname">IntrusivePtr</code><a class="headerlink" href="#_CPPv4I0EN6wrench12IntrusivePtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The <code class="docutils literal notranslate"><a class="reference internal" href="#classwrench_1_1_intrusive_ptr"><span class="std std-ref"><span class="pre">IntrusivePtr</span></span></a></code> type is a shared pointer implementation which is intrusive. The reference count is stored in the intrusive pointer. It has a smaller memory footprint than <code class="docutils literal notranslate"><span class="pre">std::shared_ptr</span></code> and usually gives better performance.</p>
+<p>It additionally requires classes to inherit from <code class="docutils literal notranslate"><a class="reference internal" href="classwrench_1_1_intrusive_ptr_enabled.html#classwrench_1_1_intrusive_ptr_enabled"><span class="std std-ref"><span class="pre">IntrusivePtrEnabled</span></span></a></code>, which allows for custom specialization of the deleter and referenc types, for single/multi-threaded use cases.</p>
+<p>For a non-thread-safe, single-threaded optimized referencing, use <code class="docutils literal notranslate"><a class="reference internal" href="classwrench_1_1_single_threaded_ref_tracker.html#classwrench_1_1_single_threaded_ref_tracker"><span class="std std-ref"><span class="pre">SingleThreadedRefTracker</span></span></a></code>, while for a thread-safe, multi-threaded optimized referencing, using <code class="docutils literal notranslate"><a class="reference internal" href="classwrench_1_1_multi_threaded_ref_tracker.html#classwrench_1_1_multi_threaded_ref_tracker"><span class="std std-ref"><span class="pre">MultiThreadedRefTracker</span></span></a></code>.</p>
+<p>Instances of instrusive pointer types should be create with <code class="docutils literal notranslate"><span class="pre">make_intrusive_ptr</span></code> or <code class="docutils literal notranslate"><span class="pre">allcoate_intrusive_ptr</span></code>rather than through direct construction.</p>
+<p><dl class="simple">
+<dt><strong>Template Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">T</span></code>: The type to wrap in an intrusive pointer. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Types</p>
+<dl class="cpp type">
+<dt id="_CPPv4N6wrench12IntrusivePtr3PtrE">
+<span id="_CPPv3N6wrench12IntrusivePtr3PtrE"></span><span id="_CPPv2N6wrench12IntrusivePtr3PtrE"></span><span class="target" id="classwrench_1_1_intrusive_ptr_1a3215882c7388347274eebb9727e1b459"></span><em class="property">using </em><code class="sig-name descname">Ptr</code> = <a class="reference internal" href="#_CPPv4I0EN6wrench12IntrusivePtrE" title="wrench::IntrusivePtr::T">T</a>*<a class="headerlink" href="#_CPPv4N6wrench12IntrusivePtr3PtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Pointer type. </p>
+</dd></dl>
+
+<dl class="cpp type">
+<dt id="_CPPv4N6wrench12IntrusivePtr3RefE">
+<span id="_CPPv3N6wrench12IntrusivePtr3RefE"></span><span id="_CPPv2N6wrench12IntrusivePtr3RefE"></span><span class="target" id="classwrench_1_1_intrusive_ptr_1a7f4a340d3f5a6e5cf0779da690def88a"></span><em class="property">using </em><code class="sig-name descname">Ref</code> = <a class="reference internal" href="#_CPPv4I0EN6wrench12IntrusivePtrE" title="wrench::IntrusivePtr::T">T</a>&amp;<a class="headerlink" href="#_CPPv4N6wrench12IntrusivePtr3RefE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Reference type. </p>
+</dd></dl>
+
+<dl class="cpp type">
+<dt id="_CPPv4N6wrench12IntrusivePtr8ConstPtrE">
+<span id="_CPPv3N6wrench12IntrusivePtr8ConstPtrE"></span><span id="_CPPv2N6wrench12IntrusivePtr8ConstPtrE"></span><span class="target" id="classwrench_1_1_intrusive_ptr_1a8c5e1305fa2366d62c938e8c35cfe21e"></span><em class="property">using </em><code class="sig-name descname">ConstPtr</code> = <em class="property">const</em> <a class="reference internal" href="#_CPPv4I0EN6wrench12IntrusivePtrE" title="wrench::IntrusivePtr::T">T</a>*<a class="headerlink" href="#_CPPv4N6wrench12IntrusivePtr8ConstPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Const pointer type. </p>
+</dd></dl>
+
+<dl class="cpp type">
+<dt id="_CPPv4N6wrench12IntrusivePtr8ConstRefE">
+<span id="_CPPv3N6wrench12IntrusivePtr8ConstRefE"></span><span id="_CPPv2N6wrench12IntrusivePtr8ConstRefE"></span><span class="target" id="classwrench_1_1_intrusive_ptr_1a845546599e1e9d9df67dedcfad40b5f7"></span><em class="property">using </em><code class="sig-name descname">ConstRef</code> = <em class="property">const</em> <a class="reference internal" href="#_CPPv4I0EN6wrench12IntrusivePtrE" title="wrench::IntrusivePtr::T">T</a>&amp;<a class="headerlink" href="#_CPPv4N6wrench12IntrusivePtr8ConstRefE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Const reference type. </p>
+</dd></dl>
+
+<dl class="cpp type">
+<dt id="_CPPv4N6wrench12IntrusivePtr20IntrusiveEnabledBaseE">
+<span id="_CPPv3N6wrench12IntrusivePtr20IntrusiveEnabledBaseE"></span><span id="_CPPv2N6wrench12IntrusivePtr20IntrusiveEnabledBaseE"></span><span class="target" id="classwrench_1_1_intrusive_ptr_1ae7ee0f8da97fb065609ceb46d20233e1"></span><em class="property">using </em><code class="sig-name descname">IntrusiveEnabledBase</code> = <a class="reference internal" href="classwrench_1_1_intrusive_ptr_enabled.html#_CPPv4I000EN6wrench19IntrusivePtrEnabledE" title="wrench::IntrusivePtrEnabled">IntrusivePtrEnabled</a>&lt;<em class="property">typename</em> <a class="reference internal" href="#_CPPv4I0EN6wrench12IntrusivePtrE" title="wrench::IntrusivePtr::T">T</a>::Enabled, <em class="property">typename</em> <a class="reference internal" href="#_CPPv4I0EN6wrench12IntrusivePtrE" title="wrench::IntrusivePtr::T">T</a>::DeleterType, <em class="property">typename</em> <a class="reference internal" href="#_CPPv4I0EN6wrench12IntrusivePtrE" title="wrench::IntrusivePtr::T">T</a>::RefTracker&gt;<a class="headerlink" href="#_CPPv4N6wrench12IntrusivePtr20IntrusiveEnabledBaseE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Defines the type of intrusive enabled base for the type T. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="cpp function">
+<dt id="_CPPv4N6wrench12IntrusivePtr12IntrusivePtrEv">
+<span id="_CPPv3N6wrench12IntrusivePtr12IntrusivePtrEv"></span><span id="_CPPv2N6wrench12IntrusivePtr12IntrusivePtrEv"></span><span id="wrench::IntrusivePtr::IntrusivePtr"></span><span class="target" id="classwrench_1_1_intrusive_ptr_1a999e4dd36d18f69c73f715f2e3a49ed1"></span><code class="sig-name descname">IntrusivePtr</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">noexcept</em> = default<a class="headerlink" href="#_CPPv4N6wrench12IntrusivePtr12IntrusivePtrEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Default constructor. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N6wrench12IntrusivePtr12IntrusivePtrE3Ptr">
+<span id="_CPPv3N6wrench12IntrusivePtr12IntrusivePtrE3Ptr"></span><span id="_CPPv2N6wrench12IntrusivePtr12IntrusivePtrE3Ptr"></span><span id="wrench::IntrusivePtr::IntrusivePtr__Ptr"></span><span class="target" id="classwrench_1_1_intrusive_ptr_1a3da05c2f87a4c42b1625ffbc9ff7cc1e"></span><code class="sig-name descname">IntrusivePtr</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N6wrench12IntrusivePtr3PtrE" title="wrench::IntrusivePtr::Ptr">Ptr</a> <em>data</em><span class="sig-paren">)</span> <em class="property">noexcept</em><a class="headerlink" href="#_CPPv4N6wrench12IntrusivePtr12IntrusivePtrE3Ptr" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Constructor which takes a pointer <code class="docutils literal notranslate"><span class="pre">ptr</span></code>. <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">data</span></code>: A pointer to the data. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N6wrench12IntrusivePtr12IntrusivePtrERK12IntrusivePtr">
+<span id="_CPPv3N6wrench12IntrusivePtr12IntrusivePtrERK12IntrusivePtr"></span><span id="_CPPv2N6wrench12IntrusivePtr12IntrusivePtrERK12IntrusivePtr"></span><span id="wrench::IntrusivePtr::IntrusivePtr__IntrusivePtrCR"></span><span class="target" id="classwrench_1_1_intrusive_ptr_1a5b9956cde4f9bbf70c7496ab2899be1f"></span><code class="sig-name descname">IntrusivePtr</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N6wrench12IntrusivePtr12IntrusivePtrERK12IntrusivePtr" title="wrench::IntrusivePtr::IntrusivePtr">IntrusivePtr</a> &amp;<em>other</em><span class="sig-paren">)</span> <em class="property">noexcept</em> = default<a class="headerlink" href="#_CPPv4N6wrench12IntrusivePtr12IntrusivePtrERK12IntrusivePtr" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Copy constructor to create the intrusive pointer from <code class="docutils literal notranslate"><span class="pre">other</span></code>. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N6wrench12IntrusivePtr12IntrusivePtrERR12IntrusivePtr">
+<span id="_CPPv3N6wrench12IntrusivePtr12IntrusivePtrERR12IntrusivePtr"></span><span id="_CPPv2N6wrench12IntrusivePtr12IntrusivePtrERR12IntrusivePtr"></span><span id="wrench::IntrusivePtr::IntrusivePtr__IntrusivePtrRR"></span><span class="target" id="classwrench_1_1_intrusive_ptr_1a2c50b0aa48467e7766b8a1995f8c6baa"></span><code class="sig-name descname">IntrusivePtr</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N6wrench12IntrusivePtr12IntrusivePtrERR12IntrusivePtr" title="wrench::IntrusivePtr::IntrusivePtr">IntrusivePtr</a> &amp;&amp;<em>other</em><span class="sig-paren">)</span> <em class="property">noexcept</em> = default<a class="headerlink" href="#_CPPv4N6wrench12IntrusivePtr12IntrusivePtrERR12IntrusivePtr" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Move the <code class="docutils literal notranslate"><span class="pre">other</span></code> intrusive pointer into this one. <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">other</span></code>: The other intrusive pointer to move into this one. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4I0EN6wrench12IntrusivePtr12IntrusivePtrERK12IntrusivePtrI1UE">
+<span id="_CPPv3I0EN6wrench12IntrusivePtr12IntrusivePtrERK12IntrusivePtrI1UE"></span><span id="_CPPv2I0EN6wrench12IntrusivePtr12IntrusivePtrERK12IntrusivePtrI1UE"></span>template&lt;typename <code class="sig-name descname">U</code>&gt;<br /><span class="target" id="classwrench_1_1_intrusive_ptr_1a0c695b4a7a0ad22fe29721cf1e57520a"></span><code class="sig-name descname">IntrusivePtr</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4I0EN6wrench12IntrusivePtr12IntrusivePtrERK12IntrusivePtrI1UE" title="wrench::IntrusivePtr::IntrusivePtr">IntrusivePtr</a>&lt;<a class="reference internal" href="#_CPPv4I0EN6wrench12IntrusivePtr12IntrusivePtrERK12IntrusivePtrI1UE" title="wrench::IntrusivePtr::IntrusivePtr::U">U</a>&gt; &amp;<em>other</em><span class="sig-paren">)</span> <em class="property">noexcept</em><a class="headerlink" href="#_CPPv4I0EN6wrench12IntrusivePtr12IntrusivePtrERK12IntrusivePtrI1UE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Copy constructor to create the intrusive pointer from <code class="docutils literal notranslate"><span class="pre">other</span></code>. This will fail at compile time if U is not derived from T, or convertible to T. <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">other</span></code>: The other intrusive pointer to copy from. </p></li>
+</ul>
+</dd>
+<dt><strong>Template Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">U</span></code>: The type of the other’s pointed to data. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4I0EN6wrench12IntrusivePtr12IntrusivePtrERR12IntrusivePtrI1UE">
+<span id="_CPPv3I0EN6wrench12IntrusivePtr12IntrusivePtrERR12IntrusivePtrI1UE"></span><span id="_CPPv2I0EN6wrench12IntrusivePtr12IntrusivePtrERR12IntrusivePtrI1UE"></span>template&lt;typename <code class="sig-name descname">U</code>&gt;<br /><span class="target" id="classwrench_1_1_intrusive_ptr_1a60048e2ca4b24ce71c13ec917813b83c"></span><code class="sig-name descname">IntrusivePtr</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4I0EN6wrench12IntrusivePtr12IntrusivePtrERR12IntrusivePtrI1UE" title="wrench::IntrusivePtr::IntrusivePtr">IntrusivePtr</a>&lt;<a class="reference internal" href="#_CPPv4I0EN6wrench12IntrusivePtr12IntrusivePtrERR12IntrusivePtrI1UE" title="wrench::IntrusivePtr::IntrusivePtr::U">U</a>&gt; &amp;&amp;<em>other</em><span class="sig-paren">)</span> <em class="property">noexcept</em><a class="headerlink" href="#_CPPv4I0EN6wrench12IntrusivePtr12IntrusivePtrERR12IntrusivePtrI1UE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Moves the <code class="docutils literal notranslate"><span class="pre">other</span></code> intrusive pointer into this one. This will fail at compile time if U is not derived from T or is convertible to T. <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">other</span></code>: The other type to move into this one. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N6wrench12IntrusivePtrD0Ev">
+<span id="_CPPv3N6wrench12IntrusivePtrD0Ev"></span><span id="_CPPv2N6wrench12IntrusivePtrD0Ev"></span><span id="wrench::IntrusivePtr::~IntrusivePtr"></span><span class="target" id="classwrench_1_1_intrusive_ptr_1ab8b9e4d7c4b4a7e54c245c2fc428db6c"></span><code class="sig-name descname">~IntrusivePtr</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">noexcept</em><a class="headerlink" href="#_CPPv4N6wrench12IntrusivePtrD0Ev" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Destructor to clean up the pointer. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt>
+<span class="target" id="classwrench_1_1_intrusive_ptr_1ae3f300bde56cc523fbf09fbd46e4d6b2"></span><code class="sig-name descname">auto operator= (const IntrusivePtr &amp;other) noexcept -&gt; IntrusivePtr &amp;</code></dt>
+<dd><p>Copy assignment operator to set the intrusive pointer from the <code class="docutils literal notranslate"><span class="pre">other</span></code> intrusive pointer. <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">other</span></code>: The other pointer to set this one from. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt>
+<span class="target" id="classwrench_1_1_intrusive_ptr_1a97c6f0855576dc3d081523dd7fee6bea"></span><code class="sig-name descname">auto operator= (IntrusivePtr &amp;&amp;other) noexcept -&gt; IntrusivePtr &amp;</code></dt>
+<dd><p>Move assignment operator to move the <code class="docutils literal notranslate"><span class="pre">other</span></code> intrusive pointer into this one. <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">other</span></code>: The other pointer to move into this one. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt>
+<span class="target" id="classwrench_1_1_intrusive_ptr_1ab0159a1a72bfe259c730f7c8fe3c2779"></span><code class="sig-name descname">template&lt;typename U&gt; auto operator= (const IntrusivePtr&lt; U &gt; &amp;other) -&gt; IntrusivePtr &amp;</code></dt>
+<dd><p>Copy assignment operator to set the intrusive pointer from the <code class="docutils literal notranslate"><span class="pre">other</span></code> intrusive pointer, which wraps a <strong>different</strong> type to this one. If the type of the <code class="docutils literal notranslate"><span class="pre">other</span></code> is not a base of T, or convertible to T, then this will cause a compile time error. <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">other</span></code>: The other pointer to set this one from. </p></li>
+</ul>
+</dd>
+<dt><strong>Template Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">U</span></code>: The type of the other pointer. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt>
+<span class="target" id="classwrench_1_1_intrusive_ptr_1a1c9f9201e57efaadea2e16ca506612b3"></span><code class="sig-name descname">template&lt;typename U&gt; auto operator= (IntrusivePtr&lt; U &gt; &amp;&amp;other) noexcept -&gt; IntrusivePtr &amp;</code></dt>
+<dd><p>Move assignment operator to move the <code class="docutils literal notranslate"><span class="pre">other</span></code> intrusive pointer into this one. This will fail if U is not derived from T or convertible to T. <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">other</span></code>: The other pointer to set this one from. </p></li>
+</ul>
+</dd>
+<dt><strong>Template Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">U</span></code>: The type of the other pointer. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt>
+<span class="target" id="classwrench_1_1_intrusive_ptr_1acb2d7387bdcb4ab6720b1fb4fe0272a0"></span><code class="sig-name descname">auto operator* () noexcept -&gt; Ref</code></dt>
+<dd><p>Returns a reference to the data. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt>
+<span class="target" id="classwrench_1_1_intrusive_ptr_1a80a935751f21ebda85beb3c09c6df21c"></span><code class="sig-name descname">auto operator* () const noexcept -&gt; ConstRef</code></dt>
+<dd><p>Returns a const reference to the data. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt>
+<span class="target" id="classwrench_1_1_intrusive_ptr_1a9ea1ce58c9c98d56bd498e1619f64b65"></span><code class="sig-name descname">auto operator-&gt; () noexcept -&gt; Ptr</code></dt>
+<dd><p>Returns a pointer to the data. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt>
+<span class="target" id="classwrench_1_1_intrusive_ptr_1a20cc231acb1f16c2685daaeeb4f03a5c"></span><code class="sig-name descname">auto operator-&gt; () const noexcept -&gt; ConstPtr</code></dt>
+<dd><p>Returns a const pointer to the data. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt>
+<span class="target" id="classwrench_1_1_intrusive_ptr_1a6b4fcc8a35361b16fc0251fcadb8dfaa"></span><code class="sig-name descname">auto get () noexcept -&gt; Ptr</code></dt>
+<dd><p>Returns a pointer to the data. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt>
+<span class="target" id="classwrench_1_1_intrusive_ptr_1a391af8503fb4f567ba6dc992ba9c992d"></span><code class="sig-name descname">auto get () const noexcept -&gt; ConstPtr</code></dt>
+<dd><p>Returns a const pointer to the data. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4NK6wrench12IntrusivePtrcvbEv">
+<span id="_CPPv3NK6wrench12IntrusivePtrcvbEv"></span><span id="_CPPv2NK6wrench12IntrusivePtrcvbEv"></span><span id="wrench::IntrusivePtr::castto-b-operatorC"></span><span class="target" id="classwrench_1_1_intrusive_ptr_1acda22abfec614a747c3b71e535c4388b"></span><code class="sig-name descname">operator bool</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em> <em class="property">noexcept</em><a class="headerlink" href="#_CPPv4NK6wrench12IntrusivePtrcvbEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Returns true if the data is not a nullptr. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt>
+<span class="target" id="classwrench_1_1_intrusive_ptr_1a13843cb396656fb4e0695a5fbd8db8f2"></span><code class="sig-name descname">auto operator== (const IntrusivePtr &amp;other) const noexcept -&gt; bool</code></dt>
+<dd><p>Returns true if the pointer to <code class="docutils literal notranslate"><span class="pre">other's</span></code> data is the same as the pointer to this data. <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">other</span></code>: The other pointer to compare with. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt>
+<span class="target" id="classwrench_1_1_intrusive_ptr_1a114fbf9517caee8637b250f1b949dea1"></span><code class="sig-name descname">auto operator!= (const IntrusivePtr &amp;other) const noexcept -&gt; bool</code></dt>
+<dd><p>Returns true if the pointer to <code class="docutils literal notranslate"><span class="pre">other's</span></code> data is not the same as the pointer to this data. <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">other</span></code>: The other pointer to compare with. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt>
+<span class="target" id="classwrench_1_1_intrusive_ptr_1af925e6d77f161a723e5be8003c017ac0"></span><code class="sig-name descname">auto reset () noexcept -&gt; void</code></dt>
+<dd><p>Resets the intrusive pointer by releasing the reference, and resetting the pointer to the data. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="classwrench_1_1_intrusive_ptr_enabled.html" class="btn btn-neutral float-right" title="Template Class IntrusivePtrEnabled" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="classwrench_1_1_freelist.html" class="btn btn-neutral float-left" title="Class Freelist" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Rob Clucas
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+  
+
+<script>window.markdeepOptions = { mode: 'doxygen' };</script>
+<script src="markdeep.min.js"></script>
+<script src="https://morgan3d.github.io/markdeep/latest/markdeep.min.js"></script>
+
+
+
+</body>
+</html>

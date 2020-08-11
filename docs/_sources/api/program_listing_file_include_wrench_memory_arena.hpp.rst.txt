@@ -49,15 +49,15 @@ Program Listing for File arena.hpp
    
      //==--- [interface] ------------------------------------------------------==//
    
-     [[nodiscard]] auto begin() const -> ConstPtr {
+     [[nodiscard]] auto begin() const noexcept -> ConstPtr {
        return static_cast<ConstPtr>(&buffer_[0]);
      }
    
-     [[nodiscard]] auto end() const -> ConstPtr {
+     [[nodiscard]] auto end() const noexcept -> ConstPtr {
        return static_cast<ConstPtr>(&buffer_[stack_size]);
      }
    
-     [[nodiscard]] constexpr auto size() const -> size_t {
+     [[nodiscard]] constexpr auto size() const noexcept -> size_t {
        return stack_size;
      }
    
@@ -97,21 +97,21 @@ Program Listing for File arena.hpp
      HeapArena(const HeapArena&)     = delete;
      HeapArena(HeapArena&&) noexcept = delete;
    
-     auto operator=(const HeapArena&)     = delete;
-     auto operator=(HeapArena&&) noexcept = delete;
+     auto operator=(const HeapArena&) -> HeapArena&     = delete;
+     auto operator=(HeapArena&&) noexcept -> HeapArena& = delete;
      // clang-format on
    
      //==--- [interface] ------------------------------------------------------==//
    
-     [[nodiscard]] auto begin() const -> ConstPtr {
+     [[nodiscard]] auto begin() const noexcept -> ConstPtr {
        return start_;
      }
    
-     [[nodiscard]] auto end() const -> ConstPtr {
+     [[nodiscard]] auto end() const noexcept -> ConstPtr {
        return end_;
      }
    
-     [[nodiscard]] auto size() const -> size_t {
+     [[nodiscard]] auto size() const noexcept -> size_t {
        return uintptr_t(end_) - uintptr_t(start_);
      }
    

@@ -25,6 +25,8 @@
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
         <script src="../_static/language_data.js"></script>
+        <script src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -34,6 +36,7 @@
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" /> 
 </head>
@@ -175,6 +178,8 @@
 
 <span class="k">class</span> <span class="nc">AlignedHeapAllocator</span> <span class="p">{</span>
  <span class="k">public</span><span class="o">:</span>
+  <span class="k">using</span> <span class="n">Self</span> <span class="o">=</span> <span class="n">AlignedHeapAllocator</span><span class="p">;</span>
+
   <span class="c1">//==--- [construction] ---------------------------------------------------==//</span>
 
   <span class="c1">// clang-format off</span>
@@ -184,13 +189,13 @@
   <span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">Arena</span><span class="o">&gt;</span>
   <span class="n">AlignedHeapAllocator</span><span class="p">(</span><span class="k">const</span> <span class="n">Arena</span><span class="o">&amp;</span> <span class="n">arena</span><span class="p">)</span> <span class="p">{}</span>
 
-  <span class="n">AlignedHeapAllocator</span><span class="p">(</span><span class="n">AlignedHeapAllocator</span><span class="o">&amp;&amp;</span><span class="p">)</span>                    <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
-  <span class="k">auto</span> <span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="n">AlignedHeapAllocator</span><span class="o">&amp;&amp;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">AlignedHeapAllocator</span><span class="o">&amp;</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
+  <span class="n">AlignedHeapAllocator</span><span class="p">(</span><span class="n">AlignedHeapAllocator</span><span class="o">&amp;&amp;</span><span class="p">)</span> <span class="k">noexcept</span>    <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
+  <span class="k">auto</span> <span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="n">AlignedHeapAllocator</span><span class="o">&amp;&amp;</span><span class="p">)</span> <span class="k">noexcept</span> <span class="o">-&gt;</span> <span class="n">Self</span><span class="o">&amp;</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
 
   <span class="c1">//==--- [deleted] --------------------------------------------------------==//</span>
 
-  <span class="n">AlignedHeapAllocator</span><span class="p">(</span><span class="k">const</span> <span class="n">AlignedHeapAllocator</span><span class="o">&amp;</span><span class="p">)</span> <span class="o">=</span> <span class="k">delete</span><span class="p">;</span>
-  <span class="k">auto</span> <span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="k">const</span> <span class="n">AlignedHeapAllocator</span><span class="o">&amp;</span><span class="p">)</span>       <span class="o">=</span> <span class="k">delete</span><span class="p">;</span>
+  <span class="n">AlignedHeapAllocator</span><span class="p">(</span><span class="k">const</span> <span class="n">AlignedHeapAllocator</span><span class="o">&amp;</span><span class="p">)</span>    <span class="o">=</span> <span class="k">delete</span><span class="p">;</span>
+  <span class="k">auto</span> <span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="k">const</span> <span class="n">AlignedHeapAllocator</span><span class="o">&amp;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Self</span><span class="o">&amp;</span> <span class="o">=</span> <span class="k">delete</span><span class="p">;</span>
   <span class="c1">// clang-format on</span>
 
   <span class="c1">//==--- [interface] ------------------------------------------------------==//</span>

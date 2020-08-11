@@ -40,11 +40,11 @@ Program Listing for File spinlock.hpp
      // clang-format
    
      struct Sleeper {
-       static constexpr uint32_t max_spins = 4000;
+       static constexpr uint32_t max_spins = 2000;
    
-       static auto sleep() noexcept -> void {
+       static inline auto sleep() noexcept -> void {
          using namespace std::chrono_literals;
-         std::this_thread::sleep_for(500us);
+         std::this_thread::sleep_for(200us);
        }
    
        auto wait() noexcept -> void {

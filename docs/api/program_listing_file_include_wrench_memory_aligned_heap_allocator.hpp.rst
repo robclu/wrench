@@ -32,6 +32,8 @@ Program Listing for File aligned_heap_allocator.hpp
    
    class AlignedHeapAllocator {
     public:
+     using Self = AlignedHeapAllocator;
+   
      //==--- [construction] ---------------------------------------------------==//
    
      // clang-format off
@@ -41,13 +43,13 @@ Program Listing for File aligned_heap_allocator.hpp
      template <typename Arena>
      AlignedHeapAllocator(const Arena& arena) {}
    
-     AlignedHeapAllocator(AlignedHeapAllocator&&)                    = default;
-     auto operator=(AlignedHeapAllocator&&) -> AlignedHeapAllocator& = default;
+     AlignedHeapAllocator(AlignedHeapAllocator&&) noexcept    = default;
+     auto operator=(AlignedHeapAllocator&&) noexcept -> Self& = default;
    
      //==--- [deleted] --------------------------------------------------------==//
    
-     AlignedHeapAllocator(const AlignedHeapAllocator&) = delete;
-     auto operator=(const AlignedHeapAllocator&)       = delete;
+     AlignedHeapAllocator(const AlignedHeapAllocator&)    = delete;
+     auto operator=(const AlignedHeapAllocator&) -> Self& = delete;
      // clang-format on
    
      //==--- [interface] ------------------------------------------------------==//

@@ -85,7 +85,7 @@ Program Listing for File linear_allocator.hpp
    
      //==--- [utils] ----------------------------------------------------------==//
    
-     [[nodiscard]] auto current() const noexcept -> void* {
+     auto current() const noexcept -> void* {
        return offset_ptr(begin_, current_);
      }
    
@@ -93,7 +93,7 @@ Program Listing for File linear_allocator.hpp
        current_ = uintptr_t(current_ptr) - uintptr_t(begin_);
      }
    
-     [[nodiscard]] auto end() const noexcept -> void* {
+     auto end() const noexcept -> void* {
        return offset_ptr(begin_, size_);
      }
    

@@ -25,6 +25,8 @@
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
         <script src="../_static/language_data.js"></script>
+        <script src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -34,10 +36,11 @@
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Class ThreadSafeFreelist" href="classwrench_1_1_thread_safe_freelist.html" />
-    <link rel="prev" title="Template Class PoolAllocator" href="classwrench_1_1_pool_allocator.html" /> 
+    <link rel="prev" title="Class SingleThreadedRefTracker" href="classwrench_1_1_single_threaded_ref_tracker.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -95,14 +98,24 @@
 <li class="toctree-l3 current"><a class="reference internal" href="wrench_api_root.html#classes-and-structs">Classes and Structs</a><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="structwrench_1_1_freelist_1_1_node.html">Struct Freelist::Node</a></li>
 <li class="toctree-l4"><a class="reference internal" href="structwrench_1_1_heap_arena.html">Struct HeapArena</a></li>
+<li class="toctree-l4"><a class="reference internal" href="structwrench_1_1_profiler_1_1_counters_1_1_counter.html">Struct Counters::Counter</a></li>
 <li class="toctree-l4"><a class="reference internal" href="structwrench_1_1_spinlock.html">Struct Spinlock</a></li>
 <li class="toctree-l4"><a class="reference internal" href="structwrench_1_1_spinlock_1_1_sleeper.html">Struct Spinlock::Sleeper</a></li>
 <li class="toctree-l4"><a class="reference internal" href="structwrench_1_1_thread_safe_freelist_1_1_head_ptr.html">Struct ThreadSafeFreelist::HeadPtr</a></li>
 <li class="toctree-l4"><a class="reference internal" href="structwrench_1_1_thread_safe_freelist_1_1_node.html">Struct ThreadSafeFreelist::Node</a></li>
+<li class="toctree-l4"><a class="reference internal" href="structwrench_1_1_void_lock.html">Struct VoidLock</a></li>
 <li class="toctree-l4"><a class="reference internal" href="classwrench_1_1_aligned_heap_allocator.html">Class AlignedHeapAllocator</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classwrench_1_1_allocator.html">Template Class Allocator</a></li>
 <li class="toctree-l4"><a class="reference internal" href="classwrench_1_1_freelist.html">Class Freelist</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classwrench_1_1_intrusive_ptr.html">Template Class IntrusivePtr</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classwrench_1_1_intrusive_ptr_enabled.html">Template Class IntrusivePtrEnabled</a></li>
 <li class="toctree-l4"><a class="reference internal" href="classwrench_1_1_linear_allocator.html">Class LinearAllocator</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classwrench_1_1_multi_threaded_ref_tracker.html">Class MultiThreadedRefTracker</a></li>
 <li class="toctree-l4"><a class="reference internal" href="classwrench_1_1_pool_allocator.html">Template Class PoolAllocator</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classwrench_1_1_profiler.html">Class Profiler</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classwrench_1_1_profiler_1_1_counters.html">Class Profiler::Counters</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classwrench_1_1_ref_tracker.html">Template Class RefTracker</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classwrench_1_1_single_threaded_ref_tracker.html">Class SingleThreadedRefTracker</a></li>
 <li class="toctree-l4 current"><a class="current reference internal" href="#">Template Class StackArena</a></li>
 <li class="toctree-l4"><a class="reference internal" href="classwrench_1_1_thread_safe_freelist.html">Class ThreadSafeFreelist</a></li>
 </ul>
@@ -270,7 +283,7 @@
         <a href="classwrench_1_1_thread_safe_freelist.html" class="btn btn-neutral float-right" title="Class ThreadSafeFreelist" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="classwrench_1_1_pool_allocator.html" class="btn btn-neutral float-left" title="Template Class PoolAllocator" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="classwrench_1_1_single_threaded_ref_tracker.html" class="btn btn-neutral float-left" title="Class SingleThreadedRefTracker" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

@@ -25,6 +25,8 @@
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
         <script src="../_static/language_data.js"></script>
+        <script src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -34,6 +36,7 @@
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" /> 
 </head>
@@ -183,11 +186,11 @@
   <span class="c1">// clang-format</span>
 
   <span class="k">struct</span> <span class="n">Sleeper</span> <span class="p">{</span>
-    <span class="k">static</span> <span class="k">constexpr</span> <span class="kt">uint32_t</span> <span class="n">max_spins</span> <span class="o">=</span> <span class="mi">4000</span><span class="p">;</span>
+    <span class="k">static</span> <span class="k">constexpr</span> <span class="kt">uint32_t</span> <span class="n">max_spins</span> <span class="o">=</span> <span class="mi">2000</span><span class="p">;</span>
 
-    <span class="k">static</span> <span class="k">auto</span> <span class="nf">sleep</span><span class="p">()</span> <span class="k">noexcept</span> <span class="o">-&gt;</span> <span class="kt">void</span> <span class="p">{</span>
+    <span class="k">static</span> <span class="kr">inline</span> <span class="k">auto</span> <span class="nf">sleep</span><span class="p">()</span> <span class="k">noexcept</span> <span class="o">-&gt;</span> <span class="kt">void</span> <span class="p">{</span>
       <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="o">::</span><span class="n">chrono_literals</span><span class="p">;</span>
-      <span class="n">std</span><span class="o">::</span><span class="n">this_thread</span><span class="o">::</span><span class="n">sleep_for</span><span class="p">(</span><span class="mi">500u</span><span class="n">s</span><span class="p">);</span>
+      <span class="n">std</span><span class="o">::</span><span class="n">this_thread</span><span class="o">::</span><span class="n">sleep_for</span><span class="p">(</span><span class="mi">200u</span><span class="n">s</span><span class="p">);</span>
     <span class="p">}</span>
 
     <span class="k">auto</span> <span class="nf">wait</span><span class="p">()</span> <span class="k">noexcept</span> <span class="o">-&gt;</span> <span class="kt">void</span> <span class="p">{</span>

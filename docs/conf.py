@@ -40,10 +40,25 @@ extensions = [
     'sphinx.ext.viewcode',
     'sphinx.ext.inheritance_diagram',
     'breathe',
+    'exhale'
 ]
 
 # Setup the breathe extension.
+breathe_projects = {
+    "Wrench": "./doxyoutput"
+}
 breathe_default_project = "Wrench"
+
+# Setup the exhale extensions.
+exhale_args = {
+    "containmentFolder": "./api",
+    "rootFileName": "wrench_api_root.rst",
+    "rootFileTitle": "Wrench API",
+    "doxygenStripFromPath": "..",
+    "createTreeView": True,
+    "exhaleExecutesDoxygen": True,
+    "exhaleUseDoxyfile": True
+}
 
 # Specify which language is the primary one.
 primary_domain = 'cpp'

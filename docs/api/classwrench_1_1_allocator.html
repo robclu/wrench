@@ -1,0 +1,451 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Template Class Allocator &mdash; Wrench 1.0.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Class Freelist" href="classwrench_1_1_freelist.html" />
+    <link rel="prev" title="Class AlignedHeapAllocator" href="classwrench_1_1_aligned_heap_allocator.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Wrench
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="wrench_api_root.html">Wrench API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="wrench_api_root.html#class-hierarchy">Class Hierarchy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wrench_api_root.html#file-hierarchy">File Hierarchy</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="wrench_api_root.html#full-api">Full API</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="wrench_api_root.html#namespaces">Namespaces</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="wrench_api_root.html#classes-and-structs">Classes and Structs</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="structwrench_1_1_freelist_1_1_node.html">Struct Freelist::Node</a></li>
+<li class="toctree-l4"><a class="reference internal" href="structwrench_1_1_heap_arena.html">Struct HeapArena</a></li>
+<li class="toctree-l4"><a class="reference internal" href="structwrench_1_1_profiler_1_1_counters_1_1_counter.html">Struct Counters::Counter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="structwrench_1_1_spinlock.html">Struct Spinlock</a></li>
+<li class="toctree-l4"><a class="reference internal" href="structwrench_1_1_spinlock_1_1_sleeper.html">Struct Spinlock::Sleeper</a></li>
+<li class="toctree-l4"><a class="reference internal" href="structwrench_1_1_thread_safe_freelist_1_1_head_ptr.html">Struct ThreadSafeFreelist::HeadPtr</a></li>
+<li class="toctree-l4"><a class="reference internal" href="structwrench_1_1_thread_safe_freelist_1_1_node.html">Struct ThreadSafeFreelist::Node</a></li>
+<li class="toctree-l4"><a class="reference internal" href="structwrench_1_1_void_lock.html">Struct VoidLock</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classwrench_1_1_aligned_heap_allocator.html">Class AlignedHeapAllocator</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Template Class Allocator</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classwrench_1_1_freelist.html">Class Freelist</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classwrench_1_1_intrusive_ptr.html">Template Class IntrusivePtr</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classwrench_1_1_intrusive_ptr_enabled.html">Template Class IntrusivePtrEnabled</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classwrench_1_1_linear_allocator.html">Class LinearAllocator</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classwrench_1_1_multi_threaded_ref_tracker.html">Class MultiThreadedRefTracker</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classwrench_1_1_pool_allocator.html">Template Class PoolAllocator</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classwrench_1_1_profiler.html">Class Profiler</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classwrench_1_1_profiler_1_1_counters.html">Class Profiler::Counters</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classwrench_1_1_ref_tracker.html">Template Class RefTracker</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classwrench_1_1_single_threaded_ref_tracker.html">Class SingleThreadedRefTracker</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classwrench_1_1_stack_arena.html">Template Class StackArena</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classwrench_1_1_thread_safe_freelist.html">Class ThreadSafeFreelist</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="wrench_api_root.html#functions">Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="wrench_api_root.html#variables">Variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="wrench_api_root.html#typedefs">Typedefs</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Wrench</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="wrench_api_root.html">Wrench API</a> &raquo;</li>
+        
+      <li>Template Class Allocator</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/classwrench_1_1_allocator.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="template-class-allocator">
+<span id="exhale-class-classwrench-1-1-allocator"></span><h1>Template Class Allocator<a class="headerlink" href="#template-class-allocator" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_include_wrench_memory_allocator.hpp.html#file-include-wrench-memory-allocator-hpp"><span class="std std-ref">File allocator.hpp</span></a></p></li>
+</ul>
+<div class="section" id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline">¶</a></h2>
+<dl class="cpp class">
+<dt id="_CPPv4I0000EN6wrench9AllocatorE">
+<span id="_CPPv3I0000EN6wrench9AllocatorE"></span><span id="_CPPv2I0000EN6wrench9AllocatorE"></span>template&lt;typename <code class="sig-name descname">PrimaryAllocator</code>, typename <code class="sig-name descname">Arena</code>, typename <code class="sig-name descname">FallbackAllocator</code>, typename <code class="sig-name descname">LockingPolicy</code>&gt;<br /><span class="target" id="classwrench_1_1_allocator"></span><em class="property">class </em><code class="sig-prename descclassname">wrench<code class="sig-prename descclassname">::</code></code><code class="sig-name descname">Allocator</code><a class="headerlink" href="#_CPPv4I0000EN6wrench9AllocatorE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The <a class="reference internal" href="#classwrench_1_1_allocator"><span class="std std-ref">Allocator</span></a> type is a simple implementation which allows an allocator to be composed of other allocators, to create allocators with useful properties for different contexts.</p>
+<p>The allocator will always try to allocate from the primary allocator, unless the primary allocation fails, in which case it will allocate from the fallback allocator. It is a good idea to always set the fallback allocator to the <a class="reference internal" href="classwrench_1_1_aligned_heap_allocator.html#classwrench_1_1_aligned_heap_allocator"><span class="std std-ref">AlignedHeapAllocator</span></a>, so that allocation will always fallback to the system allocator.</p>
+<p>All allocation and free operations are locked using the locking policy provided. Since the default is to not lock, the allocations are not thread safe unless a locking policy is provided which does actually lock.</p>
+<p><p>The </p>
+<a class="reference internal" href="#classwrench_1_1_allocator"><span class="std std-ref">Allocator</span></a> type is a simple implementation which allows an allocator to be composed of other allocators, to create allocators with useful properties for different contexts.<dl class="simple">
+<dt><strong>Template Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">PrimaryAllocator</span></code>: The type of the primary allocator. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Arena</span></code>: The type of the arena for the allocator. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">FallbackAllocator</span></code>: The type of the fallback allocator. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">LockingPolicy</span></code>: The type of the locking policy.</p></li>
+</ul>
+</dd>
+</dl>
+</p>
+<p>The allocator will always try to allocate from the primary allocator, unless the primary allocation fails, in which case it will allocate from the fallback allocator.</p>
+<p>All allocation and free operations are locked, using the locking policy provided. The default locking policy is to not lock.</p>
+<p><dl class="simple">
+<dt><strong>Template Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">PrimaryAllocator</span></code>: The type of the primary allocator. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Arena</span></code>: The type of the arena for the allocator. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">FallbackAllocator</span></code>: The type of the fallback allocator. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">LockingPolicy</span></code>: The type of the locking policy. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Types</p>
+<dl class="cpp type">
+<dt id="_CPPv4N6wrench9Allocator5GuardE">
+<span id="_CPPv3N6wrench9Allocator5GuardE"></span><span id="_CPPv2N6wrench9Allocator5GuardE"></span><span class="target" id="classwrench_1_1_allocator_1a0fae2282f7a5533aab76f8aefb7b39a9"></span><em class="property">using </em><code class="sig-name descname">Guard</code> = std::lock_guard&lt;<a class="reference internal" href="#_CPPv4I0000EN6wrench9AllocatorE" title="wrench::Allocator::LockingPolicy">LockingPolicy</a>&gt;<a class="headerlink" href="#_CPPv4N6wrench9Allocator5GuardE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Defines the type of the lock guard. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="cpp function">
+<dt id="_CPPv4IDpEN6wrench9Allocator9AllocatorE6size_tDpRR4Args">
+<span id="_CPPv3IDpEN6wrench9Allocator9AllocatorE6size_tDpRR4Args"></span><span id="_CPPv2IDpEN6wrench9Allocator9AllocatorE6size_tDpRR4Args"></span>template&lt;typename ...<code class="sig-name descname">Args</code>&gt;<br /><span class="target" id="classwrench_1_1_allocator_1a9000f58c133d03ecaf2e3e5306e29cc9"></span><code class="sig-name descname">Allocator</code><span class="sig-paren">(</span>size_t <em>size</em>, <a class="reference internal" href="#_CPPv4IDpEN6wrench9Allocator9AllocatorE6size_tDpRR4Args" title="wrench::Allocator::Allocator::Args">Args</a>&amp;&amp;... <em>args</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4IDpEN6wrench9Allocator9AllocatorE6size_tDpRR4Args" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Constructor which sets the <code class="docutils literal notranslate"><span class="pre">size</span></code> of the arena, if the arena requires a size, and forwards the <code class="docutils literal notranslate"><span class="pre">args</span></code> to the primary allocator.</p>
+<p>If the arena has a constant size, then it will be created with that size, and <code class="docutils literal notranslate"><span class="pre">size</span></code> will be ignored.</p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">size</span></code>: The size of the arena. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">args</span></code>: The arguments fro the primary allocator. </p></li>
+</ul>
+</dd>
+<dt><strong>Template Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Args</span></code>: The types of arguments for the primary allocator. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N6wrench9AllocatorD0Ev">
+<span id="_CPPv3N6wrench9AllocatorD0Ev"></span><span id="_CPPv2N6wrench9AllocatorD0Ev"></span><span id="wrench::Allocator::~Allocator"></span><span class="target" id="classwrench_1_1_allocator_1ad3893443284d44efa342891855257d90"></span><code class="sig-name descname">~Allocator</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">noexcept</em> = default<a class="headerlink" href="#_CPPv4N6wrench9AllocatorD0Ev" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Default destructor  composed allocators know how to clean themselves up. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N6wrench9Allocator9AllocatorERR9Allocator">
+<span id="_CPPv3N6wrench9Allocator9AllocatorERR9Allocator"></span><span id="_CPPv2N6wrench9Allocator9AllocatorERR9Allocator"></span><span id="wrench::Allocator::Allocator__AllocatorRR"></span><span class="target" id="classwrench_1_1_allocator_1a3d7ebd1608bde3bce1a2c37e77e1ce88"></span><code class="sig-name descname">Allocator</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N6wrench9Allocator9AllocatorERR9Allocator" title="wrench::Allocator::Allocator">Allocator</a> &amp;&amp;<em>other</em><span class="sig-paren">)</span> <em class="property">noexcept</em> = default<a class="headerlink" href="#_CPPv4N6wrench9Allocator9AllocatorERR9Allocator" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Move constructor, defaulted. <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">other</span></code>: The other allocator to move into this one. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt>
+<span class="target" id="classwrench_1_1_allocator_1ae26d8e384e2e1f5a1a7689e7c8ba69f2"></span><code class="sig-name descname">auto operator= (Allocator &amp;&amp;other) noexcept -&gt; Allocator &amp;=default</code></dt>
+<dd><p>Move assignment, defaulted. <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">other</span></code>: The other allocator to move into this one. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N6wrench9Allocator9AllocatorERK9Allocator">
+<span id="_CPPv3N6wrench9Allocator9AllocatorERK9Allocator"></span><span id="_CPPv2N6wrench9Allocator9AllocatorERK9Allocator"></span><span id="wrench::Allocator::Allocator__AllocatorCR"></span><span class="target" id="classwrench_1_1_allocator_1a5e8d509d0ca414769d8c8eb9f263e3ac"></span><code class="sig-name descname">Allocator</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N6wrench9Allocator9AllocatorERK9Allocator" title="wrench::Allocator::Allocator">Allocator</a>&amp;<span class="sig-paren">)</span> = delete<a class="headerlink" href="#_CPPv4N6wrench9Allocator9AllocatorERK9Allocator" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Copy constructor  deleted, allocator can’t be copied. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt>
+<span class="target" id="classwrench_1_1_allocator_1a4fabc6c356dcfebc55a7277c845f6d46"></span><code class="sig-name descname">auto operator= (const Allocator &amp;) -&gt; Allocator &amp;=delete</code></dt>
+<dd><p>Copy assignment  deleted, allocator can’t be copied. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt>
+<span class="target" id="classwrench_1_1_allocator_1abf49aa61ff5d65ba3e61e6ae35120252"></span><code class="sig-name descname">auto alloc (size_t size, size_t alignment=alignof(std::max_align_t)) noexcept -&gt; void *</code></dt>
+<dd><p>Allocates <code class="docutils literal notranslate"><span class="pre">size</span></code> bytes of memory with <code class="docutils literal notranslate"><span class="pre">align</span></code> alignment. <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">size</span></code>: The size of the memory to allocate. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">alignment</span></code>: The alignment of the allocation. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt>
+<span class="target" id="classwrench_1_1_allocator_1a5a733f84e4201d8f0475dcfcd5ca8fd5"></span><code class="sig-name descname">auto free (void *ptr) noexcept -&gt; void</code></dt>
+<dd><p>Frees the memory pointed to by ptr. <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">ptr</span></code>: The pointer to the memory to free. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt>
+<span class="target" id="classwrench_1_1_allocator_1a9388d4eb7fa9d6beec917af5856b5f80"></span><code class="sig-name descname">auto free (void *ptr, size_t size) noexcept -&gt; void</code></dt>
+<dd><p>Frees the memory pointed to by \ptr, with a size of <code class="docutils literal notranslate"><span class="pre">size</span></code>. <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">ptr</span></code>: The pointer to the memory to free. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">size</span></code>: The size of the memory to free. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt>
+<span class="target" id="classwrench_1_1_allocator_1a9727015350e849cf8565b001e2b2abb3"></span><code class="sig-name descname">auto reset () noexcept -&gt; void</code></dt>
+<dd><p>Resets the primary and fallback allocators. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt>
+<span class="target" id="classwrench_1_1_allocator_1aa594336277e3ad13e34fd53db11fdde8"></span><code class="sig-name descname">template&lt;typename T, typename... Args&gt; auto create (Args &amp;&amp;... args) noexcept -&gt; T *</code></dt>
+<dd><p>Allocates and constructs an object of type T. If this is used, then destroy should be used to destruct and free the object, rather than free. If the fallback allocator fails, this will return a nullptr. <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">args</span></code>: The arguments for constructing the objects. </p></li>
+</ul>
+</dd>
+<dt><strong>Template Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">T</span></code>: The type of the object to allocate. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Args</span></code>: The types of the arguments for constructing T. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt>
+<span class="target" id="classwrench_1_1_allocator_1a9cbb0c7979f68303a4d6937d0f4daaff"></span><code class="sig-name descname">template&lt;typename T&gt; auto recycle (T *ptr) noexcept -&gt; void</code></dt>
+<dd><p>Recycles the object pointed to by <code class="docutils literal notranslate"><span class="pre">ptr</span></code>, destructing it and then releasing the memory back to the allocator. <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">ptr</span></code>: A pointer to the object to destroy. </p></li>
+</ul>
+</dd>
+<dt><strong>Template Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">T</span></code>: The type of the object. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Static Attributes</p>
+<dl class="cpp var">
+<dt id="_CPPv4N6wrench9Allocator19contexpr_arena_sizeE">
+<span id="_CPPv3N6wrench9Allocator19contexpr_arena_sizeE"></span><span id="_CPPv2N6wrench9Allocator19contexpr_arena_sizeE"></span><span id="wrench::Allocator::contexpr_arena_size__b"></span><span class="target" id="classwrench_1_1_allocator_1ae9949c0eda0772d01c390058bb530957"></span><em class="property">constexpr</em> bool <code class="sig-name descname">contexpr_arena_size</code> = <a class="reference internal" href="#_CPPv4I0000EN6wrench9AllocatorE" title="wrench::Allocator::Arena">Arena</a>::contexpr_size<a class="headerlink" href="#_CPPv4N6wrench9Allocator19contexpr_arena_sizeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Returns true if the arena has a contexpr size. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="classwrench_1_1_freelist.html" class="btn btn-neutral float-right" title="Class Freelist" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="classwrench_1_1_aligned_heap_allocator.html" class="btn btn-neutral float-left" title="Class AlignedHeapAllocator" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Rob Clucas
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+  
+
+<script>window.markdeepOptions = { mode: 'doxygen' };</script>
+<script src="markdeep.min.js"></script>
+<script src="https://morgan3d.github.io/markdeep/latest/markdeep.min.js"></script>
+
+
+
+</body>
+</html>

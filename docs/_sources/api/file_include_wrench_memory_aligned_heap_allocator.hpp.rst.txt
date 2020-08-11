@@ -34,6 +34,12 @@ Includes
 
 
 
+Included By
+-----------
+
+
+- :ref:`file_include_wrench_memory_allocator.hpp`
+
 
 
 

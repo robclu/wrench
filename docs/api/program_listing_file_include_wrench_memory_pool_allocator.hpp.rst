@@ -36,6 +36,9 @@ Program Listing for File pool_allocator.hpp
    
    class Freelist {
     public:
+     //==--- [traits] ---------------------------------------------------------==//
+     static constexpr bool resettable = false;
+   
      //==--- [construction] ---------------------------------------------------==//
    
      Freelist() = default;
@@ -59,8 +62,8 @@ Program Listing for File pool_allocator.hpp
    
      //==--- [deleted] --------------------------------------------------------==//
    
-     Freelist(const Freelist&)       = delete;
-     auto operator=(const Freelist&) = delete;
+     Freelist(const Freelist&)                    = delete;
+     auto operator=(const Freelist&) -> Freelist& = delete;
      // clang-format on
    
      //==--- [interface] ------------------------------------------------------==//
@@ -134,6 +137,10 @@ Program Listing for File pool_allocator.hpp
      using AtomicHeadPtr = std::atomic<HeadPtr>;
    
     public:
+     //==--- [traits] ---------------------------------------------------------==//
+   
+     static constexpr bool resettable = false;
+   
      //==--- [construction] ---------------------------------------------------==//
    
      ThreadSafeFreelist() noexcept = default;
@@ -187,7 +194,7 @@ Program Listing for File pool_allocator.hpp
    
      auto operator=(ThreadSafeFreelist&& other) noexcept -> ThreadSafeFreelist& {
        if (this != &other) {
-         head.store(
+         head_.store(
            other.head_.load(std::memory_order_relaxed), std::memory_order_relaxed);
          storage_ = std::move(other.storage_);
          other.head_.store({-1, 0}, std::memory_order_relaxed);
@@ -198,9 +205,9 @@ Program Listing for File pool_allocator.hpp
    
      //==--- [deleted] --------------------------------------------------------==//
    
-     //clang-format off
-     ThreadSafeFreelist(const ThreadSafeFreelist&) = delete;
-     auto operator=(const ThreadSafeFreelist&) = delete;
+     // clang-format off
+     ThreadSafeFreelist(const ThreadSafeFreelist&)                    = delete;
+     auto operator=(const ThreadSafeFreelist&) -> ThreadSafeFreelist& = delete;
      // clang-format on
    
      //==--- [interface] ------------------------------------------------------==//
@@ -323,6 +330,10 @@ Program Listing for File pool_allocator.hpp
      // clang-format on
    
     public:
+     //==--- [traits] ---------------------------------------------------------==//
+   
+     static constexpr bool resettable = FreelistImpl::resettable;
+   
      //==--- [construction] ---------------------------------------------------==//
    
      // clang-format off
@@ -344,8 +355,8 @@ Program Listing for File pool_allocator.hpp
      //==--- [deleted] --------------------------------------------------------==//
    
      // clang-format off
-     PoolAllocator(const PoolAllocator&)  = delete;
-     auto operator=(const PoolAllocator&) = delete;
+     PoolAllocator(const PoolAllocator&)                    = delete;
+     auto operator=(const PoolAllocator&) -> PoolAllocator& = delete;
      // clang-format on
    
      //==--- [interface] ------------------------------------------------------==//
@@ -365,7 +376,11 @@ Program Listing for File pool_allocator.hpp
               uintptr_t(ptr) < uintptr_t(end_);
      }
    
-     auto reset() noexcept -> void {}
+     auto reset() noexcept -> void {
+       if constexpr (resettable) {
+         freelist_.reset();
+       }
+     }
    
     private:
      FreelistImpl freelist_;        

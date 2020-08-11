@@ -1,0 +1,415 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Program Listing for File profiler.hpp &mdash; Wrench 1.0.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Wrench
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="wrench_api_root.html">Wrench API</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Wrench</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Program Listing for File profiler.hpp</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/program_listing_file_include_wrench_perf_profiler.hpp.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="program-listing-for-file-profiler-hpp">
+<span id="program-listing-file-include-wrench-perf-profiler-hpp"></span><h1>Program Listing for File profiler.hpp<a class="headerlink" href="#program-listing-for-file-profiler-hpp" title="Permalink to this headline">¶</a></h1>
+<p>↰ <a class="reference internal" href="file_include_wrench_perf_profiler.hpp.html#file-include-wrench-perf-profiler-hpp"><span class="std std-ref">Return to documentation for file</span></a> (<code class="docutils literal notranslate"><span class="pre">include/wrench/perf/profiler.hpp</span></code>)</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">//==--- wrench/perf/profiler.hpp --------------------------- -*- C++ -*- ---==//</span>
+<span class="c1">//</span>
+<span class="c1">//                                Wrench</span>
+<span class="c1">//</span>
+<span class="c1">//                      Copyright (c) 2020 Rob Clucas</span>
+<span class="c1">//</span>
+<span class="c1">//  This file is distributed under the MIT License. See LICENSE for details.</span>
+<span class="c1">//</span>
+<span class="c1">//==------------------------------------------------------------------------==//</span>
+<span class="c1">//</span>
+<span class="c1">//</span>
+<span class="c1">//==------------------------------------------------------------------------==//</span>
+
+<span class="cp">#ifndef WRENCH_PERF_PROFILER_HPP</span>
+<span class="cp">#define WRENCH_PERF_PROFILER_HPP</span>
+
+<span class="cp">#include</span> <span class="cpf">&lt;wrench/utils/portability.hpp&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;array&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;chrono&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;cstdint&gt;</span><span class="cp"></span>
+
+<span class="cp">#ifdef wrench_linux</span>
+  <span class="cp">#include</span> <span class="cpf">&lt;unistd.h&gt;</span><span class="cp"></span>
+  <span class="cp">#include</span> <span class="cpf">&lt;sys/ioctl.h&gt;</span><span class="cp"></span>
+  <span class="cp">#include</span> <span class="cpf">&lt;linux/perf_event.h&gt;</span><span class="cp"></span>
+<span class="cp">#else</span>
+<span class="k">struct</span> <span class="n">perf_event_attr</span><span class="p">;</span>
+<span class="cp">#endif</span>
+
+<span class="k">namespace</span> <span class="n">wrench</span> <span class="p">{</span>
+
+<span class="k">class</span> <span class="nc">Profiler</span> <span class="p">{</span>
+  <span class="k">enum</span> <span class="nl">PerfEvent</span> <span class="p">:</span> <span class="kt">uint8_t</span> <span class="p">{</span>
+    <span class="n">instructions</span>  <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="n">cpu_cycles</span>    <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="n">dcache_refs</span>   <span class="o">=</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="n">dcache_misses</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span>
+    <span class="n">branches</span>      <span class="o">=</span> <span class="mi">4</span><span class="p">,</span>
+    <span class="n">branch_misses</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span>
+    <span class="n">icache_refs</span>   <span class="o">=</span> <span class="mi">6</span><span class="p">,</span>
+    <span class="n">icache_misses</span> <span class="o">=</span> <span class="mi">7</span><span class="p">,</span>
+    <span class="n">event_count</span>
+  <span class="p">};</span>
+
+  <span class="c1">// clang-format off</span>
+  <span class="k">static</span> <span class="k">constexpr</span> <span class="kt">uint32_t</span> <span class="n">all_enabled</span>  <span class="o">=</span> <span class="mh">0x00000007</span><span class="p">;</span>
+  <span class="k">static</span> <span class="k">constexpr</span> <span class="kt">uint32_t</span> <span class="n">none_enabled</span> <span class="o">=</span> <span class="mh">0x00000000</span><span class="p">;</span>
+  <span class="c1">// clang-format on</span>
+
+  <span class="c1">//==--- [construction] ---------------------------------------------------==//</span>
+
+  <span class="n">Profiler</span><span class="p">()</span> <span class="k">noexcept</span><span class="p">;</span>
+
+  <span class="n">Profiler</span><span class="p">(</span><span class="kt">uint32_t</span> <span class="n">event_mask</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span>
+
+  <span class="o">~</span><span class="n">Profiler</span><span class="p">()</span> <span class="k">noexcept</span><span class="p">;</span>
+
+  <span class="c1">// clang-format off</span>
+  <span class="n">Profiler</span><span class="p">(</span><span class="k">const</span> <span class="n">Profiler</span><span class="o">&amp;</span><span class="p">)</span> <span class="o">=</span> <span class="k">delete</span><span class="p">;</span>
+  <span class="n">Profiler</span><span class="p">(</span><span class="n">Profiler</span><span class="o">&amp;&amp;</span><span class="p">)</span>      <span class="o">=</span> <span class="k">delete</span><span class="p">;</span>
+
+  <span class="c1">//==--- [operator overloads] ---------------------------------------------==//</span>
+
+  <span class="k">auto</span> <span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="k">const</span> <span class="n">Profiler</span><span class="o">&amp;</span><span class="p">)</span> <span class="o">=</span> <span class="k">delete</span><span class="p">;</span>
+  <span class="k">auto</span> <span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="n">Profiler</span><span class="o">&amp;&amp;</span><span class="p">)</span>      <span class="o">=</span> <span class="k">delete</span><span class="p">;</span>
+  <span class="c1">// clang-format on</span>
+
+  <span class="c1">//==---- [interface] -----------------------------------------------------==//</span>
+
+  <span class="k">auto</span> <span class="nf">reset_events</span><span class="p">(</span><span class="kt">uint32_t</span> <span class="n">event_mask</span> <span class="o">=</span> <span class="n">all_enabled</span><span class="p">)</span> <span class="k">noexcept</span> <span class="o">-&gt;</span> <span class="kt">uint32_t</span><span class="p">;</span>
+
+  <span class="k">auto</span> <span class="nf">enabled_events</span><span class="p">()</span> <span class="k">const</span> <span class="k">noexcept</span> <span class="o">-&gt;</span> <span class="kt">uint32_t</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">enabled_events_</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="k">constexpr</span> <span class="k">auto</span> <span class="nf">perf_event_flag</span><span class="p">(</span><span class="n">PerfEvent</span> <span class="n">event</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">uint32_t</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="mi">1u</span> <span class="o">&lt;&lt;</span> <span class="n">event</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="k">auto</span> <span class="nf">is_valid</span><span class="p">()</span> <span class="k">const</span> <span class="k">noexcept</span> <span class="o">-&gt;</span> <span class="kt">bool</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">first_fd</span><span class="p">()</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="k">class</span> <span class="nc">Counters</span> <span class="p">{</span>
+    <span class="k">friend</span> <span class="k">class</span> <span class="nc">Profiler</span><span class="p">;</span>
+    <span class="k">static</span> <span class="k">constexpr</span> <span class="kt">size_t</span> <span class="n">num_counters</span> <span class="o">=</span> <span class="n">PerfEvent</span><span class="o">::</span><span class="n">event_count</span><span class="p">;</span>
+
+    <span class="k">struct</span> <span class="n">Counter</span> <span class="p">{</span>
+      <span class="kt">uint64_t</span> <span class="n">value</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+      <span class="kt">uint64_t</span> <span class="n">id</span>    <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="p">};</span>
+
+    <span class="kt">uint64_t</span>                          <span class="n">time_enabled_</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="kt">uint64_t</span>                          <span class="n">time_running_</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">array</span><span class="o">&lt;</span><span class="n">Counter</span><span class="p">,</span> <span class="n">num_counters</span><span class="o">&gt;</span> <span class="n">counters_</span><span class="p">;</span>
+
+   <span class="k">public</span><span class="o">:</span>
+    <span class="k">using</span> <span class="n">Duration</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="o">::</span><span class="n">duration</span><span class="o">&lt;</span><span class="kt">uint64_t</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">nano</span><span class="o">&gt;</span><span class="p">;</span>
+
+    <span class="k">auto</span> <span class="nf">perf_event_value</span><span class="p">(</span><span class="n">PerfEvent</span> <span class="n">event</span><span class="p">)</span> <span class="k">const</span> <span class="k">noexcept</span> <span class="o">-&gt;</span> <span class="kt">uint64_t</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="n">counters_</span><span class="p">[</span><span class="n">event</span><span class="p">].</span><span class="n">value</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">auto</span> <span class="nf">perf_event_ratio</span><span class="p">(</span><span class="n">PerfEvent</span> <span class="n">a</span><span class="p">,</span> <span class="n">PerfEvent</span> <span class="n">b</span><span class="p">)</span> <span class="k">const</span> <span class="k">noexcept</span> <span class="o">-&gt;</span> <span class="kt">double</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="kt">double</span><span class="p">(</span><span class="n">perf_event_value</span><span class="p">(</span><span class="n">a</span><span class="p">))</span> <span class="o">/</span> <span class="kt">double</span><span class="p">(</span><span class="n">perf_event_value</span><span class="p">(</span><span class="n">b</span><span class="p">));</span>
+    <span class="p">}</span>
+
+    <span class="k">auto</span> <span class="nf">wall_time</span><span class="p">()</span> <span class="k">const</span> <span class="k">noexcept</span> <span class="o">-&gt;</span> <span class="n">Duration</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="n">Duration</span><span class="p">{</span><span class="n">time_enabled_</span><span class="p">};</span>
+    <span class="p">}</span>
+
+    <span class="k">auto</span> <span class="nf">running_time</span><span class="p">()</span> <span class="k">const</span> <span class="k">noexcept</span> <span class="o">-&gt;</span> <span class="n">Duration</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="n">Duration</span><span class="p">{</span><span class="n">time_running_</span><span class="p">};</span>
+    <span class="p">}</span>
+
+    <span class="k">auto</span> <span class="nf">instructions_per_cycle</span><span class="p">()</span> <span class="k">const</span> <span class="k">noexcept</span> <span class="o">-&gt;</span> <span class="kt">double</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="n">perf_event_ratio</span><span class="p">(</span><span class="n">PerfEvent</span><span class="o">::</span><span class="n">instructions</span><span class="p">,</span> <span class="n">PerfEvent</span><span class="o">::</span><span class="n">cpu_cycles</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">auto</span> <span class="nf">cycles_per_instruction</span><span class="p">()</span> <span class="k">const</span> <span class="k">noexcept</span> <span class="o">-&gt;</span> <span class="kt">double</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="n">perf_event_ratio</span><span class="p">(</span><span class="n">PerfEvent</span><span class="o">::</span><span class="n">cpu_cycles</span><span class="p">,</span> <span class="n">PerfEvent</span><span class="o">::</span><span class="n">instructions</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">auto</span> <span class="nf">l1d_miss_rate</span><span class="p">()</span> <span class="k">const</span> <span class="k">noexcept</span> <span class="o">-&gt;</span> <span class="kt">double</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="n">perf_event_ratio</span><span class="p">(</span><span class="n">PerfEvent</span><span class="o">::</span><span class="n">dcache_misses</span><span class="p">,</span> <span class="n">PerfEvent</span><span class="o">::</span><span class="n">dcache_refs</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">auto</span> <span class="nf">l1d_hit_rate</span><span class="p">()</span> <span class="k">const</span> <span class="k">noexcept</span> <span class="o">-&gt;</span> <span class="kt">double</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="mf">1.0</span> <span class="o">-</span> <span class="n">l1d_miss_rate</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="k">auto</span> <span class="nf">l1i_miss_rate</span><span class="p">()</span> <span class="k">const</span> <span class="k">noexcept</span> <span class="o">-&gt;</span> <span class="kt">double</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="n">perf_event_ratio</span><span class="p">(</span><span class="n">PerfEvent</span><span class="o">::</span><span class="n">icache_misses</span><span class="p">,</span> <span class="n">PerfEvent</span><span class="o">::</span><span class="n">icache_refs</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">auto</span> <span class="nf">l1i_hit_rate</span><span class="p">()</span> <span class="k">const</span> <span class="k">noexcept</span> <span class="o">-&gt;</span> <span class="kt">double</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="mf">1.0</span> <span class="o">-</span> <span class="n">l1i_miss_rate</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="k">auto</span> <span class="nf">branch_miss_rate</span><span class="p">()</span> <span class="k">const</span> <span class="k">noexcept</span> <span class="o">-&gt;</span> <span class="kt">double</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="n">perf_event_ratio</span><span class="p">(</span><span class="n">PerfEvent</span><span class="o">::</span><span class="n">branch_misses</span><span class="p">,</span> <span class="n">PerfEvent</span><span class="o">::</span><span class="n">branches</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">auto</span> <span class="nf">branch_hit_rate</span><span class="p">()</span> <span class="k">const</span> <span class="k">noexcept</span> <span class="o">-&gt;</span> <span class="kt">double</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="mf">1.0</span> <span class="o">-</span> <span class="n">branch_miss_rate</span><span class="p">();</span>
+    <span class="p">}</span>
+  <span class="p">};</span>
+
+  <span class="p">[[</span><span class="n">nodiscard</span><span class="p">]]</span> <span class="k">auto</span> <span class="n">has_branch_rates</span><span class="p">()</span> <span class="k">const</span> <span class="k">noexcept</span> <span class="o">-&gt;</span> <span class="kt">bool</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">counter_fds_</span><span class="p">[</span><span class="n">PerfEvent</span><span class="o">::</span><span class="n">branches</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span>
+           <span class="n">counter_fds_</span><span class="p">[</span><span class="n">PerfEvent</span><span class="o">::</span><span class="n">branch_misses</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="p">[[</span><span class="n">nodiscard</span><span class="p">]]</span> <span class="k">auto</span> <span class="n">has_instruction_cache_rates</span><span class="p">()</span> <span class="k">const</span> <span class="k">noexcept</span> <span class="o">-&gt;</span> <span class="kt">bool</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">counter_fds_</span><span class="p">[</span><span class="n">PerfEvent</span><span class="o">::</span><span class="n">icache_refs</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span>
+           <span class="n">counter_fds_</span><span class="p">[</span><span class="n">PerfEvent</span><span class="o">::</span><span class="n">icache_misses</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="p">}</span>
+
+<span class="cp">#ifdef wrench_linux</span>
+  <span class="k">auto</span> <span class="n">reset</span><span class="p">()</span> <span class="k">noexcept</span> <span class="o">-&gt;</span> <span class="kt">void</span> <span class="p">{</span>
+    <span class="n">ioctl</span><span class="p">(</span><span class="n">first_fd</span><span class="p">(),</span> <span class="n">PERF_EVENT_IOC_RESET</span><span class="p">,</span> <span class="n">PERF_IOC_FLAG_GROUP</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="k">auto</span> <span class="n">start</span><span class="p">()</span> <span class="k">noexcept</span> <span class="o">-&gt;</span> <span class="kt">void</span> <span class="p">{</span>
+    <span class="n">ioctl</span><span class="p">(</span><span class="n">first_fd</span><span class="p">(),</span> <span class="n">PERF_EVENT_IOC_ENABLE</span><span class="p">,</span> <span class="n">PERF_IOC_FLAG_GROUP</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="k">auto</span> <span class="n">stop</span><span class="p">()</span> <span class="k">noexcept</span> <span class="o">-&gt;</span> <span class="kt">void</span> <span class="p">{</span>
+    <span class="n">ioctl</span><span class="p">(</span><span class="n">first_fd</span><span class="p">(),</span> <span class="n">PERF_EVENT_IOC_DISABLE</span><span class="p">,</span> <span class="n">PERF_IOC_FLAG_GROUP</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="k">auto</span> <span class="n">read_counters</span><span class="p">()</span> <span class="k">noexcept</span> <span class="o">-&gt;</span> <span class="n">Counters</span><span class="p">;</span>
+<span class="cp">#else  </span><span class="c1">// !wrench_linux</span>
+  <span class="k">auto</span> <span class="nf">reset</span><span class="p">()</span> <span class="k">noexcept</span> <span class="o">-&gt;</span> <span class="kt">void</span> <span class="p">{}</span>
+  <span class="k">auto</span> <span class="nf">start</span><span class="p">()</span> <span class="k">noexcept</span> <span class="o">-&gt;</span> <span class="kt">void</span> <span class="p">{}</span>
+  <span class="k">auto</span> <span class="nf">stop</span><span class="p">()</span> <span class="k">noexcept</span> <span class="o">-&gt;</span> <span class="kt">void</span> <span class="p">{}</span>
+  <span class="k">auto</span> <span class="nf">read_counters</span><span class="p">()</span> <span class="k">noexcept</span> <span class="o">-&gt;</span> <span class="n">Counters</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">{};</span>
+  <span class="p">}</span>
+<span class="cp">#endif </span><span class="c1">// wrench_linux</span>
+
+ <span class="k">private</span><span class="o">:</span>
+  <span class="k">using</span> <span class="n">CounterIds</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">array</span><span class="o">&lt;</span><span class="kt">uint8_t</span><span class="p">,</span> <span class="n">PerfEvent</span><span class="o">::</span><span class="n">event_count</span><span class="o">&gt;</span><span class="p">;</span>
+  <span class="k">using</span> <span class="n">CounterFds</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">array</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="n">PerfEvent</span><span class="o">::</span><span class="n">event_count</span><span class="o">&gt;</span><span class="p">;</span>
+
+  <span class="n">CounterIds</span> <span class="n">counter_ids_</span>    <span class="o">=</span> <span class="p">{};</span>
+  <span class="n">CounterFds</span> <span class="n">counter_fds_</span>    <span class="o">=</span> <span class="p">{};</span>
+  <span class="kt">uint32_t</span>   <span class="n">enabled_events_</span> <span class="o">=</span> <span class="n">none_enabled</span><span class="p">;</span>
+
+  <span class="p">[[</span><span class="n">nodiscard</span><span class="p">]]</span> <span class="k">auto</span> <span class="n">first_fd</span><span class="p">()</span> <span class="k">const</span> <span class="k">noexcept</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">counter_ids_</span><span class="p">.</span><span class="n">front</span><span class="p">();</span>
+  <span class="p">}</span>
+
+  <span class="k">auto</span> <span class="n">update_events</span><span class="p">(</span>
+    <span class="n">perf_event_attr</span><span class="o">*</span> <span class="n">event</span><span class="p">,</span>
+    <span class="n">PerfEvent</span>        <span class="n">perf_event</span><span class="p">,</span>
+    <span class="kt">uint32_t</span>         <span class="n">event_mask</span><span class="p">,</span>
+    <span class="kt">uint32_t</span>         <span class="n">event_type</span><span class="p">,</span>
+    <span class="kt">uint64_t</span>         <span class="n">event_config</span><span class="p">,</span>
+    <span class="kt">int</span>              <span class="n">group_fd</span><span class="p">,</span>
+    <span class="kt">uint8_t</span><span class="o">&amp;</span>         <span class="n">count</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">void</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="p">}</span> <span class="c1">// namespace wrench</span>
+
+<span class="cp">#endif </span><span class="c1">// WRENCH_PERF_PROFILER_HPP</span>
+</pre></div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Rob Clucas
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+  
+
+<script>window.markdeepOptions = { mode: 'doxygen' };</script>
+<script src="markdeep.min.js"></script>
+<script src="https://morgan3d.github.io/markdeep/latest/markdeep.min.js"></script>
+
+
+
+</body>
+</html>

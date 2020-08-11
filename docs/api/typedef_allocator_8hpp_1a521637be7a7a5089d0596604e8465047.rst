@@ -1,0 +1,13 @@
+.. _exhale_typedef_allocator_8hpp_1a521637be7a7a5089d0596604e8465047:
+
+Typedef wrench::ObjectPoolAllocator
+===================================
+
+- Defined in :ref:`file_include_wrench_memory_allocator.hpp`
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: wrench::ObjectPoolAllocator

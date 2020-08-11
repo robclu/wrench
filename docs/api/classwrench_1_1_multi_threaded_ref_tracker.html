@@ -1,0 +1,334 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Class MultiThreadedRefTracker &mdash; Wrench 1.0.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Template Class PoolAllocator" href="classwrench_1_1_pool_allocator.html" />
+    <link rel="prev" title="Class LinearAllocator" href="classwrench_1_1_linear_allocator.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Wrench
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="wrench_api_root.html">Wrench API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="wrench_api_root.html#class-hierarchy">Class Hierarchy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wrench_api_root.html#file-hierarchy">File Hierarchy</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="wrench_api_root.html#full-api">Full API</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="wrench_api_root.html#namespaces">Namespaces</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="wrench_api_root.html#classes-and-structs">Classes and Structs</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="structwrench_1_1_freelist_1_1_node.html">Struct Freelist::Node</a></li>
+<li class="toctree-l4"><a class="reference internal" href="structwrench_1_1_heap_arena.html">Struct HeapArena</a></li>
+<li class="toctree-l4"><a class="reference internal" href="structwrench_1_1_profiler_1_1_counters_1_1_counter.html">Struct Counters::Counter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="structwrench_1_1_spinlock.html">Struct Spinlock</a></li>
+<li class="toctree-l4"><a class="reference internal" href="structwrench_1_1_spinlock_1_1_sleeper.html">Struct Spinlock::Sleeper</a></li>
+<li class="toctree-l4"><a class="reference internal" href="structwrench_1_1_thread_safe_freelist_1_1_head_ptr.html">Struct ThreadSafeFreelist::HeadPtr</a></li>
+<li class="toctree-l4"><a class="reference internal" href="structwrench_1_1_thread_safe_freelist_1_1_node.html">Struct ThreadSafeFreelist::Node</a></li>
+<li class="toctree-l4"><a class="reference internal" href="structwrench_1_1_void_lock.html">Struct VoidLock</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classwrench_1_1_aligned_heap_allocator.html">Class AlignedHeapAllocator</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classwrench_1_1_allocator.html">Template Class Allocator</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classwrench_1_1_freelist.html">Class Freelist</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classwrench_1_1_intrusive_ptr.html">Template Class IntrusivePtr</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classwrench_1_1_intrusive_ptr_enabled.html">Template Class IntrusivePtrEnabled</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classwrench_1_1_linear_allocator.html">Class LinearAllocator</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Class MultiThreadedRefTracker</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classwrench_1_1_pool_allocator.html">Template Class PoolAllocator</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classwrench_1_1_profiler.html">Class Profiler</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classwrench_1_1_profiler_1_1_counters.html">Class Profiler::Counters</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classwrench_1_1_ref_tracker.html">Template Class RefTracker</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classwrench_1_1_single_threaded_ref_tracker.html">Class SingleThreadedRefTracker</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classwrench_1_1_stack_arena.html">Template Class StackArena</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classwrench_1_1_thread_safe_freelist.html">Class ThreadSafeFreelist</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="wrench_api_root.html#functions">Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="wrench_api_root.html#variables">Variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="wrench_api_root.html#typedefs">Typedefs</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Wrench</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="wrench_api_root.html">Wrench API</a> &raquo;</li>
+        
+      <li>Class MultiThreadedRefTracker</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/classwrench_1_1_multi_threaded_ref_tracker.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="class-multithreadedreftracker">
+<span id="exhale-class-classwrench-1-1-multi-threaded-ref-tracker"></span><h1>Class MultiThreadedRefTracker<a class="headerlink" href="#class-multithreadedreftracker" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_include_wrench_memory_ref_tracker.hpp.html#file-include-wrench-memory-ref-tracker-hpp"><span class="std std-ref">File ref_tracker.hpp</span></a></p></li>
+</ul>
+<div class="section" id="inheritance-relationships">
+<h2>Inheritance Relationships<a class="headerlink" href="#inheritance-relationships" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="base-type">
+<h3>Base Type<a class="headerlink" href="#base-type" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">wrench::RefTracker&lt;</span> <span class="pre">MultiThreadedRefTracker</span> <span class="pre">&gt;</span></code> (<a class="reference internal" href="classwrench_1_1_ref_tracker.html#exhale-class-classwrench-1-1-ref-tracker"><span class="std std-ref">Template Class RefTracker</span></a>)</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline">¶</a></h2>
+<dl class="cpp class">
+<dt id="_CPPv4N6wrench23MultiThreadedRefTrackerE">
+<span id="_CPPv3N6wrench23MultiThreadedRefTrackerE"></span><span id="_CPPv2N6wrench23MultiThreadedRefTrackerE"></span><span id="wrench::MultiThreadedRefTracker"></span><span class="target" id="classwrench_1_1_multi_threaded_ref_tracker"></span><em class="property">class </em><code class="sig-prename descclassname">wrench<code class="sig-prename descclassname">::</code></code><code class="sig-name descname">MultiThreadedRefTracker</code> : <em class="property">public</em> wrench::<a class="reference internal" href="classwrench_1_1_ref_tracker.html#_CPPv4I0EN6wrench10RefTrackerE" title="wrench::RefTracker">RefTracker</a>&lt;<a class="reference internal" href="#_CPPv4N6wrench23MultiThreadedRefTrackerE" title="wrench::MultiThreadedRefTracker">MultiThreadedRefTracker</a>&gt;<a class="headerlink" href="#_CPPv4N6wrench23MultiThreadedRefTrackerE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>This type implements a reference tracker which is thread safe and is designed for multi-threaded use. It can be embedded inside a class for intrusive reference tracking.</p>
+<p>This implements the <a class="reference internal" href="classwrench_1_1_ref_tracker.html#classwrench_1_1_ref_tracker"><span class="std std-ref">RefTracker</span></a> interface. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Types</p>
+<dl class="cpp type">
+<dt id="_CPPv4N6wrench23MultiThreadedRefTracker7CounterE">
+<span id="_CPPv3N6wrench23MultiThreadedRefTracker7CounterE"></span><span id="_CPPv2N6wrench23MultiThreadedRefTracker7CounterE"></span><span class="target" id="classwrench_1_1_multi_threaded_ref_tracker_1a3387012d88360c0ff341a6e003d9c78c"></span><em class="property">using </em><code class="sig-name descname">Counter</code> = std::atomic_size_t<a class="headerlink" href="#_CPPv4N6wrench23MultiThreadedRefTracker7CounterE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Defines the type of the counter. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="cpp function">
+<dt id="_CPPv4N6wrench23MultiThreadedRefTracker23MultiThreadedRefTrackerEv">
+<span id="_CPPv3N6wrench23MultiThreadedRefTracker23MultiThreadedRefTrackerEv"></span><span id="_CPPv2N6wrench23MultiThreadedRefTracker23MultiThreadedRefTrackerEv"></span><span id="wrench::MultiThreadedRefTracker::MultiThreadedRefTracker"></span><span class="target" id="classwrench_1_1_multi_threaded_ref_tracker_1a89a58ca6b0174bc22b7b3c265e5fd877"></span><code class="sig-name descname">MultiThreadedRefTracker</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">noexcept</em><a class="headerlink" href="#_CPPv4N6wrench23MultiThreadedRefTracker23MultiThreadedRefTrackerEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Constructor to initialize the reference count. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt>
+<span class="target" id="classwrench_1_1_multi_threaded_ref_tracker_1ad75b443af5eefba8afb876d20d7467c2"></span><code class="sig-name descname">auto add_reference_impl () noexcept -&gt; void</code></dt>
+<dd><p>Adds to the reference count. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt>
+<span class="target" id="classwrench_1_1_multi_threaded_ref_tracker_1afedd74fe8e6fbc8c06201d2e3255b6c0"></span><code class="sig-name descname">auto release () noexcept -&gt; bool</code></dt>
+<dd><p>Decrements the refernce count, and returns true if the resource being tracked with the reference count can be released. If this returns true, then the resource should be deleted by calling <code class="docutils literal notranslate"><span class="pre">destroy()</span></code>. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt>
+<span class="target" id="classwrench_1_1_multi_threaded_ref_tracker_1acb3163c0f65668cc531a98abf3cca110"></span><code class="sig-name descname">template&lt;typename T, typename Deleter&gt; auto destroy_resource_impl (T *resource, Deleter &amp;&amp;deleter) noexcept -&gt; void</code></dt>
+<dd><p>Destroys the resource <code class="docutils literal notranslate"><span class="pre">resource</span></code>, using the <code class="docutils literal notranslate"><span class="pre">deleter</span></code>, which should have a signature of:</p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">destructor</span> <span class="o">=</span> <span class="p">[]</span> <span class="p">(</span><span class="k">auto</span><span class="o">*</span> <span class="n">resource</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">void</span> <span class="p">{</span>
+<span class="c1">// free(resource);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</p>
+<p>This creates a thread fence before deleting the resource so that there is a valid release-acquire sequence with <code class="docutils literal notranslate"><a class="reference internal" href="#classwrench_1_1_multi_threaded_ref_tracker_1afedd74fe8e6fbc8c06201d2e3255b6c0"><span class="std std-ref"><span class="pre">release()</span></span></a></code> and any access from other threads <strong>happens before</strong> theis delete.</p>
+<p>Calling this when <code class="docutils literal notranslate"><a class="reference internal" href="#classwrench_1_1_multi_threaded_ref_tracker_1afedd74fe8e6fbc8c06201d2e3255b6c0"><span class="std std-ref"><span class="pre">release()</span></span></a></code> does not return <code class="docutils literal notranslate"><span class="pre">true</span></code> will invalidate all referenced objects.</p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">resource</span></code>: The resource to destroy. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">deleter</span></code>: The deleter for the resource. </p></li>
+</ul>
+</dd>
+<dt><strong>Template Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">T</span></code>: The type of the resource. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Deleter</span></code>: The type of the deleter. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="classwrench_1_1_pool_allocator.html" class="btn btn-neutral float-right" title="Template Class PoolAllocator" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="classwrench_1_1_linear_allocator.html" class="btn btn-neutral float-left" title="Class LinearAllocator" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Rob Clucas
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+  
+
+<script>window.markdeepOptions = { mode: 'doxygen' };</script>
+<script src="markdeep.min.js"></script>
+<script src="https://morgan3d.github.io/markdeep/latest/markdeep.min.js"></script>
+
+
+
+</body>
+</html>

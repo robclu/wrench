@@ -25,6 +25,8 @@
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
         <script src="../_static/language_data.js"></script>
+        <script src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -34,6 +36,7 @@
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Struct Freelist::Node" href="structwrench_1_1_freelist_1_1_node.html" />
@@ -185,14 +188,24 @@
 <ul class="simple">
 <li><p><a class="reference internal" href="structwrench_1_1_freelist_1_1_node.html#exhale-struct-structwrench-1-1-freelist-1-1-node"><span class="std std-ref">Struct Freelist::Node</span></a></p></li>
 <li><p><a class="reference internal" href="structwrench_1_1_heap_arena.html#exhale-struct-structwrench-1-1-heap-arena"><span class="std std-ref">Struct HeapArena</span></a></p></li>
+<li><p><a class="reference internal" href="structwrench_1_1_profiler_1_1_counters_1_1_counter.html#exhale-struct-structwrench-1-1-profiler-1-1-counters-1-1-counter"><span class="std std-ref">Struct Counters::Counter</span></a></p></li>
 <li><p><a class="reference internal" href="structwrench_1_1_spinlock.html#exhale-struct-structwrench-1-1-spinlock"><span class="std std-ref">Struct Spinlock</span></a></p></li>
 <li><p><a class="reference internal" href="structwrench_1_1_spinlock_1_1_sleeper.html#exhale-struct-structwrench-1-1-spinlock-1-1-sleeper"><span class="std std-ref">Struct Spinlock::Sleeper</span></a></p></li>
 <li><p><a class="reference internal" href="structwrench_1_1_thread_safe_freelist_1_1_head_ptr.html#exhale-struct-structwrench-1-1-thread-safe-freelist-1-1-head-ptr"><span class="std std-ref">Struct ThreadSafeFreelist::HeadPtr</span></a></p></li>
 <li><p><a class="reference internal" href="structwrench_1_1_thread_safe_freelist_1_1_node.html#exhale-struct-structwrench-1-1-thread-safe-freelist-1-1-node"><span class="std std-ref">Struct ThreadSafeFreelist::Node</span></a></p></li>
+<li><p><a class="reference internal" href="structwrench_1_1_void_lock.html#exhale-struct-structwrench-1-1-void-lock"><span class="std std-ref">Struct VoidLock</span></a></p></li>
 <li><p><a class="reference internal" href="classwrench_1_1_aligned_heap_allocator.html#exhale-class-classwrench-1-1-aligned-heap-allocator"><span class="std std-ref">Class AlignedHeapAllocator</span></a></p></li>
+<li><p><a class="reference internal" href="classwrench_1_1_allocator.html#exhale-class-classwrench-1-1-allocator"><span class="std std-ref">Template Class Allocator</span></a></p></li>
 <li><p><a class="reference internal" href="classwrench_1_1_freelist.html#exhale-class-classwrench-1-1-freelist"><span class="std std-ref">Class Freelist</span></a></p></li>
+<li><p><a class="reference internal" href="classwrench_1_1_intrusive_ptr.html#exhale-class-classwrench-1-1-intrusive-ptr"><span class="std std-ref">Template Class IntrusivePtr</span></a></p></li>
+<li><p><a class="reference internal" href="classwrench_1_1_intrusive_ptr_enabled.html#exhale-class-classwrench-1-1-intrusive-ptr-enabled"><span class="std std-ref">Template Class IntrusivePtrEnabled</span></a></p></li>
 <li><p><a class="reference internal" href="classwrench_1_1_linear_allocator.html#exhale-class-classwrench-1-1-linear-allocator"><span class="std std-ref">Class LinearAllocator</span></a></p></li>
+<li><p><a class="reference internal" href="classwrench_1_1_multi_threaded_ref_tracker.html#exhale-class-classwrench-1-1-multi-threaded-ref-tracker"><span class="std std-ref">Class MultiThreadedRefTracker</span></a></p></li>
 <li><p><a class="reference internal" href="classwrench_1_1_pool_allocator.html#exhale-class-classwrench-1-1-pool-allocator"><span class="std std-ref">Template Class PoolAllocator</span></a></p></li>
+<li><p><a class="reference internal" href="classwrench_1_1_profiler.html#exhale-class-classwrench-1-1-profiler"><span class="std std-ref">Class Profiler</span></a></p></li>
+<li><p><a class="reference internal" href="classwrench_1_1_profiler_1_1_counters.html#exhale-class-classwrench-1-1-profiler-1-1-counters"><span class="std std-ref">Class Profiler::Counters</span></a></p></li>
+<li><p><a class="reference internal" href="classwrench_1_1_ref_tracker.html#exhale-class-classwrench-1-1-ref-tracker"><span class="std std-ref">Template Class RefTracker</span></a></p></li>
+<li><p><a class="reference internal" href="classwrench_1_1_single_threaded_ref_tracker.html#exhale-class-classwrench-1-1-single-threaded-ref-tracker"><span class="std std-ref">Class SingleThreadedRefTracker</span></a></p></li>
 <li><p><a class="reference internal" href="classwrench_1_1_stack_arena.html#exhale-class-classwrench-1-1-stack-arena"><span class="std std-ref">Template Class StackArena</span></a></p></li>
 <li><p><a class="reference internal" href="classwrench_1_1_thread_safe_freelist.html#exhale-class-classwrench-1-1-thread-safe-freelist"><span class="std std-ref">Class ThreadSafeFreelist</span></a></p></li>
 </ul>
@@ -201,6 +214,8 @@
 <h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p><a class="reference internal" href="function_memory__utils_8hpp_1a5895da501ef40348ce77c4dde12e3179.html#exhale-function-memory-utils-8hpp-1a5895da501ef40348ce77c4dde12e3179"><span class="std std-ref">Function wrench::align_ptr</span></a></p></li>
+<li><p><a class="reference internal" href="function_intrusive__ptr_8hpp_1ad391555057331440da7b236be89d00cf.html#exhale-function-intrusive-ptr-8hpp-1ad391555057331440da7b236be89d00cf"><span class="std std-ref">Template Function wrench::allocate_intrusive_ptr</span></a></p></li>
+<li><p><a class="reference internal" href="function_intrusive__ptr_8hpp_1a1995d25db42fc934c9e4eca88b4b37f5.html#exhale-function-intrusive-ptr-8hpp-1a1995d25db42fc934c9e4eca88b4b37f5"><span class="std std-ref">Template Function wrench::make_intrusive_ptr</span></a></p></li>
 <li><p><a class="reference internal" href="function_memory__utils_8hpp_1ab4a31f5ef79d511a861dcf2c23c5ef55.html#exhale-function-memory-utils-8hpp-1ab4a31f5ef79d511a861dcf2c23c5ef55"><span class="std std-ref">Function wrench::offset_ptr</span></a></p></li>
 </ul>
 </div>
@@ -209,13 +224,20 @@
 <ul class="simple">
 <li><p><a class="reference internal" href="typedef_arena_8hpp_1aa5f668f199488eee6fb299cf325bdfa1.html#exhale-typedef-arena-8hpp-1aa5f668f199488eee6fb299cf325bdfa1"><span class="std std-ref">Typedef wrench::ArenaConstexprSizeEnable</span></a></p></li>
 <li><p><a class="reference internal" href="typedef_arena_8hpp_1a319924653a5f8c4beb9a5bc650384fe3.html#exhale-typedef-arena-8hpp-1a319924653a5f8c4beb9a5bc650384fe3"><span class="std std-ref">Typedef wrench::ArenaNonConstexprSizeEnable</span></a></p></li>
+<li><p><a class="reference internal" href="typedef_ref__tracker_8hpp_1a8f79f49e32dc28b4d8d5fb6875b5bece.html#exhale-typedef-ref-tracker-8hpp-1a8f79f49e32dc28b4d8d5fb6875b5bece"><span class="std std-ref">Typedef wrench::DefaultRefTracker</span></a></p></li>
 <li><p><a class="reference internal" href="typedef_arena_8hpp_1a3159549bc513c900d7580d6a03ba03a1.html#exhale-typedef-arena-8hpp-1a3159549bc513c900d7580d6a03ba03a1"><span class="std std-ref">Typedef wrench::DefaultStackArena</span></a></p></li>
+<li><p><a class="reference internal" href="typedef_intrusive__ptr_8hpp_1ad2c96042e8b017a2dbda0b02b1a14a2e.html#exhale-typedef-intrusive-ptr-8hpp-1ad2c96042e8b017a2dbda0b02b1a14a2e"><span class="std std-ref">Typedef wrench::MultiThreadedIntrusivePtrEnabled</span></a></p></li>
+<li><p><a class="reference internal" href="typedef_allocator_8hpp_1a521637be7a7a5089d0596604e8465047.html#exhale-typedef-allocator-8hpp-1a521637be7a7a5089d0596604e8465047"><span class="std std-ref">Typedef wrench::ObjectPoolAllocator</span></a></p></li>
+<li><p><a class="reference internal" href="typedef_intrusive__ptr_8hpp_1aefcb04ebc3ad0a270847e55063cf9880.html#exhale-typedef-intrusive-ptr-8hpp-1aefcb04ebc3ad0a270847e55063cf9880"><span class="std std-ref">Typedef wrench::SingleThreadedIntrusivePtrEnabled</span></a></p></li>
+<li><p><a class="reference internal" href="typedef_allocator_8hpp_1a526fa8c2f568fa7aed20d227d28c5246.html#exhale-typedef-allocator-8hpp-1a526fa8c2f568fa7aed20d227d28c5246"><span class="std std-ref">Typedef wrench::ThreadSafeObjectPoolAllocator</span></a></p></li>
 </ul>
 </div>
 <div class="section" id="variables">
 <h2>Variables<a class="headerlink" href="#variables" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p><a class="reference internal" href="variable_arena_8hpp_1a798f37a469eaea2c1d6c7768530b97b5.html#exhale-variable-arena-8hpp-1a798f37a469eaea2c1d6c7768530b97b5"><span class="std std-ref">Variable wrench::default_stack_arena_size</span></a></p></li>
+<li><p><a class="reference internal" href="variable_intrusive__ptr_8hpp_1a1bf552ead8a3e672b5a318bf4db34ba2.html#exhale-variable-intrusive-ptr-8hpp-1a1bf552ead8a3e672b5a318bf4db34ba2"><span class="std std-ref">Variable wrench::is_intrusive_ptr_enabled_v</span></a></p></li>
+<li><p><a class="reference internal" href="variable_ref__tracker_8hpp_1a54f8fc723f58c7f0501f4100a279d3ea.html#exhale-variable-ref-tracker-8hpp-1a54f8fc723f58c7f0501f4100a279d3ea"><span class="std std-ref">Variable wrench::is_ref_tracker_v</span></a></p></li>
 </ul>
 </div>
 </div>

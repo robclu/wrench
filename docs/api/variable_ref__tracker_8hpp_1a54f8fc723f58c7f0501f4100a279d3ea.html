@@ -1,0 +1,254 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Variable wrench::is_ref_tracker_v &mdash; Wrench 1.0.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Typedef wrench::ArenaConstexprSizeEnable" href="typedef_arena_8hpp_1aa5f668f199488eee6fb299cf325bdfa1.html" />
+    <link rel="prev" title="Variable wrench::is_intrusive_ptr_enabled_v" href="variable_intrusive__ptr_8hpp_1a1bf552ead8a3e672b5a318bf4db34ba2.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Wrench
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="wrench_api_root.html">Wrench API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="wrench_api_root.html#class-hierarchy">Class Hierarchy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wrench_api_root.html#file-hierarchy">File Hierarchy</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="wrench_api_root.html#full-api">Full API</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="wrench_api_root.html#namespaces">Namespaces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="wrench_api_root.html#classes-and-structs">Classes and Structs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="wrench_api_root.html#functions">Functions</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="wrench_api_root.html#variables">Variables</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="variable_arena_8hpp_1a798f37a469eaea2c1d6c7768530b97b5.html">Variable wrench::default_stack_arena_size</a></li>
+<li class="toctree-l4"><a class="reference internal" href="variable_intrusive__ptr_8hpp_1a1bf552ead8a3e672b5a318bf4db34ba2.html">Variable wrench::is_intrusive_ptr_enabled_v</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Variable wrench::is_ref_tracker_v</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="wrench_api_root.html#typedefs">Typedefs</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Wrench</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="wrench_api_root.html">Wrench API</a> &raquo;</li>
+        
+      <li>Variable wrench::is_ref_tracker_v</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/variable_ref__tracker_8hpp_1a54f8fc723f58c7f0501f4100a279d3ea.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="variable-wrench-is-ref-tracker-v">
+<span id="exhale-variable-ref-tracker-8hpp-1a54f8fc723f58c7f0501f4100a279d3ea"></span><h1>Variable wrench::is_ref_tracker_v<a class="headerlink" href="#variable-wrench-is-ref-tracker-v" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_include_wrench_memory_ref_tracker.hpp.html#file-include-wrench-memory-ref-tracker-hpp"><span class="std std-ref">File ref_tracker.hpp</span></a></p></li>
+</ul>
+<div class="section" id="variable-documentation">
+<h2>Variable Documentation<a class="headerlink" href="#variable-documentation" title="Permalink to this headline">¶</a></h2>
+<dl class="cpp var">
+<dt id="_CPPv4I0EN6wrench16is_ref_tracker_vE">
+<span id="_CPPv3I0EN6wrench16is_ref_tracker_vE"></span><span id="_CPPv2I0EN6wrench16is_ref_tracker_vE"></span>template&lt;typename <code class="sig-name descname">T</code>&gt;<br /><span class="target" id="ref__tracker_8hpp_1a54f8fc723f58c7f0501f4100a279d3ea"></span><em class="property">constexpr</em> bool <code class="sig-prename descclassname">wrench<code class="sig-prename descclassname">::</code></code><code class="sig-name descname">is_ref_tracker_v</code> = std::is_base_of_v&lt;<a class="reference internal" href="classwrench_1_1_ref_tracker.html#_CPPv4I0EN6wrench10RefTrackerE" title="wrench::RefTracker">RefTracker</a>&lt;std::decay_t&lt;<a class="reference internal" href="#_CPPv4I0EN6wrench16is_ref_tracker_vE" title="wrench::is_ref_tracker_v::T">T</a>&gt;&gt;, std::decay_t&lt;<a class="reference internal" href="#_CPPv4I0EN6wrench16is_ref_tracker_vE" title="wrench::is_ref_tracker_v::T">T</a>&gt;&gt;<a class="headerlink" href="#_CPPv4I0EN6wrench16is_ref_tracker_vE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Returns true if the type T is an implementation of the RefCounter interface. <dl class="simple">
+<dt><strong>Template Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">T</span></code>: The type to check if is a reference counter. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="typedef_arena_8hpp_1aa5f668f199488eee6fb299cf325bdfa1.html" class="btn btn-neutral float-right" title="Typedef wrench::ArenaConstexprSizeEnable" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="variable_intrusive__ptr_8hpp_1a1bf552ead8a3e672b5a318bf4db34ba2.html" class="btn btn-neutral float-left" title="Variable wrench::is_intrusive_ptr_enabled_v" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Rob Clucas
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+  
+
+<script>window.markdeepOptions = { mode: 'doxygen' };</script>
+<script src="markdeep.min.js"></script>
+<script src="https://morgan3d.github.io/markdeep/latest/markdeep.min.js"></script>
+
+
+
+</body>
+</html>
