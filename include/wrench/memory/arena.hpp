@@ -79,7 +79,7 @@ struct HeapArena {
   //==--- [construction] ---------------------------------------------------==//
 
   /// Initializes the arena with a specific size.
-  /// \param size The size of the arena.
+  /// \param size The size of the arena, in bytes.
   explicit HeapArena(size_t size) {
     if (size) {
       start_ = malloc(size);

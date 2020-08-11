@@ -174,22 +174,12 @@ class IntrusivePtrEnabled {
   RefTracker ref_tracker_; //!< The reference tracker.
 };
 
-/// Returns true if the type T is intrusive ptr enabled.
-/// \tparam T The type to determine if is intrusive pointer enabled.
-template <typename T>
-static constexpr bool is_intrusive_ptr_enabled_v =
-  std::is_base_of_v<IntrusivePtrEnabled<std::decay_t<T>>, std::decay_t<T>>;
-
 //==--- [intrusive pointer] ------------------------------------------------==//
 
 // IntrusivePtr imlpementation.
 // \tparam T The type to wrap in an intrusive pointer.
 template <typename T>
 class IntrusivePtr {
-  static_assert(
-    is_intrusive_ptr_enabled_v<T>,
-    "Type for IntrusivePtr must be a subclass of IntrusivePtrEnabled");
-
   /// Enable access for intrusive pointer type with different templates.
   template <typename U>
   friend class IntrusivePtr;
@@ -207,6 +197,10 @@ class IntrusivePtr {
     typename T::Enabled,
     typename T::DeleterType,
     typename T::RefTracker>;
+
+  static_assert(
+    std::is_base_of_v<IntrusiveEnabledBase, std::decay_t<T>>,
+    "Type for IntrusivePtr must be a subclass of IntrusivePtrEnabled!");
 
   //==--- [construction] ---------------------------------------------------==//
 

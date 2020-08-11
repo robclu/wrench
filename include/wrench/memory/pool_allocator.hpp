@@ -19,6 +19,7 @@
 #include "memory_utils.hpp"
 #include <atomic>
 #include <cstddef>
+#include <cstdio>
 
 namespace wrench {
 

@@ -133,7 +133,7 @@ class Allocator {
   /// If the arena has a constant size, then it will be created with that size,
   /// and \p size will be ignored.
   ///
-  /// \param  size  The size of the arena.
+  /// \param  size  The size of the arena, in bytes.
   /// \param  args  The arguments fro the primary allocator.
   /// \tparam Args  The types of arguments for the primary allocator.
   template <typename... Args>

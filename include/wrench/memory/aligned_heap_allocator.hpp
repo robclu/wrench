@@ -72,7 +72,7 @@ class AlignedHeapAllocator {
     std::free(ptr);
   }
 
-  /// Frees the memory pointed to by \ptr.
+  /// Frees the memory pointed to by \p ptr.
   /// \param ptr The pointer to the memory to free.
   auto free(void* ptr, size_t) noexcept -> void {
     std::free(ptr);
