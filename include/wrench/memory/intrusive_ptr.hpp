@@ -13,8 +13,8 @@
 //
 //==------------------------------------------------------------------------==//
 
-#ifndef WRENCH_MEMORY_INTRUSIVE_POINTER_HPP
-#define WRENCH_MEMORY_INTRUSIVE_POINTER_HPP
+#ifndef WRENCH_MEMORY_INTRUSIVE_PTR_HPP
+#define WRENCH_MEMORY_INTRUSIVE_PTR_HPP
 
 #include "ref_tracker.hpp"
 #include <memory>
@@ -23,7 +23,23 @@ namespace wrench {
 
 //==--- [forward declarations & aliases] -----------------------------------==//
 
-/// Forwrad declaration of an intrusive pointer.
+/// The `IntrusivePtr` type is a shared pointer implementation which is
+/// intrusive. The reference count is stored in the intrusive pointer. It has
+/// a smaller memory footprint than `std::shared_ptr` and usually gives better
+/// performance.
+///
+/// It additionally requires classes to inherit from `IntrusivePtrEnabled`,
+/// which allows for custom specialization of the deleter and referenc types,
+/// for single/multi-threaded use cases.
+///
+/// For a non-thread-safe, single-threaded optimized referencing, use
+/// `SingleThreadedRefTracker`, while for a thread-safe, multi-threaded
+/// optimized referencing, using `MultiThreadedRefTracker`.
+///
+/// Instances of instrusive pointer types should be create with
+/// `make_intrusive_ptr` or `allcoate_intrusive_ptr`rather than
+/// through direct construction.
+///
 /// \tparam T The type to wrap in an intrusive pointer.
 template <typename T>
 class IntrusivePtr;
@@ -61,13 +77,27 @@ using MultiThreadedIntrusivePtrEnabled =
 template <typename T, typename... Args>
 auto make_intrusive_ptr(Args&&... args) -> IntrusivePtr<T>;
 
+/// Creates an `IntrusivePtr<T>`, using the \p allocator to allocate the data
+/// for the object. The type T must be a base of IntrsivePtrEnabled<T, Deleter>
+/// with a Deleter type which uses the given \p allocator to destroy the data.
+///
+/// The allocator must have an `alloc(size, alignment)` method.
+///
+/// \param  allocator The allocator to allocate the data with.
+/// \param  args      The arguments for the construction of the pointer.
+/// \tparam T         The type of the intrusive pointed to type.
+/// \tparam Args      The type of the args.
+template <typename T, typename Allocator, typename... Args>
+auto allocate_intrusive_ptr(Allocator& allocator, Args&&... args)
+  -> IntrusivePtr<T>;
+
 //==--- [intrusive ptr enable] ---------------------------------------------==//
 
-/// Provides reference tracking and deleting functionality which can be
-/// inherited to enable IntrusivePtr functionality.
-/// \tparam T                The type of the pointer.
-/// \tparam Deleter          The type of the deleter for the object.
-/// \tparam ReferenceTracker The type of the refrence tracker.
+// Implementation of IntrusivePtrEnabled.
+// \tparam T                The type of the pointer.
+// \tparam Deleter          The type of the deleter for the object.
+// \tparam ReferenceTracker The type of the refrence tracker.
+// Implementation of IntrusivePtrEnabled.
 template <typename T, typename Deleter, typename ReferenceTracker>
 class IntrusivePtrEnabled {
   static_assert(
@@ -152,23 +182,8 @@ static constexpr bool is_intrusive_ptr_enabled_v =
 
 //==--- [intrusive pointer] ------------------------------------------------==//
 
-/// The IntrusivePtr type is a shared pointer implementation which is
-/// intrusive. The reference count is stored in the intrusive pointer. It has
-/// a smaller memroy footprint than `shared_ptr` and usually gives better
-/// performance.
-///
-/// It additionally requires classes to inherit from `IntrusivePtrEnable<T,
-/// Deleter, ReferenceType>`, which allows for custom specialization of the
-/// deleter and referenc types, for single/multi-threaded use cases.
-///
-/// For a non-thread-safe, single-threaded optimized referencing, use
-/// `SingleThreadedRefTracker`, while for a thread-safe, multi-threaded
-/// optimized referencing, using `MultiThreadedRefTracker`.
-///
-/// Instances of instrusive pointer types should be create with
-/// `make_intrusive_ptr(...)`, rather than through direct construction.
-///
-/// \tparam T The type to wrap in an intrusive pointer.
+// IntrusivePtr imlpementation.
+// \tparam T The type to wrap in an intrusive pointer.
 template <typename T>
 class IntrusivePtr {
   static_assert(
@@ -396,26 +411,20 @@ auto IntrusivePtrEnabled<T, Deleter, Tracker>::reference_from_this() noexcept
 
 //==--- [helper implementations] -------------------------------------------==//
 
-/// Implementation of the intrusive pointer creation function.
-/// \param  args The arguments for the construction of the intrusive pointer.
-/// \tparam T    The type of the intrusive pointed to type.
-/// \tparam Args The type of the args.
+// Implementation of the intrusive pointer creation function.
+// \param  args The args for construction of the type T.
+// \tparam T    The type to create an intrusive pointer for.
+// \tparam Args The types of the construction arguments.
 template <typename T, typename... Args>
 auto make_intrusive_ptr(Args&&... args) -> IntrusivePtr<T> {
   return IntrusivePtr<T>(new T(std::forward<Args>(args)...));
 }
 
-/// Implementation of the intrusive pointer allocation function. This uses the
-/// \p allocator to allocate the data for the object. The type T must be a base
-/// of IntrsivePtrEnable<T, Deleter> with a Deleter type which uses the given
-/// \p allocator to destroy the data.
-///
-/// The allocator must have an `alloc(size, alignment)` method.
-///
-/// \param  allocator The allocator to allocate the data with.
-/// \param  args      The arguments for the construction of the pointer.
-/// \tparam T         The type of the intrusive pointed to type.
-/// \tparam Args      The type of the args.
+// Implementation of intrusive pointer allocation creation.
+// \param  allocator The allocator to allocate the data with.
+// \param  args      The arguments for the construction of the pointer.
+// \tparam T         The type of the intrusive pointed to type.
+// \tparam Args      The type of the args.
 template <typename T, typename Allocator, typename... Args>
 auto allocate_intrusive_ptr(Allocator& allocator, Args&&... args)
   -> IntrusivePtr<T> {
