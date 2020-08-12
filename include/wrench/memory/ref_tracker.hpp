@@ -62,12 +62,12 @@ static constexpr bool is_ref_tracker_v =
 template <typename Impl>
 class RefTracker {
   /// Returns a pointer to the implementation.
-  [[nodiscard]] auto impl() noexcept -> Impl* {
+  wrench_no_discard auto impl() noexcept -> Impl* {
     return static_cast<Impl*>(this);
   }
 
   /// Returns a const pointer to the implementation.
-  [[nodiscard]] auto impl() const noexcept -> const Impl* {
+  wrench_no_discard auto impl() const noexcept -> const Impl* {
     return static_cast<const Impl*>(this);
   }
 

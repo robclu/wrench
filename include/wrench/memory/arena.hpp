@@ -47,17 +47,17 @@ class StackArena {
   //==--- [interface] ------------------------------------------------------==//
 
   /// Returns a pointer to the beginning of the arena.
-  [[nodiscard]] auto begin() const noexcept -> ConstPtr {
+  wrench_no_discard auto begin() const noexcept -> ConstPtr {
     return static_cast<ConstPtr>(&buffer_[0]);
   }
 
   /// Returns a pointer to the end of the arena.
-  [[nodiscard]] auto end() const noexcept -> ConstPtr {
+  wrench_no_discard auto end() const noexcept -> ConstPtr {
     return static_cast<ConstPtr>(&buffer_[stack_size]);
   }
 
   /// Returns the size of the arena.
-  [[nodiscard]] constexpr auto size() const noexcept -> size_t {
+  wrench_no_discard constexpr auto size() const noexcept -> size_t {
     return stack_size;
   }
 
@@ -113,17 +113,17 @@ struct HeapArena {
   //==--- [interface] ------------------------------------------------------==//
 
   /// Returns a pointer to the beginning of the arena.
-  [[nodiscard]] auto begin() const noexcept -> ConstPtr {
+  wrench_no_discard auto begin() const noexcept -> ConstPtr {
     return start_;
   }
 
   /// Returns a pointer to the end of the arena.
-  [[nodiscard]] auto end() const noexcept -> ConstPtr {
+  wrench_no_discard auto end() const noexcept -> ConstPtr {
     return end_;
   }
 
   /// Returns the size of the arena.
-  [[nodiscard]] auto size() const noexcept -> size_t {
+  wrench_no_discard auto size() const noexcept -> size_t {
     return uintptr_t(end_) - uintptr_t(start_);
   }
 

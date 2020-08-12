@@ -31,4 +31,10 @@
   #define wrench_unix 1
 #endif
 
+#if __cplusplus == 201703L
+  #define wrench_no_discard [[nodiscard]]
+#else
+  #define wrench_no_discard
+#endif
+
 #endif // WRENCH_UTILS_PORTABILITY_HPP
