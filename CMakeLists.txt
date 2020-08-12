@@ -22,6 +22,21 @@ set(CMAKE_PREFIX_PATH "$ENV{BENCHMARK_ROOT}")
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O3")
 set(CMAKE_CXX_STANDARD 17)
 
+if (CMAKE_BUILD_TYPE STREQUAL "Debug")
+  # Log everything
+  add_compile_definitions(WRENCH_LOG_LEVEL_DEBUG)
+else()
+  # Log only errors
+  add_compile_definitions(WRENCH_LOG_LEVEL_ERROR)
+endif()
+
+#===== [dependencies] =========================================================#
+
+find_package(fmt REQUIRED)
+if (NOT fmt_FOUND)
+  message(ERROR "Fmt not found!")
+endif()
+
 #===== [install] ==============================================================#
 
 cmake_policy(SET CMP0076 NEW)
@@ -50,6 +65,7 @@ target_include_directories(wrench PUBLIC
 target_include_directories(wrench SYSTEM PUBLIC
   $<INSTALL_INTERFACE:$<INSTALL_PREFIX>/include>
 )
+target_link_libraries(wrench PRIVATE fmt::fmt)
 
 # Setup package config
 include(CMakePackageConfigHelpers)
