@@ -45,6 +45,8 @@ Classes
 
 - :ref:`exhale_class_classwrench_1_1_linear_allocator`
 
+- :ref:`exhale_class_classwrench_1_1_logger`
+
 - :ref:`exhale_class_classwrench_1_1_multi_threaded_ref_tracker`
 
 - :ref:`exhale_class_classwrench_1_1_pool_allocator`
@@ -62,6 +64,13 @@ Classes
 - :ref:`exhale_class_classwrench_1_1_thread_safe_freelist`
 
 
+Enums
+-----
+
+
+- :ref:`exhale_enum_logger_8hpp_1a87a989b11909bac49b9e84757bacd24e`
+
+
 Functions
 ---------
 
@@ -69,6 +78,14 @@ Functions
 - :ref:`exhale_function_memory__utils_8hpp_1a5895da501ef40348ce77c4dde12e3179`
 
 - :ref:`exhale_function_intrusive__ptr_8hpp_1ad391555057331440da7b236be89d00cf`
+
+- :ref:`exhale_function_logger_8hpp_1a114c7d8ac0cc451de81cb627dbf1c427`
+
+- :ref:`exhale_function_logger_8hpp_1ad11886870077bccbb847ba0e098d2051`
+
+- :ref:`exhale_function_logger_8hpp_1a96ca75e6b785b65e111b451bb698c4de`
+
+- :ref:`exhale_function_logger_8hpp_1a0248bf0586053b6c288f82fc4dafa10c`
 
 - :ref:`exhale_function_intrusive__ptr_8hpp_1a1995d25db42fc934c9e4eca88b4b37f5`
 
@@ -87,6 +104,8 @@ Typedefs
 
 - :ref:`exhale_typedef_arena_8hpp_1a3159549bc513c900d7580d6a03ba03a1`
 
+- :ref:`exhale_typedef_logger_8hpp_1a744409ebeae8e6cb774f0c0845010be7`
+
 - :ref:`exhale_typedef_intrusive__ptr_8hpp_1ad2c96042e8b017a2dbda0b02b1a14a2e`
 
 - :ref:`exhale_typedef_allocator_8hpp_1a521637be7a7a5089d0596604e8465047`
@@ -102,6 +121,8 @@ Variables
 
 - :ref:`exhale_variable_arena_8hpp_1a798f37a469eaea2c1d6c7768530b97b5`
 
-- :ref:`exhale_variable_intrusive__ptr_8hpp_1a1bf552ead8a3e672b5a318bf4db34ba2`
-
 - :ref:`exhale_variable_ref__tracker_8hpp_1a54f8fc723f58c7f0501f4100a279d3ea`
+
+- :ref:`exhale_variable_logger_8hpp_1a19647baee07cbb169c4979e6200536f0`
+
+- :ref:`exhale_variable_logger_8hpp_1a5396d16dc5e86f55b9a72bb773580ea2`

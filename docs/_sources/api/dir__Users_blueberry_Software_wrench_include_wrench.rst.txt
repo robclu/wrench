@@ -14,6 +14,7 @@ Directory wrench
 Subdirectories
 --------------
 
+- :ref:`dir__Users_blueberry_Software_wrench_include_wrench_log`
 - :ref:`dir__Users_blueberry_Software_wrench_include_wrench_memory`
 - :ref:`dir__Users_blueberry_Software_wrench_include_wrench_multithreading`
 - :ref:`dir__Users_blueberry_Software_wrench_include_wrench_perf`

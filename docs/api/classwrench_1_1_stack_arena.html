@@ -110,6 +110,7 @@
 <li class="toctree-l4"><a class="reference internal" href="classwrench_1_1_intrusive_ptr.html">Template Class IntrusivePtr</a></li>
 <li class="toctree-l4"><a class="reference internal" href="classwrench_1_1_intrusive_ptr_enabled.html">Template Class IntrusivePtrEnabled</a></li>
 <li class="toctree-l4"><a class="reference internal" href="classwrench_1_1_linear_allocator.html">Class LinearAllocator</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classwrench_1_1_logger.html">Template Class Logger</a></li>
 <li class="toctree-l4"><a class="reference internal" href="classwrench_1_1_multi_threaded_ref_tracker.html">Class MultiThreadedRefTracker</a></li>
 <li class="toctree-l4"><a class="reference internal" href="classwrench_1_1_pool_allocator.html">Template Class PoolAllocator</a></li>
 <li class="toctree-l4"><a class="reference internal" href="classwrench_1_1_profiler.html">Class Profiler</a></li>
@@ -120,8 +121,10 @@
 <li class="toctree-l4"><a class="reference internal" href="classwrench_1_1_thread_safe_freelist.html">Class ThreadSafeFreelist</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="wrench_api_root.html#enums">Enums</a></li>
 <li class="toctree-l3"><a class="reference internal" href="wrench_api_root.html#functions">Functions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="wrench_api_root.html#variables">Variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="wrench_api_root.html#defines">Defines</a></li>
 <li class="toctree-l3"><a class="reference internal" href="wrench_api_root.html#typedefs">Typedefs</a></li>
 </ul>
 </li>
@@ -241,19 +244,19 @@
 
 <dl class="cpp function">
 <dt>
-<span class="target" id="classwrench_1_1_stack_arena_1a89db692608a4d6704723fd04cdd8c7b8"></span><code class="sig-name descname">auto begin () const noexcept -&gt; ConstPtr</code></dt>
+<span class="target" id="classwrench_1_1_stack_arena_1a0e50c45420abd97154db7697d1a07515"></span><code class="sig-name descname">wrench_no_discard auto begin () const noexcept -&gt; ConstPtr</code></dt>
 <dd><p>Returns a pointer to the beginning of the arena. </p>
 </dd></dl>
 
 <dl class="cpp function">
 <dt>
-<span class="target" id="classwrench_1_1_stack_arena_1a7d814ddd47e032964ffe08c588e13021"></span><code class="sig-name descname">auto end () const noexcept -&gt; ConstPtr</code></dt>
+<span class="target" id="classwrench_1_1_stack_arena_1a0957ef520b1cbe70fca81310bdffe856"></span><code class="sig-name descname">wrench_no_discard auto end () const noexcept -&gt; ConstPtr</code></dt>
 <dd><p>Returns a pointer to the end of the arena. </p>
 </dd></dl>
 
 <dl class="cpp function">
 <dt>
-<span class="target" id="classwrench_1_1_stack_arena_1a289571656ab480af10f138974bdd91b0"></span><code class="sig-name descname">constexpr auto size () const noexcept -&gt; size_t</code></dt>
+<span class="target" id="classwrench_1_1_stack_arena_1a73ea7762f7f14e32dc99c2aef17dcafb"></span><code class="sig-name descname">constexpr wrench_no_discard auto size () const noexcept -&gt; size_t</code></dt>
 <dd><p>Returns the size of the arena. </p>
 </dd></dl>
 

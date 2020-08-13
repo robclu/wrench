@@ -49,15 +49,15 @@ Program Listing for File arena.hpp
    
      //==--- [interface] ------------------------------------------------------==//
    
-     [[nodiscard]] auto begin() const noexcept -> ConstPtr {
+     wrench_no_discard auto begin() const noexcept -> ConstPtr {
        return static_cast<ConstPtr>(&buffer_[0]);
      }
    
-     [[nodiscard]] auto end() const noexcept -> ConstPtr {
+     wrench_no_discard auto end() const noexcept -> ConstPtr {
        return static_cast<ConstPtr>(&buffer_[stack_size]);
      }
    
-     [[nodiscard]] constexpr auto size() const noexcept -> size_t {
+     wrench_no_discard constexpr auto size() const noexcept -> size_t {
        return stack_size;
      }
    
@@ -103,15 +103,15 @@ Program Listing for File arena.hpp
    
      //==--- [interface] ------------------------------------------------------==//
    
-     [[nodiscard]] auto begin() const noexcept -> ConstPtr {
+     wrench_no_discard auto begin() const noexcept -> ConstPtr {
        return start_;
      }
    
-     [[nodiscard]] auto end() const noexcept -> ConstPtr {
+     wrench_no_discard auto end() const noexcept -> ConstPtr {
        return end_;
      }
    
-     [[nodiscard]] auto size() const noexcept -> size_t {
+     wrench_no_discard auto size() const noexcept -> size_t {
        return uintptr_t(end_) - uintptr_t(start_);
      }
    

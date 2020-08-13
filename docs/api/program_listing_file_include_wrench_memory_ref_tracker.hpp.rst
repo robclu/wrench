@@ -56,11 +56,11 @@ Program Listing for File ref_tracker.hpp
    
    template <typename Impl>
    class RefTracker {
-     [[nodiscard]] auto impl() noexcept -> Impl* {
+     wrench_no_discard auto impl() noexcept -> Impl* {
        return static_cast<Impl*>(this);
      }
    
-     [[nodiscard]] auto impl() const noexcept -> const Impl* {
+     wrench_no_discard auto impl() const noexcept -> const Impl* {
        return static_cast<const Impl*>(this);
      }
    

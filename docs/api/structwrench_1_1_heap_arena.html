@@ -110,6 +110,7 @@
 <li class="toctree-l4"><a class="reference internal" href="classwrench_1_1_intrusive_ptr.html">Template Class IntrusivePtr</a></li>
 <li class="toctree-l4"><a class="reference internal" href="classwrench_1_1_intrusive_ptr_enabled.html">Template Class IntrusivePtrEnabled</a></li>
 <li class="toctree-l4"><a class="reference internal" href="classwrench_1_1_linear_allocator.html">Class LinearAllocator</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classwrench_1_1_logger.html">Template Class Logger</a></li>
 <li class="toctree-l4"><a class="reference internal" href="classwrench_1_1_multi_threaded_ref_tracker.html">Class MultiThreadedRefTracker</a></li>
 <li class="toctree-l4"><a class="reference internal" href="classwrench_1_1_pool_allocator.html">Template Class PoolAllocator</a></li>
 <li class="toctree-l4"><a class="reference internal" href="classwrench_1_1_profiler.html">Class Profiler</a></li>
@@ -120,8 +121,10 @@
 <li class="toctree-l4"><a class="reference internal" href="classwrench_1_1_thread_safe_freelist.html">Class ThreadSafeFreelist</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="wrench_api_root.html#enums">Enums</a></li>
 <li class="toctree-l3"><a class="reference internal" href="wrench_api_root.html#functions">Functions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="wrench_api_root.html#variables">Variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="wrench_api_root.html#defines">Defines</a></li>
 <li class="toctree-l3"><a class="reference internal" href="wrench_api_root.html#typedefs">Typedefs</a></li>
 </ul>
 </li>
@@ -226,7 +229,7 @@
 <span id="_CPPv3N6wrench9HeapArena9HeapArenaE6size_t"></span><span id="_CPPv2N6wrench9HeapArena9HeapArenaE6size_t"></span><span id="wrench::HeapArena::HeapArena__s"></span><span class="target" id="structwrench_1_1_heap_arena_1aed471e15d42f7c422f887df68d15ad52"></span><code class="sig-name descname">HeapArena</code><span class="sig-paren">(</span>size_t <em>size</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6wrench9HeapArena9HeapArenaE6size_t" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Initializes the arena with a specific size. <dl class="simple">
 <dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">size</span></code>: The size of the arena. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">size</span></code>: The size of the arena, in bytes. </p></li>
 </ul>
 </dd>
 </dl>
@@ -265,19 +268,19 @@
 
 <dl class="cpp function">
 <dt>
-<span class="target" id="structwrench_1_1_heap_arena_1a7048a60d39c6d82ee6041a093cdded71"></span><code class="sig-name descname">auto begin () const noexcept -&gt; ConstPtr</code></dt>
+<span class="target" id="structwrench_1_1_heap_arena_1a07bfb42e3a431ea49292100378df753c"></span><code class="sig-name descname">wrench_no_discard auto begin () const noexcept -&gt; ConstPtr</code></dt>
 <dd><p>Returns a pointer to the beginning of the arena. </p>
 </dd></dl>
 
 <dl class="cpp function">
 <dt>
-<span class="target" id="structwrench_1_1_heap_arena_1a833fe0c9636264cf9f0b31951c9ae731"></span><code class="sig-name descname">auto end () const noexcept -&gt; ConstPtr</code></dt>
+<span class="target" id="structwrench_1_1_heap_arena_1a0bba46d2d2fa8b9323f42fc055f35e13"></span><code class="sig-name descname">wrench_no_discard auto end () const noexcept -&gt; ConstPtr</code></dt>
 <dd><p>Returns a pointer to the end of the arena. </p>
 </dd></dl>
 
 <dl class="cpp function">
 <dt>
-<span class="target" id="structwrench_1_1_heap_arena_1a009e5f61cf323d35afe200657c16cf5a"></span><code class="sig-name descname">auto size () const noexcept -&gt; size_t</code></dt>
+<span class="target" id="structwrench_1_1_heap_arena_1a91ee7ac9a52dd7b77ac1f4ec2a80dfe9"></span><code class="sig-name descname">wrench_no_discard auto size () const noexcept -&gt; size_t</code></dt>
 <dd><p>Returns the size of the arena. </p>
 </dd></dl>
 

@@ -202,6 +202,40 @@ or by installing as follows (from the root directory):</p>
 <code class="code cmake docutils literal notranslate"><span class="name builtin"><span class="pre">find_package</span></span><span class="punctuation"><span class="pre">(</span></span><span class="literal string"><span class="pre">wrench</span></span><span class="punctuation"><span class="pre">)</span></span></code> doesn’t work after installation.</p>
 </div>
 </div>
+<div class="section" id="components">
+<h1>Components<a class="headerlink" href="#components" title="Permalink to this headline">¶</a></h1>
+<p>The following is a list of some of the modules in wrench, and some of the
+components in the modules. The list is arranged alphabetically. For all modules,
+see the <a class="reference internal" href="api/wrench_api_root.html#full-api"><span class="std std-ref">Full API</span></a>.</p>
+<div class="section" id="log">
+<h2>log<a class="headerlink" href="#log" title="Permalink to this headline">¶</a></h2>
+<p>A lightweight logger, which can be configured to log errors of different levels.
+Errors with lower levels that the compile-time configured level comile to
+nothing, so the logger has no overhead for any unwanted logging in release
+builds.</p>
+</div>
+<div class="section" id="memory">
+<h2>memory<a class="headerlink" href="#memory" title="Permalink to this headline">¶</a></h2>
+<p>All memory utilites. There are a number of different allocators, all of which
+should be used with the <a class="reference internal" href="api/classwrench_1_1_allocator.html#template-class-allocator"><span class="std std-ref">Allocator Class</span></a>, which
+is the main interface for an allocator. It never fails to allocate with the
+default fallback allocator, and is very fast when using one of the pool
+allocators as the primary allocator.</p>
+<p>Other utilities are a reference tracker and an  <a class="reference internal" href="api/classwrench_1_1_intrusive_ptr.html#template-class-intrusiveptr"><span class="std std-ref">IntrusivePtr</span></a>, which is a lighter weight smart pointer than
+<cite>std::shared_ptr</cite>.</p>
+</div>
+<div class="section" id="multithreading">
+<h2>multithreading<a class="headerlink" href="#multithreading" title="Permalink to this headline">¶</a></h2>
+<p>Constains utilties for multithreading. The <a class="reference internal" href="api/structwrench_1_1_spinlock.html#struct-spinlock"><span class="std std-ref">Spinlock</span></a>
+struct is a  lightweight spinlock implementation gives very good performance for
+simple multithreading functionality. It’s been benchmarked at 2-3x <cite>std::mutex</cite>.</p>
+</div>
+<div class="section" id="perf">
+<h2>perf<a class="headerlink" href="#perf" title="Permalink to this headline">¶</a></h2>
+<p>Performance related functionality. Currently this is only a profiler which only
+works on linux.</p>
+</div>
+</div>
 
 
            </div>

@@ -158,12 +158,12 @@ Program Listing for File profiler.hpp
        }
      };
    
-     [[nodiscard]] auto has_branch_rates() const noexcept -> bool {
+     wrench_no_discard auto has_branch_rates() const noexcept -> bool {
        return counter_fds_[PerfEvent::branches] >= 0 &&
               counter_fds_[PerfEvent::branch_misses] >= 0;
      }
    
-     [[nodiscard]] auto has_instruction_cache_rates() const noexcept -> bool {
+     wrench_no_discard auto has_instruction_cache_rates() const noexcept -> bool {
        return counter_fds_[PerfEvent::icache_refs] >= 0 &&
               counter_fds_[PerfEvent::icache_misses] >= 0;
      }
@@ -199,7 +199,7 @@ Program Listing for File profiler.hpp
      CounterFds counter_fds_    = {};           
      uint32_t   enabled_events_ = none_enabled; 
    
-     [[nodiscard]] auto first_fd() const noexcept -> int {
+     wrench_no_discard auto first_fd() const noexcept -> int {
        return counter_ids_.front();
      }
    

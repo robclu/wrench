@@ -34,6 +34,8 @@ Includes
 
 - ``cstddef``
 
+- ``cstdio``
+
 - ``memory_utils.hpp`` (:ref:`file_include_wrench_memory_memory_utils.hpp`)
 
 

@@ -88,6 +88,11 @@ Classes and Structs
 .. toctree::
    :maxdepth: 5
 
+   classwrench_1_1_logger.rst
+
+.. toctree::
+   :maxdepth: 5
+
    classwrench_1_1_multi_threaded_ref_tracker.rst
 
 .. toctree::
@@ -125,6 +130,15 @@ Classes and Structs
 
    classwrench_1_1_thread_safe_freelist.rst
 
+Enums
+*****
+
+
+.. toctree::
+   :maxdepth: 5
+
+   enum_logger_8hpp_1a87a989b11909bac49b9e84757bacd24e.rst
+
 Functions
 *********
 
@@ -138,6 +152,26 @@ Functions
    :maxdepth: 5
 
    function_intrusive__ptr_8hpp_1ad391555057331440da7b236be89d00cf.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   function_logger_8hpp_1a114c7d8ac0cc451de81cb627dbf1c427.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   function_logger_8hpp_1ad11886870077bccbb847ba0e098d2051.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   function_logger_8hpp_1a96ca75e6b785b65e111b451bb698c4de.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   function_logger_8hpp_1a0248bf0586053b6c288f82fc4dafa10c.rst
 
 .. toctree::
    :maxdepth: 5
@@ -161,12 +195,26 @@ Variables
 .. toctree::
    :maxdepth: 5
 
-   variable_intrusive__ptr_8hpp_1a1bf552ead8a3e672b5a318bf4db34ba2.rst
+   variable_ref__tracker_8hpp_1a54f8fc723f58c7f0501f4100a279d3ea.rst
 
 .. toctree::
    :maxdepth: 5
 
-   variable_ref__tracker_8hpp_1a54f8fc723f58c7f0501f4100a279d3ea.rst
+   variable_logger_8hpp_1a19647baee07cbb169c4979e6200536f0.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   variable_logger_8hpp_1a5396d16dc5e86f55b9a72bb773580ea2.rst
+
+Defines
+*******
+
+
+.. toctree::
+   :maxdepth: 5
+
+   define_portability_8hpp_1ae02e931bc8b97521d27498845d72cd69.rst
 
 Typedefs
 ********
@@ -191,6 +239,11 @@ Typedefs
    :maxdepth: 5
 
    typedef_arena_8hpp_1a3159549bc513c900d7580d6a03ba03a1.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   typedef_logger_8hpp_1a744409ebeae8e6cb774f0c0845010be7.rst
 
 .. toctree::
    :maxdepth: 5

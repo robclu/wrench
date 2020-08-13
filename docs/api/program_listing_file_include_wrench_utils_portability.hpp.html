@@ -184,6 +184,12 @@
   <span class="cp">#define wrench_unix 1</span>
 <span class="cp">#endif</span>
 
+<span class="cp">#if __cplusplus == 201703L</span>
+  <span class="cp">#define wrench_no_discard [[nodiscard]]</span>
+<span class="cp">#else</span>
+  <span class="cp">#define wrench_no_discard</span>
+<span class="cp">#endif</span>
+
 <span class="cp">#endif </span><span class="c1">// WRENCH_UTILS_PORTABILITY_HPP</span>
 </pre></div>
 </div>

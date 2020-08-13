@@ -99,8 +99,10 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="wrench_api_root.html#classes-and-structs">Classes and Structs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="wrench_api_root.html#enums">Enums</a></li>
 <li class="toctree-l3"><a class="reference internal" href="wrench_api_root.html#functions">Functions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="wrench_api_root.html#variables">Variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="wrench_api_root.html#defines">Defines</a></li>
 <li class="toctree-l3"><a class="reference internal" href="wrench_api_root.html#typedefs">Typedefs</a></li>
 </ul>
 </li>
@@ -178,9 +180,10 @@
 <p class="topic-title">Contents</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="#classes" id="id2">Classes</a></p></li>
-<li><p><a class="reference internal" href="#functions" id="id3">Functions</a></p></li>
-<li><p><a class="reference internal" href="#typedefs" id="id4">Typedefs</a></p></li>
-<li><p><a class="reference internal" href="#variables" id="id5">Variables</a></p></li>
+<li><p><a class="reference internal" href="#enums" id="id3">Enums</a></p></li>
+<li><p><a class="reference internal" href="#functions" id="id4">Functions</a></p></li>
+<li><p><a class="reference internal" href="#typedefs" id="id5">Typedefs</a></p></li>
+<li><p><a class="reference internal" href="#variables" id="id6">Variables</a></p></li>
 </ul>
 </div>
 <div class="section" id="classes">
@@ -200,6 +203,7 @@
 <li><p><a class="reference internal" href="classwrench_1_1_intrusive_ptr.html#exhale-class-classwrench-1-1-intrusive-ptr"><span class="std std-ref">Template Class IntrusivePtr</span></a></p></li>
 <li><p><a class="reference internal" href="classwrench_1_1_intrusive_ptr_enabled.html#exhale-class-classwrench-1-1-intrusive-ptr-enabled"><span class="std std-ref">Template Class IntrusivePtrEnabled</span></a></p></li>
 <li><p><a class="reference internal" href="classwrench_1_1_linear_allocator.html#exhale-class-classwrench-1-1-linear-allocator"><span class="std std-ref">Class LinearAllocator</span></a></p></li>
+<li><p><a class="reference internal" href="classwrench_1_1_logger.html#exhale-class-classwrench-1-1-logger"><span class="std std-ref">Template Class Logger</span></a></p></li>
 <li><p><a class="reference internal" href="classwrench_1_1_multi_threaded_ref_tracker.html#exhale-class-classwrench-1-1-multi-threaded-ref-tracker"><span class="std std-ref">Class MultiThreadedRefTracker</span></a></p></li>
 <li><p><a class="reference internal" href="classwrench_1_1_pool_allocator.html#exhale-class-classwrench-1-1-pool-allocator"><span class="std std-ref">Template Class PoolAllocator</span></a></p></li>
 <li><p><a class="reference internal" href="classwrench_1_1_profiler.html#exhale-class-classwrench-1-1-profiler"><span class="std std-ref">Class Profiler</span></a></p></li>
@@ -210,11 +214,21 @@
 <li><p><a class="reference internal" href="classwrench_1_1_thread_safe_freelist.html#exhale-class-classwrench-1-1-thread-safe-freelist"><span class="std std-ref">Class ThreadSafeFreelist</span></a></p></li>
 </ul>
 </div>
+<div class="section" id="enums">
+<h2>Enums<a class="headerlink" href="#enums" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="enum_logger_8hpp_1a87a989b11909bac49b9e84757bacd24e.html#exhale-enum-logger-8hpp-1a87a989b11909bac49b9e84757bacd24e"><span class="std std-ref">Enum LogLevel</span></a></p></li>
+</ul>
+</div>
 <div class="section" id="functions">
 <h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p><a class="reference internal" href="function_memory__utils_8hpp_1a5895da501ef40348ce77c4dde12e3179.html#exhale-function-memory-utils-8hpp-1a5895da501ef40348ce77c4dde12e3179"><span class="std std-ref">Function wrench::align_ptr</span></a></p></li>
 <li><p><a class="reference internal" href="function_intrusive__ptr_8hpp_1ad391555057331440da7b236be89d00cf.html#exhale-function-intrusive-ptr-8hpp-1ad391555057331440da7b236be89d00cf"><span class="std std-ref">Template Function wrench::allocate_intrusive_ptr</span></a></p></li>
+<li><p><a class="reference internal" href="function_logger_8hpp_1a114c7d8ac0cc451de81cb627dbf1c427.html#exhale-function-logger-8hpp-1a114c7d8ac0cc451de81cb627dbf1c427"><span class="std std-ref">Template Function wrench::log_debug</span></a></p></li>
+<li><p><a class="reference internal" href="function_logger_8hpp_1ad11886870077bccbb847ba0e098d2051.html#exhale-function-logger-8hpp-1ad11886870077bccbb847ba0e098d2051"><span class="std std-ref">Template Function wrench::log_error</span></a></p></li>
+<li><p><a class="reference internal" href="function_logger_8hpp_1a96ca75e6b785b65e111b451bb698c4de.html#exhale-function-logger-8hpp-1a96ca75e6b785b65e111b451bb698c4de"><span class="std std-ref">Template Function wrench::log_info</span></a></p></li>
+<li><p><a class="reference internal" href="function_logger_8hpp_1a0248bf0586053b6c288f82fc4dafa10c.html#exhale-function-logger-8hpp-1a0248bf0586053b6c288f82fc4dafa10c"><span class="std std-ref">Template Function wrench::log_warn</span></a></p></li>
 <li><p><a class="reference internal" href="function_intrusive__ptr_8hpp_1a1995d25db42fc934c9e4eca88b4b37f5.html#exhale-function-intrusive-ptr-8hpp-1a1995d25db42fc934c9e4eca88b4b37f5"><span class="std std-ref">Template Function wrench::make_intrusive_ptr</span></a></p></li>
 <li><p><a class="reference internal" href="function_memory__utils_8hpp_1ab4a31f5ef79d511a861dcf2c23c5ef55.html#exhale-function-memory-utils-8hpp-1ab4a31f5ef79d511a861dcf2c23c5ef55"><span class="std std-ref">Function wrench::offset_ptr</span></a></p></li>
 </ul>
@@ -226,6 +240,7 @@
 <li><p><a class="reference internal" href="typedef_arena_8hpp_1a319924653a5f8c4beb9a5bc650384fe3.html#exhale-typedef-arena-8hpp-1a319924653a5f8c4beb9a5bc650384fe3"><span class="std std-ref">Typedef wrench::ArenaNonConstexprSizeEnable</span></a></p></li>
 <li><p><a class="reference internal" href="typedef_ref__tracker_8hpp_1a8f79f49e32dc28b4d8d5fb6875b5bece.html#exhale-typedef-ref-tracker-8hpp-1a8f79f49e32dc28b4d8d5fb6875b5bece"><span class="std std-ref">Typedef wrench::DefaultRefTracker</span></a></p></li>
 <li><p><a class="reference internal" href="typedef_arena_8hpp_1a3159549bc513c900d7580d6a03ba03a1.html#exhale-typedef-arena-8hpp-1a3159549bc513c900d7580d6a03ba03a1"><span class="std std-ref">Typedef wrench::DefaultStackArena</span></a></p></li>
+<li><p><a class="reference internal" href="typedef_logger_8hpp_1a744409ebeae8e6cb774f0c0845010be7.html#exhale-typedef-logger-8hpp-1a744409ebeae8e6cb774f0c0845010be7"><span class="std std-ref">Typedef wrench::Log</span></a></p></li>
 <li><p><a class="reference internal" href="typedef_intrusive__ptr_8hpp_1ad2c96042e8b017a2dbda0b02b1a14a2e.html#exhale-typedef-intrusive-ptr-8hpp-1ad2c96042e8b017a2dbda0b02b1a14a2e"><span class="std std-ref">Typedef wrench::MultiThreadedIntrusivePtrEnabled</span></a></p></li>
 <li><p><a class="reference internal" href="typedef_allocator_8hpp_1a521637be7a7a5089d0596604e8465047.html#exhale-typedef-allocator-8hpp-1a521637be7a7a5089d0596604e8465047"><span class="std std-ref">Typedef wrench::ObjectPoolAllocator</span></a></p></li>
 <li><p><a class="reference internal" href="typedef_intrusive__ptr_8hpp_1aefcb04ebc3ad0a270847e55063cf9880.html#exhale-typedef-intrusive-ptr-8hpp-1aefcb04ebc3ad0a270847e55063cf9880"><span class="std std-ref">Typedef wrench::SingleThreadedIntrusivePtrEnabled</span></a></p></li>
@@ -236,8 +251,9 @@
 <h2>Variables<a class="headerlink" href="#variables" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p><a class="reference internal" href="variable_arena_8hpp_1a798f37a469eaea2c1d6c7768530b97b5.html#exhale-variable-arena-8hpp-1a798f37a469eaea2c1d6c7768530b97b5"><span class="std std-ref">Variable wrench::default_stack_arena_size</span></a></p></li>
-<li><p><a class="reference internal" href="variable_intrusive__ptr_8hpp_1a1bf552ead8a3e672b5a318bf4db34ba2.html#exhale-variable-intrusive-ptr-8hpp-1a1bf552ead8a3e672b5a318bf4db34ba2"><span class="std std-ref">Variable wrench::is_intrusive_ptr_enabled_v</span></a></p></li>
 <li><p><a class="reference internal" href="variable_ref__tracker_8hpp_1a54f8fc723f58c7f0501f4100a279d3ea.html#exhale-variable-ref-tracker-8hpp-1a54f8fc723f58c7f0501f4100a279d3ea"><span class="std std-ref">Variable wrench::is_ref_tracker_v</span></a></p></li>
+<li><p><a class="reference internal" href="variable_logger_8hpp_1a19647baee07cbb169c4979e6200536f0.html#exhale-variable-logger-8hpp-1a19647baee07cbb169c4979e6200536f0"><span class="std std-ref">Variable wrench::logfile_path</span></a></p></li>
+<li><p><a class="reference internal" href="variable_logger_8hpp_1a5396d16dc5e86f55b9a72bb773580ea2.html#exhale-variable-logger-8hpp-1a5396d16dc5e86f55b9a72bb773580ea2"><span class="std std-ref">Variable wrench::logger_default_buffer_size</span></a></p></li>
 </ul>
 </div>
 </div>

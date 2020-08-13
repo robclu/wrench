@@ -72,10 +72,3 @@ Typedefs
 
 - :ref:`exhale_typedef_intrusive__ptr_8hpp_1aefcb04ebc3ad0a270847e55063cf9880`
 
-
-Variables
----------
-
-
-- :ref:`exhale_variable_intrusive__ptr_8hpp_1a1bf552ead8a3e672b5a318bf4db34ba2`
-

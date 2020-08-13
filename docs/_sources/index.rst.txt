@@ -51,3 +51,44 @@ which will install wrench to :bash:`PREFIX`.
 .. note::
    You will need to add :bash:`PREFIX` to :bash:`CMAKE_PREFIX_PATH` if
    :cmake:`find_package(wrench)` doesn't work after installation.
+
+Components
+==========
+
+The following is a list of some of the modules in wrench, and some of the
+components in the modules. The list is arranged alphabetically. For all modules,
+see the :ref:`Full API`.
+
+log
+---
+
+A lightweight logger, which can be configured to log errors of different levels.
+Errors with lower levels that the compile-time configured level comile to
+nothing, so the logger has no overhead for any unwanted logging in release
+builds.
+
+memory
+------
+
+All memory utilites. There are a number of different allocators, all of which
+should be used with the :ref:`Allocator Class<Template Class Allocator>`, which
+is the main interface for an allocator. It never fails to allocate with the
+default fallback allocator, and is very fast when using one of the pool
+allocators as the primary allocator.
+
+Other utilities are a reference tracker and an  :ref:`IntrusivePtr <Template
+Class IntrusivePtr>`, which is a lighter weight smart pointer than
+`std::shared_ptr`.  
+
+multithreading
+--------------
+
+Constains utilties for multithreading. The :ref:`Spinlock <Struct Spinlock>`
+struct is a  lightweight spinlock implementation gives very good performance for
+simple multithreading functionality. It's been benchmarked at 2-3x `std::mutex`.
+
+perf
+----
+
+Performance related functionality. Currently this is only a profiler which only
+works on linux.

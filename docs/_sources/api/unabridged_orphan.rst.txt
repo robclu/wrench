@@ -16,6 +16,11 @@ Directories
 .. toctree::
    :maxdepth: 5
 
+   dir__Users_blueberry_Software_wrench_include_wrench_log.rst
+
+.. toctree::
+   :maxdepth: 5
+
    dir__Users_blueberry_Software_wrench_include_wrench_memory.rst
 
 .. toctree::
@@ -66,6 +71,11 @@ Files
    :maxdepth: 5
 
    file_include_wrench_memory_linear_allocator.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_include_wrench_log_logger.hpp.rst
 
 .. toctree::
    :maxdepth: 5

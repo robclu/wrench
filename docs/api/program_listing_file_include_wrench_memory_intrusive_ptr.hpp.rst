@@ -118,20 +118,12 @@ Program Listing for File intrusive_ptr.hpp
      RefTracker ref_tracker_; 
    };
    
-   template <typename T>
-   static constexpr bool is_intrusive_ptr_enabled_v =
-     std::is_base_of_v<IntrusivePtrEnabled<std::decay_t<T>>, std::decay_t<T>>;
-   
    //==--- [intrusive pointer] ------------------------------------------------==//
    
    // IntrusivePtr imlpementation.
    // \tparam T The type to wrap in an intrusive pointer.
    template <typename T>
    class IntrusivePtr {
-     static_assert(
-       is_intrusive_ptr_enabled_v<T>,
-       "Type for IntrusivePtr must be a subclass of IntrusivePtrEnabled");
-   
      template <typename U>
      friend class IntrusivePtr;
    
@@ -147,6 +139,10 @@ Program Listing for File intrusive_ptr.hpp
        typename T::Enabled,
        typename T::DeleterType,
        typename T::RefTracker>;
+   
+     static_assert(
+       std::is_base_of_v<IntrusiveEnabledBase, std::decay_t<T>>,
+       "Type for IntrusivePtr must be a subclass of IntrusivePtrEnabled!");
    
      //==--- [construction] ---------------------------------------------------==//
    

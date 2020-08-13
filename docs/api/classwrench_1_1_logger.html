@@ -1,0 +1,378 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Template Class Logger &mdash; Wrench 1.0.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Class MultiThreadedRefTracker" href="classwrench_1_1_multi_threaded_ref_tracker.html" />
+    <link rel="prev" title="Class LinearAllocator" href="classwrench_1_1_linear_allocator.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Wrench
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="wrench_api_root.html">Wrench API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="wrench_api_root.html#class-hierarchy">Class Hierarchy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wrench_api_root.html#file-hierarchy">File Hierarchy</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="wrench_api_root.html#full-api">Full API</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="wrench_api_root.html#namespaces">Namespaces</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="wrench_api_root.html#classes-and-structs">Classes and Structs</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="structwrench_1_1_freelist_1_1_node.html">Struct Freelist::Node</a></li>
+<li class="toctree-l4"><a class="reference internal" href="structwrench_1_1_heap_arena.html">Struct HeapArena</a></li>
+<li class="toctree-l4"><a class="reference internal" href="structwrench_1_1_profiler_1_1_counters_1_1_counter.html">Struct Counters::Counter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="structwrench_1_1_spinlock.html">Struct Spinlock</a></li>
+<li class="toctree-l4"><a class="reference internal" href="structwrench_1_1_spinlock_1_1_sleeper.html">Struct Spinlock::Sleeper</a></li>
+<li class="toctree-l4"><a class="reference internal" href="structwrench_1_1_thread_safe_freelist_1_1_head_ptr.html">Struct ThreadSafeFreelist::HeadPtr</a></li>
+<li class="toctree-l4"><a class="reference internal" href="structwrench_1_1_thread_safe_freelist_1_1_node.html">Struct ThreadSafeFreelist::Node</a></li>
+<li class="toctree-l4"><a class="reference internal" href="structwrench_1_1_void_lock.html">Struct VoidLock</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classwrench_1_1_aligned_heap_allocator.html">Class AlignedHeapAllocator</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classwrench_1_1_allocator.html">Template Class Allocator</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classwrench_1_1_freelist.html">Class Freelist</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classwrench_1_1_intrusive_ptr.html">Template Class IntrusivePtr</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classwrench_1_1_intrusive_ptr_enabled.html">Template Class IntrusivePtrEnabled</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classwrench_1_1_linear_allocator.html">Class LinearAllocator</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Template Class Logger</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classwrench_1_1_multi_threaded_ref_tracker.html">Class MultiThreadedRefTracker</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classwrench_1_1_pool_allocator.html">Template Class PoolAllocator</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classwrench_1_1_profiler.html">Class Profiler</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classwrench_1_1_profiler_1_1_counters.html">Class Profiler::Counters</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classwrench_1_1_ref_tracker.html">Template Class RefTracker</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classwrench_1_1_single_threaded_ref_tracker.html">Class SingleThreadedRefTracker</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classwrench_1_1_stack_arena.html">Template Class StackArena</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classwrench_1_1_thread_safe_freelist.html">Class ThreadSafeFreelist</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="wrench_api_root.html#enums">Enums</a></li>
+<li class="toctree-l3"><a class="reference internal" href="wrench_api_root.html#functions">Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="wrench_api_root.html#variables">Variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="wrench_api_root.html#defines">Defines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="wrench_api_root.html#typedefs">Typedefs</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Wrench</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="wrench_api_root.html">Wrench API</a> &raquo;</li>
+        
+      <li>Template Class Logger</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/classwrench_1_1_logger.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="template-class-logger">
+<span id="exhale-class-classwrench-1-1-logger"></span><h1>Template Class Logger<a class="headerlink" href="#template-class-logger" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_include_wrench_log_logger.hpp.html#file-include-wrench-log-logger-hpp"><span class="std std-ref">File logger.hpp</span></a></p></li>
+</ul>
+<div class="section" id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline">¶</a></h2>
+<dl class="cpp class">
+<dt id="_CPPv4I_8LogLevel_6size_t0EN6wrench6LoggerE">
+<span id="_CPPv3I_8LogLevel_6size_t0EN6wrench6LoggerE"></span><span id="_CPPv2I_8LogLevel_6size_t0EN6wrench6LoggerE"></span>template&lt;<a class="reference internal" href="enum_logger_8hpp_1a87a989b11909bac49b9e84757bacd24e.html#_CPPv4N6wrench8LogLevelE" title="wrench::LogLevel">LogLevel</a> <code class="sig-name descname">MinLevel</code>, size_t <code class="sig-name descname">BufferSize</code>, typename <code class="sig-name descname">LockPolicy</code>&gt;<br /><span class="target" id="classwrench_1_1_logger"></span><em class="property">class </em><code class="sig-prename descclassname">wrench<code class="sig-prename descclassname">::</code></code><code class="sig-name descname">Logger</code><a class="headerlink" href="#_CPPv4I_8LogLevel_6size_t0EN6wrench6LoggerE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Basic logger class, which logs messages when the level of the message is more tha the MinLevel. The messages are buffered in a buffer of BufferSize, and if a message wont fit in the buffer, the buffer is flushed.</p>
+<p>This logger is not designed to be high-performance, since in release the only messages that will be logged in the fast path are error messages, and info messages will be in the slow path, so safety and flexibility are more important.</p>
+<p>The logger uses an instance of the locking policy to lock when logging.</p>
+<p><dl class="simple">
+<dt><strong>Template Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">MinLevel</span></code>: The minimum level for message logging. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">BufferSize</span></code>: The size of the message buffer. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">LockPolicy</span></code>: The locking polcity for the lock. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="cpp function">
+<dt id="_CPPv4N6wrench6LoggerD0Ev">
+<span id="_CPPv3N6wrench6LoggerD0Ev"></span><span id="_CPPv2N6wrench6LoggerD0Ev"></span><span id="wrench::Logger::~Logger"></span><span class="target" id="classwrench_1_1_logger_1ae4452a07525a2ad2f69e66f5a9ee12ad"></span><code class="sig-name descname">~Logger</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6wrench6LoggerD0Ev" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Flushes pending logs in the stream and closes the logging file. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N6wrench6Logger6LoggerERR6Logger">
+<span id="_CPPv3N6wrench6Logger6LoggerERR6Logger"></span><span id="_CPPv2N6wrench6Logger6LoggerERR6Logger"></span><span id="wrench::Logger::Logger__LoggerRR"></span><span class="target" id="classwrench_1_1_logger_1addf16975bf2727b6eb08f5c8e784f8c7"></span><code class="sig-name descname">Logger</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N6wrench6Logger6LoggerERR6Logger" title="wrench::Logger::Logger">Logger</a>&amp;&amp;<span class="sig-paren">)</span> <em class="property">noexcept</em> = default<a class="headerlink" href="#_CPPv4N6wrench6Logger6LoggerERR6Logger" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Defaulted move construction. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt>
+<span class="target" id="classwrench_1_1_logger_1ab51a54b23b771d3bdce0ec49053aeb36"></span><code class="sig-name descname">auto operator= (Logger &amp;&amp;) noexcept -&gt; Logger &amp;=default</code></dt>
+<dd><p>Delete move assignment, since we can only have a single logger. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N6wrench6Logger6LoggerEv">
+<span id="_CPPv3N6wrench6Logger6LoggerEv"></span><span id="_CPPv2N6wrench6Logger6LoggerEv"></span><span id="wrench::Logger::Logger"></span><span class="target" id="classwrench_1_1_logger_1adabe4bc921514e825c7732c93b4f2608"></span><code class="sig-name descname">Logger</code><span class="sig-paren">(</span><span class="sig-paren">)</span> = delete<a class="headerlink" href="#_CPPv4N6wrench6Logger6LoggerEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Deleted , create through create(). </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N6wrench6Logger6LoggerERK6Logger">
+<span id="_CPPv3N6wrench6Logger6LoggerERK6Logger"></span><span id="_CPPv2N6wrench6Logger6LoggerERK6Logger"></span><span id="wrench::Logger::Logger__LoggerCR"></span><span class="target" id="classwrench_1_1_logger_1ad77aabffc6777d0fb5bdb8a3fcb772f2"></span><code class="sig-name descname">Logger</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N6wrench6Logger6LoggerERK6Logger" title="wrench::Logger::Logger">Logger</a>&amp;<span class="sig-paren">)</span> = delete<a class="headerlink" href="#_CPPv4N6wrench6Logger6LoggerERK6Logger" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Delete copy construction, since we can only have one logger. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N6wrench6LoggeraSERK6Logger">
+<span id="_CPPv3N6wrench6LoggeraSERK6Logger"></span><span id="_CPPv2N6wrench6LoggeraSERK6Logger"></span><span id="wrench::Logger::assign-operator__LoggerCR"></span><span class="target" id="classwrench_1_1_logger_1a0564308b20de23b50031883e424a8212"></span>auto <code class="sig-name descname">operator=</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4I_8LogLevel_6size_t0EN6wrench6LoggerE" title="wrench::Logger">Logger</a>&amp;<span class="sig-paren">)</span> = delete<a class="headerlink" href="#_CPPv4N6wrench6LoggeraSERK6Logger" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Delete copy assignment, since we can only have a single logger. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt>
+<span class="target" id="classwrench_1_1_logger_1ac5bc588e7fade2182db2d04a1340b1a3"></span><code class="sig-name descname">auto flush () -&gt; void</code></dt>
+<dd><p>Flushes the pending messages in the logger to the logging file. Note that this claims the mutex to perform the write, so it should only be called to flush the logger if a termination happens. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt>
+<span class="target" id="classwrench_1_1_logger_1a9ef206b6bc5df46d29f72f610ad6327c"></span><code class="sig-name descname">template&lt;LogLevel L, void_log_enable_t&lt; L &gt; = 0&gt; auto log (const std::string &amp;message) noexcept -&gt; void</code></dt>
+<dd><p>Never logs the <code class="docutils literal notranslate"><span class="pre">message</span></code>, which should already be formatted. This overload is enabled if the level L is <em>more than</em> the level of the logger, and will be compiled away.</p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">message</span></code>: The message to log. </p></li>
+</ul>
+</dd>
+<dt><strong>Template Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">L</span></code>: The log level for the message. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4I_8LogLevel_18valid_log_enable_tI1LEEN6wrench6Logger3logEvRKNSt6stringE">
+<span id="_CPPv3I_8LogLevel_18valid_log_enable_tI1LEEN6wrench6Logger3logERKNSt6stringE"></span><span id="_CPPv2I_8LogLevel_18valid_log_enable_tI1LEEN6wrench6Logger3logERKNSt6stringE"></span>template&lt;<a class="reference internal" href="enum_logger_8hpp_1a87a989b11909bac49b9e84757bacd24e.html#_CPPv4N6wrench8LogLevelE" title="wrench::LogLevel">LogLevel</a> <code class="sig-name descname">L</code>, valid_log_enable_t&lt;<a class="reference internal" href="#_CPPv4I_8LogLevel_18valid_log_enable_tI1LEEN6wrench6Logger3logEvRKNSt6stringE" title="wrench::Logger::log::L">L</a>&gt; = 0&gt;<br /><span class="target" id="classwrench_1_1_logger_1a4ad85723ed3af4be7f7cd098235891c0"></span>void <code class="sig-name descname">log</code><span class="sig-paren">(</span><em class="property">const</em> std::string &amp;<em>message</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I_8LogLevel_18valid_log_enable_tI1LEEN6wrench6Logger3logEvRKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Logs the <code class="docutils literal notranslate"><span class="pre">message</span></code>, which should already be formatted. This overload is only enabled if the level L is <em>less than or equal</em> to the level of the logger.</p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">message</span></code>: The message to log. </p></li>
+</ul>
+</dd>
+<dt><strong>Template Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">L</span></code>: The log level for the message. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Static Functions</p>
+<dl class="cpp function">
+<dt>
+<span class="target" id="classwrench_1_1_logger_1a69e94f571ce1e9786a0c916400110535"></span><code class="sig-name descname">auto logger () noexcept -&gt; Logger &amp;</code></dt>
+<dd><p>Accesses the global logger. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Static Attributes</p>
+<dl class="cpp var">
+<dt id="_CPPv4N6wrench6Logger5levelE">
+<span id="_CPPv3N6wrench6Logger5levelE"></span><span id="_CPPv2N6wrench6Logger5levelE"></span><span id="wrench::Logger::level__LogLevel"></span><span class="target" id="classwrench_1_1_logger_1ac93a14ae49b04a3f376455b116d95939"></span><em class="property">constexpr</em> <a class="reference internal" href="enum_logger_8hpp_1a87a989b11909bac49b9e84757bacd24e.html#_CPPv4N6wrench8LogLevelE" title="wrench::LogLevel">LogLevel</a> <code class="sig-name descname">level</code> = <a class="reference internal" href="#_CPPv4I_8LogLevel_6size_t0EN6wrench6LoggerE" title="wrench::Logger::MinLevel">MinLevel</a><a class="headerlink" href="#_CPPv4N6wrench6Logger5levelE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Defines the level for the logger. All messages logged below the level will become no-ops. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="classwrench_1_1_multi_threaded_ref_tracker.html" class="btn btn-neutral float-right" title="Class MultiThreadedRefTracker" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="classwrench_1_1_linear_allocator.html" class="btn btn-neutral float-left" title="Class LinearAllocator" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Rob Clucas
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+  
+
+<script>window.markdeepOptions = { mode: 'doxygen' };</script>
+<script src="markdeep.min.js"></script>
+<script src="https://morgan3d.github.io/markdeep/latest/markdeep.min.js"></script>
+
+
+
+</body>
+</html>

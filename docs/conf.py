@@ -39,6 +39,7 @@ extensions = [
     'sphinx.ext.ifconfig',
     'sphinx.ext.viewcode',
     'sphinx.ext.inheritance_diagram',
+    'sphinx.ext.autosectionlabel',
     'breathe',
     'exhale'
 ]

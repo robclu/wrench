@@ -36,3 +36,10 @@ Included By
 
 
 
+
+Defines
+-------
+
+
+- :ref:`exhale_define_portability_8hpp_1ae02e931bc8b97521d27498845d72cd69`
+

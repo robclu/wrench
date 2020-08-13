@@ -264,20 +264,12 @@
   <span class="n">RefTracker</span> <span class="n">ref_tracker_</span><span class="p">;</span>
 <span class="p">};</span>
 
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
-<span class="k">static</span> <span class="k">constexpr</span> <span class="kt">bool</span> <span class="n">is_intrusive_ptr_enabled_v</span> <span class="o">=</span>
-  <span class="n">std</span><span class="o">::</span><span class="n">is_base_of_v</span><span class="o">&lt;</span><span class="n">IntrusivePtrEnabled</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">decay_t</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&gt;</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">decay_t</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&gt;</span><span class="p">;</span>
-
 <span class="c1">//==--- [intrusive pointer] ------------------------------------------------==//</span>
 
 <span class="c1">// IntrusivePtr imlpementation.</span>
 <span class="c1">// \tparam T The type to wrap in an intrusive pointer.</span>
 <span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
 <span class="k">class</span> <span class="nc">IntrusivePtr</span> <span class="p">{</span>
-  <span class="k">static_assert</span><span class="p">(</span>
-    <span class="n">is_intrusive_ptr_enabled_v</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">,</span>
-    <span class="s">&quot;Type for IntrusivePtr must be a subclass of IntrusivePtrEnabled&quot;</span><span class="p">);</span>
-
   <span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">U</span><span class="o">&gt;</span>
   <span class="k">friend</span> <span class="k">class</span> <span class="nc">IntrusivePtr</span><span class="p">;</span>
 
@@ -293,6 +285,10 @@
     <span class="k">typename</span> <span class="n">T</span><span class="o">::</span><span class="n">Enabled</span><span class="p">,</span>
     <span class="k">typename</span> <span class="n">T</span><span class="o">::</span><span class="n">DeleterType</span><span class="p">,</span>
     <span class="k">typename</span> <span class="n">T</span><span class="o">::</span><span class="n">RefTracker</span><span class="o">&gt;</span><span class="p">;</span>
+
+  <span class="k">static_assert</span><span class="p">(</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">is_base_of_v</span><span class="o">&lt;</span><span class="n">IntrusiveEnabledBase</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">decay_t</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&gt;</span><span class="p">,</span>
+    <span class="s">&quot;Type for IntrusivePtr must be a subclass of IntrusivePtrEnabled!&quot;</span><span class="p">);</span>
 
   <span class="c1">//==--- [construction] ---------------------------------------------------==//</span>
 
