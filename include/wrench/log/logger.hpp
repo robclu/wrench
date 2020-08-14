@@ -140,12 +140,12 @@ class Logger {
   /// Defines a valid type if Level < MinLevel.
   /// \tparam Level The level to base the enable on.
   template <LogLevel Level>
-  using void_log_enable_t = std::enable_if_t<(Level < MinLevel), int>;
+  using VoidLogEnable = std::enable_if_t<(Level < MinLevel), int>;
 
   /// Defines a valid type if Level >= MinLevel.
   /// \tparam Level The level to base the enable on.
   template <LogLevel Level>
-  using valid_log_enable_t = std::enable_if_t<(Level >= MinLevel), int>;
+  using ValidLogEnable = std::enable_if_t<(Level >= MinLevel), int>;
 
  public:
   //==--- [constants] ------------------------------------------------------==//
@@ -188,6 +188,13 @@ class Logger {
     return l;
   }
 
+  /// Returns true if the logger would log an error with level L.
+  /// \tparam L The level to check if would be logged.
+  template <LogLevel L>
+  static constexpr auto would_log() noexcept -> bool {
+    return L >= MinLevel;
+  }
+
   /// Flushes the pending messages in the logger to the logging file.
   /// Note that this claims the mutex to perform the write, so it should only be
   /// called to flush the logger if a termination happens.
@@ -202,7 +209,7 @@ class Logger {
   ///
   /// \param  message The message to log.
   /// \tparam L       The log level for the message.
-  template <LogLevel L, void_log_enable_t<L> = 0>
+  template <LogLevel L, VoidLogEnable<L> = 0>
   auto log(const std::string& message) noexcept -> void {}
 
   /// Logs the \p message, which should already be formatted. This overload is
@@ -211,7 +218,7 @@ class Logger {
   ///
   /// \param  message The message to log.
   /// \tparam L       The log level for the message.
-  template <LogLevel L, valid_log_enable_t<L> = 0>
+  template <LogLevel L, ValidLogEnable<L> = 0>
   void log(const std::string& message) {
     const auto rem = buffer_end - end_;
 
