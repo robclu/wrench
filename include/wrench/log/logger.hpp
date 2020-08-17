@@ -252,7 +252,7 @@ class Logger {
   Buffer        buffer_ = {}; //!< The buffer for the logger.
   size_t        end_    = 0; //!< The end of the last filled char in the buffer.
   std::ofstream stream_;     //!< The stream to log to.
-  std::mutex    lock_;       //!< Mutex for logging messages.
+  LockPolicy    lock_;       //!< Mutex for logging messages.
 
   /// Constructor which initializes the logger with a \p log_file to write to.
   /// \param log_file The file to write the logs to.
