@@ -95,10 +95,10 @@ Program Listing for File logger.hpp
      using Guard = std::lock_guard<LockPolicy>;
    
      template <LogLevel Level>
-     using void_log_enable_t = std::enable_if_t<(Level < MinLevel), int>;
+     using VoidLogEnable = std::enable_if_t<(Level < MinLevel), int>;
    
      template <LogLevel Level>
-     using valid_log_enable_t = std::enable_if_t<(Level >= MinLevel), int>;
+     using ValidLogEnable = std::enable_if_t<(Level >= MinLevel), int>;
    
     public:
      //==--- [constants] ------------------------------------------------------==//
@@ -132,15 +132,20 @@ Program Listing for File logger.hpp
        return l;
      }
    
+     template <LogLevel L>
+     static constexpr auto would_log() noexcept -> bool {
+       return L >= MinLevel;
+     }
+   
      auto flush() -> void {
        stream_.write(&buffer_[0], end_);
        end_ = 0;
      }
    
-     template <LogLevel L, void_log_enable_t<L> = 0>
+     template <LogLevel L, VoidLogEnable<L> = 0>
      auto log(const std::string& message) noexcept -> void {}
    
-     template <LogLevel L, valid_log_enable_t<L> = 0>
+     template <LogLevel L, ValidLogEnable<L> = 0>
      void log(const std::string& message) {
        const auto rem = buffer_end - end_;
    

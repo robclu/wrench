@@ -96,8 +96,13 @@
 <li class="toctree-l2 current"><a class="reference internal" href="wrench_api_root.html#full-api">Full API</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="wrench_api_root.html#namespaces">Namespaces</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="wrench_api_root.html#classes-and-structs">Classes and Structs</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="structwrench_1_1detail_1_1_unroll.html">Template Struct Unroll</a></li>
+<li class="toctree-l4"><a class="reference internal" href="structwrench_1_1detail_1_1_unroll_3_010_01_4.html">Template Struct Unroll&lt; 0 &gt;</a></li>
+<li class="toctree-l4"><a class="reference internal" href="structwrench_1_1detail_1_1_unroll_3_011_01_4.html">Template Struct Unroll&lt; 1 &gt;</a></li>
 <li class="toctree-l4"><a class="reference internal" href="structwrench_1_1_freelist_1_1_node.html">Struct Freelist::Node</a></li>
 <li class="toctree-l4"><a class="reference internal" href="structwrench_1_1_heap_arena.html">Struct HeapArena</a></li>
+<li class="toctree-l4"><a class="reference internal" href="structwrench_1_1_int64.html">Template Struct Int64</a></li>
+<li class="toctree-l4"><a class="reference internal" href="structwrench_1_1_num.html">Template Struct Num</a></li>
 <li class="toctree-l4"><a class="reference internal" href="structwrench_1_1_profiler_1_1_counters_1_1_counter.html">Struct Counters::Counter</a></li>
 <li class="toctree-l4"><a class="reference internal" href="structwrench_1_1_spinlock.html">Struct Spinlock</a></li>
 <li class="toctree-l4"><a class="reference internal" href="structwrench_1_1_spinlock_1_1_sleeper.html">Struct Spinlock::Sleeper</a></li>
@@ -264,7 +269,7 @@
 
 <dl class="cpp function">
 <dt>
-<span class="target" id="classwrench_1_1_logger_1a9ef206b6bc5df46d29f72f610ad6327c"></span><code class="sig-name descname">template&lt;LogLevel L, void_log_enable_t&lt; L &gt; = 0&gt; auto log (const std::string &amp;message) noexcept -&gt; void</code></dt>
+<span class="target" id="classwrench_1_1_logger_1a9ef206b6bc5df46d29f72f610ad6327c"></span><code class="sig-name descname">template&lt;LogLevel L, VoidLogEnable&lt; L &gt; = 0&gt; auto log (const std::string &amp;message) noexcept -&gt; void</code></dt>
 <dd><p>Never logs the <code class="docutils literal notranslate"><span class="pre">message</span></code>, which should already be formatted. This overload is enabled if the level L is <em>more than</em> the level of the logger, and will be compiled away.</p>
 <p><dl class="simple">
 <dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
@@ -280,8 +285,8 @@
 </dd></dl>
 
 <dl class="cpp function">
-<dt id="_CPPv4I_8LogLevel_18valid_log_enable_tI1LEEN6wrench6Logger3logEvRKNSt6stringE">
-<span id="_CPPv3I_8LogLevel_18valid_log_enable_tI1LEEN6wrench6Logger3logERKNSt6stringE"></span><span id="_CPPv2I_8LogLevel_18valid_log_enable_tI1LEEN6wrench6Logger3logERKNSt6stringE"></span>template&lt;<a class="reference internal" href="enum_logger_8hpp_1a87a989b11909bac49b9e84757bacd24e.html#_CPPv4N6wrench8LogLevelE" title="wrench::LogLevel">LogLevel</a> <code class="sig-name descname">L</code>, valid_log_enable_t&lt;<a class="reference internal" href="#_CPPv4I_8LogLevel_18valid_log_enable_tI1LEEN6wrench6Logger3logEvRKNSt6stringE" title="wrench::Logger::log::L">L</a>&gt; = 0&gt;<br /><span class="target" id="classwrench_1_1_logger_1a4ad85723ed3af4be7f7cd098235891c0"></span>void <code class="sig-name descname">log</code><span class="sig-paren">(</span><em class="property">const</em> std::string &amp;<em>message</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I_8LogLevel_18valid_log_enable_tI1LEEN6wrench6Logger3logEvRKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dt id="_CPPv4I_8LogLevel_14ValidLogEnableI1LEEN6wrench6Logger3logEvRKNSt6stringE">
+<span id="_CPPv3I_8LogLevel_14ValidLogEnableI1LEEN6wrench6Logger3logERKNSt6stringE"></span><span id="_CPPv2I_8LogLevel_14ValidLogEnableI1LEEN6wrench6Logger3logERKNSt6stringE"></span>template&lt;<a class="reference internal" href="enum_logger_8hpp_1a87a989b11909bac49b9e84757bacd24e.html#_CPPv4N6wrench8LogLevelE" title="wrench::LogLevel">LogLevel</a> <code class="sig-name descname">L</code>, ValidLogEnable&lt;<a class="reference internal" href="#_CPPv4I_8LogLevel_14ValidLogEnableI1LEEN6wrench6Logger3logEvRKNSt6stringE" title="wrench::Logger::log::L">L</a>&gt; = 0&gt;<br /><span class="target" id="classwrench_1_1_logger_1a4ad85723ed3af4be7f7cd098235891c0"></span>void <code class="sig-name descname">log</code><span class="sig-paren">(</span><em class="property">const</em> std::string &amp;<em>message</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I_8LogLevel_14ValidLogEnableI1LEEN6wrench6Logger3logEvRKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Logs the <code class="docutils literal notranslate"><span class="pre">message</span></code>, which should already be formatted. This overload is only enabled if the level L is <em>less than or equal</em> to the level of the logger.</p>
 <p><dl class="simple">
 <dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
@@ -303,6 +308,18 @@
 <dt>
 <span class="target" id="classwrench_1_1_logger_1a69e94f571ce1e9786a0c916400110535"></span><code class="sig-name descname">auto logger () noexcept -&gt; Logger &amp;</code></dt>
 <dd><p>Accesses the global logger. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt>
+<span class="target" id="classwrench_1_1_logger_1a61e2bb691502242bdbf3496b52651543"></span><code class="sig-name descname">template&lt;LogLevel L&gt; constexpr auto would_log () noexcept -&gt; bool</code></dt>
+<dd><p>Returns true if the logger would log an error with level L. <dl class="simple">
+<dt><strong>Template Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">L</span></code>: The level to check if would be logged. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
 </dd></dl>
 
 </div>

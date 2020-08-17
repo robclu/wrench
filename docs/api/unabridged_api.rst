@@ -11,9 +11,29 @@ Namespaces
 
    namespace_wrench.rst
 
+.. toctree::
+   :maxdepth: 5
+
+   namespace_wrench__detail.rst
+
 Classes and Structs
 *******************
 
+
+.. toctree::
+   :maxdepth: 5
+
+   structwrench_1_1detail_1_1_unroll.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   structwrench_1_1detail_1_1_unroll_3_010_01_4.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   structwrench_1_1detail_1_1_unroll_3_011_01_4.rst
 
 .. toctree::
    :maxdepth: 5
@@ -24,6 +44,16 @@ Classes and Structs
    :maxdepth: 5
 
    structwrench_1_1_heap_arena.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   structwrench_1_1_int64.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   structwrench_1_1_num.rst
 
 .. toctree::
    :maxdepth: 5
@@ -182,6 +212,11 @@ Functions
    :maxdepth: 5
 
    function_memory__utils_8hpp_1ab4a31f5ef79d511a861dcf2c23c5ef55.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   function_unrolled__for_8hpp_1a74bd981357a9ea458ef436b776529498.rst
 
 Variables
 *********

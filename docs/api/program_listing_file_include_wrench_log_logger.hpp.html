@@ -241,10 +241,10 @@
   <span class="k">using</span> <span class="n">Guard</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">lock_guard</span><span class="o">&lt;</span><span class="n">LockPolicy</span><span class="o">&gt;</span><span class="p">;</span>
 
   <span class="k">template</span> <span class="o">&lt;</span><span class="n">LogLevel</span> <span class="n">Level</span><span class="o">&gt;</span>
-  <span class="k">using</span> <span class="n">void_log_enable_t</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">enable_if_t</span><span class="o">&lt;</span><span class="p">(</span><span class="n">Level</span> <span class="o">&lt;</span> <span class="n">MinLevel</span><span class="p">),</span> <span class="kt">int</span><span class="o">&gt;</span><span class="p">;</span>
+  <span class="k">using</span> <span class="n">VoidLogEnable</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">enable_if_t</span><span class="o">&lt;</span><span class="p">(</span><span class="n">Level</span> <span class="o">&lt;</span> <span class="n">MinLevel</span><span class="p">),</span> <span class="kt">int</span><span class="o">&gt;</span><span class="p">;</span>
 
   <span class="k">template</span> <span class="o">&lt;</span><span class="n">LogLevel</span> <span class="n">Level</span><span class="o">&gt;</span>
-  <span class="k">using</span> <span class="n">valid_log_enable_t</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">enable_if_t</span><span class="o">&lt;</span><span class="p">(</span><span class="n">Level</span> <span class="o">&gt;=</span> <span class="n">MinLevel</span><span class="p">),</span> <span class="kt">int</span><span class="o">&gt;</span><span class="p">;</span>
+  <span class="k">using</span> <span class="n">ValidLogEnable</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">enable_if_t</span><span class="o">&lt;</span><span class="p">(</span><span class="n">Level</span> <span class="o">&gt;=</span> <span class="n">MinLevel</span><span class="p">),</span> <span class="kt">int</span><span class="o">&gt;</span><span class="p">;</span>
 
  <span class="k">public</span><span class="o">:</span>
   <span class="c1">//==--- [constants] ------------------------------------------------------==//</span>
@@ -278,15 +278,20 @@
     <span class="k">return</span> <span class="n">l</span><span class="p">;</span>
   <span class="p">}</span>
 
-  <span class="k">auto</span> <span class="nf">flush</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">void</span> <span class="p">{</span>
+  <span class="k">template</span> <span class="o">&lt;</span><span class="n">LogLevel</span> <span class="n">L</span><span class="o">&gt;</span>
+  <span class="k">static</span> <span class="k">constexpr</span> <span class="k">auto</span> <span class="n">would_log</span><span class="p">()</span> <span class="k">noexcept</span> <span class="o">-&gt;</span> <span class="kt">bool</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">L</span> <span class="o">&gt;=</span> <span class="n">MinLevel</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="k">auto</span> <span class="n">flush</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">void</span> <span class="p">{</span>
     <span class="n">stream_</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="o">&amp;</span><span class="n">buffer_</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">end_</span><span class="p">);</span>
     <span class="n">end_</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
   <span class="p">}</span>
 
-  <span class="k">template</span> <span class="o">&lt;</span><span class="n">LogLevel</span> <span class="n">L</span><span class="p">,</span> <span class="n">void_log_enable_t</span><span class="o">&lt;</span><span class="n">L</span><span class="o">&gt;</span> <span class="o">=</span> <span class="mi">0</span><span class="o">&gt;</span>
+  <span class="k">template</span> <span class="o">&lt;</span><span class="n">LogLevel</span> <span class="n">L</span><span class="p">,</span> <span class="n">VoidLogEnable</span><span class="o">&lt;</span><span class="n">L</span><span class="o">&gt;</span> <span class="o">=</span> <span class="mi">0</span><span class="o">&gt;</span>
   <span class="k">auto</span> <span class="n">log</span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">message</span><span class="p">)</span> <span class="k">noexcept</span> <span class="o">-&gt;</span> <span class="kt">void</span> <span class="p">{}</span>
 
-  <span class="k">template</span> <span class="o">&lt;</span><span class="n">LogLevel</span> <span class="n">L</span><span class="p">,</span> <span class="n">valid_log_enable_t</span><span class="o">&lt;</span><span class="n">L</span><span class="o">&gt;</span> <span class="o">=</span> <span class="mi">0</span><span class="o">&gt;</span>
+  <span class="k">template</span> <span class="o">&lt;</span><span class="n">LogLevel</span> <span class="n">L</span><span class="p">,</span> <span class="n">ValidLogEnable</span><span class="o">&lt;</span><span class="n">L</span><span class="o">&gt;</span> <span class="o">=</span> <span class="mi">0</span><span class="o">&gt;</span>
   <span class="kt">void</span> <span class="n">log</span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">message</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">const</span> <span class="k">auto</span> <span class="n">rem</span> <span class="o">=</span> <span class="n">buffer_end</span> <span class="o">-</span> <span class="n">end_</span><span class="p">;</span>
 

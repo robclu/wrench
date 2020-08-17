@@ -16,6 +16,16 @@ Directories
 .. toctree::
    :maxdepth: 5
 
+   dir__Users_blueberry_Software_wrench_include_wrench_algorithm.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir__Users_blueberry_Software_wrench_include_wrench_algorithm_detail.rst
+
+.. toctree::
+   :maxdepth: 5
+
    dir__Users_blueberry_Software_wrench_include_wrench_log.rst
 
 .. toctree::
@@ -85,6 +95,11 @@ Files
 .. toctree::
    :maxdepth: 5
 
+   file_include_wrench_utils_number.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
    file_include_wrench_memory_pool_allocator.hpp.rst
 
 .. toctree::
@@ -106,3 +121,13 @@ Files
    :maxdepth: 5
 
    file_include_wrench_multithreading_spinlock.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_include_wrench_algorithm_unrolled_for.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_include_wrench_algorithm_detail_unrolled_for_impl_.hpp.rst

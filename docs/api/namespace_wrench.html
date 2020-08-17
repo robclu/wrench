@@ -39,7 +39,7 @@
   <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Struct Freelist::Node" href="structwrench_1_1_freelist_1_1_node.html" />
+    <link rel="next" title="Namespace wrench::detail" href="namespace_wrench__detail.html" />
     <link rel="prev" title="Wrench API" href="wrench_api_root.html" /> 
 </head>
 
@@ -96,6 +96,7 @@
 <li class="toctree-l2 current"><a class="reference internal" href="wrench_api_root.html#full-api">Full API</a><ul class="current">
 <li class="toctree-l3 current"><a class="reference internal" href="wrench_api_root.html#namespaces">Namespaces</a><ul class="current">
 <li class="toctree-l4 current"><a class="current reference internal" href="#">Namespace wrench</a></li>
+<li class="toctree-l4"><a class="reference internal" href="namespace_wrench__detail.html">Namespace wrench::detail</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="wrench_api_root.html#classes-and-structs">Classes and Structs</a></li>
@@ -179,11 +180,18 @@
 <div class="contents local topic" id="contents">
 <p class="topic-title">Contents</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="#classes" id="id2">Classes</a></p></li>
-<li><p><a class="reference internal" href="#enums" id="id3">Enums</a></p></li>
-<li><p><a class="reference internal" href="#functions" id="id4">Functions</a></p></li>
-<li><p><a class="reference internal" href="#typedefs" id="id5">Typedefs</a></p></li>
-<li><p><a class="reference internal" href="#variables" id="id6">Variables</a></p></li>
+<li><p><a class="reference internal" href="#namespaces" id="id2">Namespaces</a></p></li>
+<li><p><a class="reference internal" href="#classes" id="id3">Classes</a></p></li>
+<li><p><a class="reference internal" href="#enums" id="id4">Enums</a></p></li>
+<li><p><a class="reference internal" href="#functions" id="id5">Functions</a></p></li>
+<li><p><a class="reference internal" href="#typedefs" id="id6">Typedefs</a></p></li>
+<li><p><a class="reference internal" href="#variables" id="id7">Variables</a></p></li>
+</ul>
+</div>
+<div class="section" id="namespaces">
+<h2>Namespaces<a class="headerlink" href="#namespaces" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="namespace_wrench__detail.html#namespace-wrench-detail"><span class="std std-ref">Namespace wrench::detail</span></a></p></li>
 </ul>
 </div>
 <div class="section" id="classes">
@@ -191,6 +199,8 @@
 <ul class="simple">
 <li><p><a class="reference internal" href="structwrench_1_1_freelist_1_1_node.html#exhale-struct-structwrench-1-1-freelist-1-1-node"><span class="std std-ref">Struct Freelist::Node</span></a></p></li>
 <li><p><a class="reference internal" href="structwrench_1_1_heap_arena.html#exhale-struct-structwrench-1-1-heap-arena"><span class="std std-ref">Struct HeapArena</span></a></p></li>
+<li><p><a class="reference internal" href="structwrench_1_1_int64.html#exhale-struct-structwrench-1-1-int64"><span class="std std-ref">Template Struct Int64</span></a></p></li>
+<li><p><a class="reference internal" href="structwrench_1_1_num.html#exhale-struct-structwrench-1-1-num"><span class="std std-ref">Template Struct Num</span></a></p></li>
 <li><p><a class="reference internal" href="structwrench_1_1_profiler_1_1_counters_1_1_counter.html#exhale-struct-structwrench-1-1-profiler-1-1-counters-1-1-counter"><span class="std std-ref">Struct Counters::Counter</span></a></p></li>
 <li><p><a class="reference internal" href="structwrench_1_1_spinlock.html#exhale-struct-structwrench-1-1-spinlock"><span class="std std-ref">Struct Spinlock</span></a></p></li>
 <li><p><a class="reference internal" href="structwrench_1_1_spinlock_1_1_sleeper.html#exhale-struct-structwrench-1-1-spinlock-1-1-sleeper"><span class="std std-ref">Struct Spinlock::Sleeper</span></a></p></li>
@@ -231,6 +241,7 @@
 <li><p><a class="reference internal" href="function_logger_8hpp_1a0248bf0586053b6c288f82fc4dafa10c.html#exhale-function-logger-8hpp-1a0248bf0586053b6c288f82fc4dafa10c"><span class="std std-ref">Template Function wrench::log_warn</span></a></p></li>
 <li><p><a class="reference internal" href="function_intrusive__ptr_8hpp_1a1995d25db42fc934c9e4eca88b4b37f5.html#exhale-function-intrusive-ptr-8hpp-1a1995d25db42fc934c9e4eca88b4b37f5"><span class="std std-ref">Template Function wrench::make_intrusive_ptr</span></a></p></li>
 <li><p><a class="reference internal" href="function_memory__utils_8hpp_1ab4a31f5ef79d511a861dcf2c23c5ef55.html#exhale-function-memory-utils-8hpp-1ab4a31f5ef79d511a861dcf2c23c5ef55"><span class="std std-ref">Function wrench::offset_ptr</span></a></p></li>
+<li><p><a class="reference internal" href="function_unrolled__for_8hpp_1a74bd981357a9ea458ef436b776529498.html#exhale-function-unrolled-for-8hpp-1a74bd981357a9ea458ef436b776529498"><span class="std std-ref">Template Function wrench::unrolled_for</span></a></p></li>
 </ul>
 </div>
 <div class="section" id="typedefs">
@@ -266,7 +277,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="structwrench_1_1_freelist_1_1_node.html" class="btn btn-neutral float-right" title="Struct Freelist::Node" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="namespace_wrench__detail.html" class="btn btn-neutral float-right" title="Namespace wrench::detail" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="wrench_api_root.html" class="btn btn-neutral float-left" title="Wrench API" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

@@ -13,6 +13,13 @@ Namespace wrench
 
 
 
+Namespaces
+----------
+
+
+- :ref:`namespace_wrench__detail`
+
+
 Classes
 -------
 
@@ -20,6 +27,10 @@ Classes
 - :ref:`exhale_struct_structwrench_1_1_freelist_1_1_node`
 
 - :ref:`exhale_struct_structwrench_1_1_heap_arena`
+
+- :ref:`exhale_struct_structwrench_1_1_int64`
+
+- :ref:`exhale_struct_structwrench_1_1_num`
 
 - :ref:`exhale_struct_structwrench_1_1_profiler_1_1_counters_1_1_counter`
 
@@ -90,6 +101,8 @@ Functions
 - :ref:`exhale_function_intrusive__ptr_8hpp_1a1995d25db42fc934c9e4eca88b4b37f5`
 
 - :ref:`exhale_function_memory__utils_8hpp_1ab4a31f5ef79d511a861dcf2c23c5ef55`
+
+- :ref:`exhale_function_unrolled__for_8hpp_1a74bd981357a9ea458ef436b776529498`
 
 
 Typedefs

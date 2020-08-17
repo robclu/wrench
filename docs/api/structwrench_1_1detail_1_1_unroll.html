@@ -1,0 +1,322 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Template Struct Unroll &mdash; Wrench 1.0.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Template Struct Unroll&lt; 0 &gt;" href="structwrench_1_1detail_1_1_unroll_3_010_01_4.html" />
+    <link rel="prev" title="Namespace wrench::detail" href="namespace_wrench__detail.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Wrench
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="wrench_api_root.html">Wrench API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="wrench_api_root.html#class-hierarchy">Class Hierarchy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wrench_api_root.html#file-hierarchy">File Hierarchy</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="wrench_api_root.html#full-api">Full API</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="wrench_api_root.html#namespaces">Namespaces</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="wrench_api_root.html#classes-and-structs">Classes and Structs</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Template Struct Unroll</a></li>
+<li class="toctree-l4"><a class="reference internal" href="structwrench_1_1detail_1_1_unroll_3_010_01_4.html">Template Struct Unroll&lt; 0 &gt;</a></li>
+<li class="toctree-l4"><a class="reference internal" href="structwrench_1_1detail_1_1_unroll_3_011_01_4.html">Template Struct Unroll&lt; 1 &gt;</a></li>
+<li class="toctree-l4"><a class="reference internal" href="structwrench_1_1_freelist_1_1_node.html">Struct Freelist::Node</a></li>
+<li class="toctree-l4"><a class="reference internal" href="structwrench_1_1_heap_arena.html">Struct HeapArena</a></li>
+<li class="toctree-l4"><a class="reference internal" href="structwrench_1_1_int64.html">Template Struct Int64</a></li>
+<li class="toctree-l4"><a class="reference internal" href="structwrench_1_1_num.html">Template Struct Num</a></li>
+<li class="toctree-l4"><a class="reference internal" href="structwrench_1_1_profiler_1_1_counters_1_1_counter.html">Struct Counters::Counter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="structwrench_1_1_spinlock.html">Struct Spinlock</a></li>
+<li class="toctree-l4"><a class="reference internal" href="structwrench_1_1_spinlock_1_1_sleeper.html">Struct Spinlock::Sleeper</a></li>
+<li class="toctree-l4"><a class="reference internal" href="structwrench_1_1_thread_safe_freelist_1_1_head_ptr.html">Struct ThreadSafeFreelist::HeadPtr</a></li>
+<li class="toctree-l4"><a class="reference internal" href="structwrench_1_1_thread_safe_freelist_1_1_node.html">Struct ThreadSafeFreelist::Node</a></li>
+<li class="toctree-l4"><a class="reference internal" href="structwrench_1_1_void_lock.html">Struct VoidLock</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classwrench_1_1_aligned_heap_allocator.html">Class AlignedHeapAllocator</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classwrench_1_1_allocator.html">Template Class Allocator</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classwrench_1_1_freelist.html">Class Freelist</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classwrench_1_1_intrusive_ptr.html">Template Class IntrusivePtr</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classwrench_1_1_intrusive_ptr_enabled.html">Template Class IntrusivePtrEnabled</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classwrench_1_1_linear_allocator.html">Class LinearAllocator</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classwrench_1_1_logger.html">Template Class Logger</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classwrench_1_1_multi_threaded_ref_tracker.html">Class MultiThreadedRefTracker</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classwrench_1_1_pool_allocator.html">Template Class PoolAllocator</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classwrench_1_1_profiler.html">Class Profiler</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classwrench_1_1_profiler_1_1_counters.html">Class Profiler::Counters</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classwrench_1_1_ref_tracker.html">Template Class RefTracker</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classwrench_1_1_single_threaded_ref_tracker.html">Class SingleThreadedRefTracker</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classwrench_1_1_stack_arena.html">Template Class StackArena</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classwrench_1_1_thread_safe_freelist.html">Class ThreadSafeFreelist</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="wrench_api_root.html#enums">Enums</a></li>
+<li class="toctree-l3"><a class="reference internal" href="wrench_api_root.html#functions">Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="wrench_api_root.html#variables">Variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="wrench_api_root.html#defines">Defines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="wrench_api_root.html#typedefs">Typedefs</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Wrench</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="wrench_api_root.html">Wrench API</a> &raquo;</li>
+        
+      <li>Template Struct Unroll</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/structwrench_1_1detail_1_1_unroll.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="template-struct-unroll">
+<span id="exhale-struct-structwrench-1-1detail-1-1-unroll"></span><h1>Template Struct Unroll<a class="headerlink" href="#template-struct-unroll" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_include_wrench_algorithm_detail_unrolled_for_impl_.hpp.html#file-include-wrench-algorithm-detail-unrolled-for-impl-hpp"><span class="std std-ref">File unrolled_for_impl_.hpp</span></a></p></li>
+</ul>
+<div class="section" id="struct-documentation">
+<h2>Struct Documentation<a class="headerlink" href="#struct-documentation" title="Permalink to this headline">¶</a></h2>
+<dl class="cpp struct">
+<dt id="_CPPv4I_6size_tEN6wrench6detail6UnrollE">
+<span id="_CPPv3I_6size_tEN6wrench6detail6UnrollE"></span><span id="_CPPv2I_6size_tEN6wrench6detail6UnrollE"></span>template&lt;size_t <code class="sig-name descname">Amount</code>&gt;<br /><span class="target" id="structwrench_1_1detail_1_1_unroll"></span><em class="property">struct </em><code class="sig-prename descclassname">wrench::detail<code class="sig-prename descclassname">::</code></code><code class="sig-name descname">Unroll</code><a class="headerlink" href="#_CPPv4I_6size_tEN6wrench6detail6UnrollE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The <a class="reference internal" href="#structwrench_1_1detail_1_1_unroll"><span class="std std-ref">Unroll</span></a> struct invokes a callable object N times, where the invokations are unrolled at compile time.</p>
+<p>This struct is an implementation detail for <code class="docutils literal notranslate"><span class="pre">unrolled_for</span></code>.</p>
+<p><dl class="simple">
+<dt><strong>Template Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Amount</span></code>: The amount of unrolling to do. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Types</p>
+<dl class="cpp type">
+<dt id="_CPPv4N6wrench6detail6Unroll13PreviousLevelE">
+<span id="_CPPv3N6wrench6detail6Unroll13PreviousLevelE"></span><span id="_CPPv2N6wrench6detail6Unroll13PreviousLevelE"></span><span class="target" id="structwrench_1_1detail_1_1_unroll_1ab0eb9dc84b87f5e7124aa65b13634bc1"></span><em class="property">using </em><code class="sig-name descname">PreviousLevel</code> = <a class="reference internal" href="#_CPPv4I_6size_tEN6wrench6detail6UnrollE" title="wrench::detail::Unroll">Unroll</a>&lt;<a class="reference internal" href="#_CPPv4N6wrench6detail6Unroll14previous_levelE" title="wrench::detail::Unroll::previous_level">previous_level</a>&gt;<a class="headerlink" href="#_CPPv4N6wrench6detail6Unroll13PreviousLevelE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Defines the type of the case class which invokes at the previous level. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="cpp function">
+<dt id="_CPPv4I0DpEN6wrench6detail6Unroll6UnrollERR7FunctorDpRR4Args">
+<span id="_CPPv3I0DpEN6wrench6detail6Unroll6UnrollERR7FunctorDpRR4Args"></span><span id="_CPPv2I0DpEN6wrench6detail6Unroll6UnrollERR7FunctorDpRR4Args"></span>template&lt;typename <code class="sig-name descname">Functor</code>, typename ...<code class="sig-name descname">Args</code>&gt;<br /><span class="target" id="structwrench_1_1detail_1_1_unroll_1a3863ceab840e0f9c6e0f021e08fce107"></span><em class="property">constexpr</em> <code class="sig-name descname">Unroll</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4I0DpEN6wrench6detail6Unroll6UnrollERR7FunctorDpRR4Args" title="wrench::detail::Unroll::Unroll::Functor">Functor</a> &amp;&amp;<em>functor</em>, <a class="reference internal" href="#_CPPv4I0DpEN6wrench6detail6Unroll6UnrollERR7FunctorDpRR4Args" title="wrench::detail::Unroll::Unroll::Args">Args</a>&amp;&amp;... <em>args</em><span class="sig-paren">)</span> <em class="property">noexcept</em><a class="headerlink" href="#_CPPv4I0DpEN6wrench6detail6Unroll6UnrollERR7FunctorDpRR4Args" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Passes the <code class="docutils literal notranslate"><span class="pre">functor</span></code> and <code class="docutils literal notranslate"><span class="pre">args</span></code> to the previous level to invoke, and then invokes at this level. <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">functor</span></code>: The functor to invoke. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">args</span></code>: The arguments to pass to the functor. </p></li>
+</ul>
+</dd>
+<dt><strong>Template Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Functor</span></code>: The type of the functor to invoke. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Args</span></code>: The type of the arguments to invoke with. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Static Attributes</p>
+<dl class="cpp var">
+<dt id="_CPPv4N6wrench6detail6Unroll14previous_levelE">
+<span id="_CPPv3N6wrench6detail6Unroll14previous_levelE"></span><span id="_CPPv2N6wrench6detail6Unroll14previous_levelE"></span><span id="wrench::detail::Unroll::previous_level__s"></span><span class="target" id="structwrench_1_1detail_1_1_unroll_1a5b080eb2e8358f86a436c5bbeed0ee83"></span><em class="property">constexpr</em> size_t <code class="sig-name descname">previous_level</code> = (Amount &lt;= 1 ? 0 : Amount - 1)<a class="headerlink" href="#_CPPv4N6wrench6detail6Unroll14previous_levelE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Defines the value for the previous level. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="structwrench_1_1detail_1_1_unroll_3_010_01_4.html" class="btn btn-neutral float-right" title="Template Struct Unroll&lt; 0 &gt;" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="namespace_wrench__detail.html" class="btn btn-neutral float-left" title="Namespace wrench::detail" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Rob Clucas
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+  
+
+<script>window.markdeepOptions = { mode: 'doxygen' };</script>
+<script src="markdeep.min.js"></script>
+<script src="https://morgan3d.github.io/markdeep/latest/markdeep.min.js"></script>
+
+
+
+</body>
+</html>
