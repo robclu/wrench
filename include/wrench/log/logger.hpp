@@ -238,18 +238,18 @@ class Logger {
     if (message.length() < buffer_end) {
       Guard g(lock_);
       flush();
-      end_ += sprintf(&buffer[end_], "%s", message.c_str());
+      end_ += sprintf(&buffer_[end_], "%s", message.c_str());
       return;
     }
 
     // message doesn't fit, write what we can and flush.
     Guard g(lock_);
-    snprintf(&buffer[end_], rem, "%s", message.c_str());
+    snprintf(&buffer_[end_], rem, "%s", message.c_str());
     flush();
   }
 
  private:
-  buffer_t      buffer_ = {}; //!< The buffer for the logger.
+  Buffer        buffer_ = {}; //!< The buffer for the logger.
   size_t        end_    = 0; //!< The end of the last filled char in the buffer.
   std::ofstream stream_;     //!< The stream to log to.
   std::mutex    lock_;       //!< Mutex for logging messages.
