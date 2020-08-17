@@ -17,6 +17,7 @@
 #ifndef WRENCH_MEMORY_REF_TRACKER_HPP
 #define WRENCH_MEMORY_REF_TRACKER_HPP
 
+#include <wrench/utils/portability.hpp>
 #include <atomic>
 #include <type_traits>
 #include <utility>

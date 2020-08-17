@@ -17,6 +17,7 @@
 #define WRENCH_MEMORY_ARENA_HPP
 
 #include "memory_utils.hpp"
+#include <wrench/utils/portability.hpp>
 #include <type_traits>
 
 namespace wrench {
