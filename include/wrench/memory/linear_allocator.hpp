@@ -76,7 +76,7 @@ class LinearAllocator {
   /// \param alignment The alignment for the allocation.
   auto alloc(size_t size, size_t alignment) noexcept -> void* {
     void* const ptr     = align_ptr(current(), alignment);
-    void* const curr    = offset_ptr(p, size);
+    void* const curr    = offset_ptr(ptr, size);
     bool        success = curr <= end();
     set_current(success ? curr : current());
     return success ? ptr : nullptr;

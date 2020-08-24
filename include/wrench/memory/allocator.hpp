@@ -19,17 +19,10 @@
 #include "aligned_heap_allocator.hpp"
 #include "arena.hpp"
 #include "pool_allocator.hpp"
+#include <wrench/multithreading/void_lock.hpp>
 #include <mutex>
 
 namespace wrench {
-
-/// Default locking implementation which does no locking.
-struct VoidLock {
-  /// Does nothing when `lock()` is called.
-  auto lock() noexcept -> void {}
-  /// Does nothing when `unlock()` is called.
-  auto unlock() noexcept -> void {}
-};
 
 //==--- [forward declarations & aliases] -----------------------------------==//
 
