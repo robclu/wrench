@@ -93,6 +93,16 @@ class LinearAllocator {
   /// \param size The size to free.
   auto free(void* ptr, size_t size) const noexcept -> void {}
 
+  /**
+   * Determines if this allocator owns the \p ptr.
+   * \param ptr The pointer to determine if the allocator owns.
+   * \return __true__ if the allocator owns the pointer.
+   */
+  auto owns(void* ptr) const noexcept -> bool {
+    return uintptr_t(ptr) >= uintptr_t(begin_) &&
+           uintptr_t(ptr) < uintptr_t(end());
+  }
+
   /// Resets the allocator to the begining of the allocation arena. This
   /// invalidates any allocations from the allocator, since any subsequent
   /// allocations will overwrite old allocations.
