@@ -20,7 +20,6 @@
 #include <wrench/utils/portability.hpp>
 #include <atomic>
 #include <type_traits>
-#include <utility>
 
 namespace wrench {
 
