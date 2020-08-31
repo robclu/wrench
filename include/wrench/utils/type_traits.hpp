@@ -16,6 +16,8 @@
 #ifndef WRENCH_UTILS_TYPE_TRAITS_HPP
 #define WRENCH_UTILS_TYPE_TRAITS_HPP
 
+#include <type_traits>
+
 /**
  * Defines a valid type if Derived is a base of Base.
  * \tparam Base    The base type for the enable.
