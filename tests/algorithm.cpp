@@ -13,7 +13,7 @@
 //
 //==------------------------------------------------------------------------==//
 
-#include "algorithm/unrolled_for_tests.hpp"
+#include "algorithm/unrolled_for.hpp"
 
 int main(int argc, char** argv) {
   ::testing::InitGoogleTest(&argc, argv);

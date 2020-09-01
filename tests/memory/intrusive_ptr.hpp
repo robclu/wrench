@@ -1,4 +1,4 @@
-//==--- wrench/tests/memory/intrusive_ptr_tests.hpp -------- -*- C++ -*- ---==//
+//==--- wrench/tests/memory/intrusive_ptr.hpp -------------- -*- C++ -*- ---==//
 //
 //                                 Wrench
 //
@@ -8,13 +8,13 @@
 //
 //==------------------------------------------------------------------------==//
 //
-/// \file  intrusive_ptr_tests.hpp
+/// \file  intrusive_ptr.hpp
 /// \brief This file implements tests for intrusive ptr.
 //
 //==------------------------------------------------------------------------==//
 
-#ifndef WRENCH_TESTS_MEMORY_INTRUSIVE_PTR_TESTS_HPP
-#define WRENCH_TESTS_MEMORY_INTRUSIVE_PTR_TESTS_HPP
+#ifndef WRENCH_TESTS_MEMORY_INTRUSIVE_PTR_HPP
+#define WRENCH_TESTS_MEMORY_INTRUSIVE_PTR_HPP
 
 #include <wrench/memory/allocator.hpp>
 #include <wrench/memory/intrusive_ptr.hpp>
@@ -53,4 +53,4 @@ TEST(memory_intrusive_ptr, can_allocate_intrusive_ptr) {
   EXPECT_EQ(p->x, x_val);
 }
 
-#endif // WRENCH_TESTS_MEMORY_INTRUSIVE_PTR_TESTS_HPP
+#endif // WRENCH_TESTS_MEMORY_INTRUSIVE_PTR_HPP

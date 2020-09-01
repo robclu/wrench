@@ -1,4 +1,4 @@
-//==--- wrench/tests/algorithm/unrolled_for_tests.hpp ------ -*- C++ -*- ---==//
+//==--- wrench/tests/algorithm/unrolled_for.hpp ------------ -*- C++ -*- ---==//
 //
 //                                Wrench
 //
@@ -8,13 +8,13 @@
 //
 //==------------------------------------------------------------------------==//
 //
-/// \file  unrolled_for_tests.hpp
+/// \file  unrolled_for.hpp
 /// \brief This file defines tests for unrolled_for.
 //
 //==------------------------------------------------------------------------==//
 
-#ifndef WRENCH_TESTS_ALGORITHM_UNROLLED_FOR_TESTS_HPP
-#define WRENCH_TESTS_ALGORITHM_UNROLLED_FOR_TESTS_HPP
+#ifndef WRENCH_TESTS_ALGORITHM_UNROLLED_FOR_HPP
+#define WRENCH_TESTS_ALGORITHM_UNROLLED_FOR_HPP
 
 #include <wrench/algorithm/unrolled_for.hpp>
 #include <gtest/gtest.h>
