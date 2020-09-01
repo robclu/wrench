@@ -14,6 +14,7 @@
 //==------------------------------------------------------------------------==//
 
 #include "memory/intrusive_ptr.hpp"
+#include "memory/unique_ptr.hpp"
 
 int main(int argc, char** argv) {
   ::testing::InitGoogleTest(&argc, argv);
