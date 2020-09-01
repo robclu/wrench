@@ -24,6 +24,16 @@
  * \tparam Derived The derived type.
  */
 template <typename Base, typename Derived>
-using base_of_enable_t = std::enable_if_t<std::base_of_v<Base, Derived>, int>;
+using base_of_enable_t =
+  std::enable_if_t<std::is_base_of_v<Base, Derived>, int>;
+
+/**
+ * Defines a valid type if From is convertible to To.
+ * \tparam From The type to test if converitble from.
+ * \tparam To   The type to test if converitble to.
+ */
+template <typename From, typename To>
+using convertible_to_enable_t =
+  std::enable_if_t<std::is_convertible_v<From, To>, int>;
 
 #endif // WRENCH_UTILS_TYPE_TRAITS_HPP
