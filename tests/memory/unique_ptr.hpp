@@ -46,7 +46,7 @@ TEST(memory_unique_ptr, can_make_unique_ptr) {
 TEST(memory_unique_ptr, can_allocate_with_unqiue_ptr) {
   int* i = unique_allocator().create<int>(unique_test_val);
   *i     = unique_test_val;
-  auto p = wrench::UniquePtr<int, UniqueDeleter>(std::move(i), UniqueDeleter());
+  auto p = wrench::UniquePtr<int, UniqueDeleter>{std::move(i), UniqueDeleter()};
 
   EXPECT_EQ(*p, unique_test_val);
   EXPECT_EQ(sizeof(p), sizeof(int*));
@@ -62,6 +62,74 @@ TEST(memory_unique_ptr, can_allocate_with_unqiue_ptr) {
   p      = wrench::UniquePtr<int, UniqueDeleter>(std::move(j), d);
   EXPECT_EQ(*p, unique_test_val);
   EXPECT_EQ(sizeof(p), sizeof(int*));
+}
+
+TEST(memory_unique_ptr, default_construct) {
+  auto p = wrench::UniquePtr<int>{};
+  auto q = wrench::UniquePtr<int>{};
+
+  EXPECT_TRUE(p == nullptr);
+  EXPECT_TRUE(q == nullptr);
+  EXPECT_EQ(sizeof(p), sizeof(int*));
+  EXPECT_EQ(static_cast<bool>(p), false);
+  EXPECT_EQ(static_cast<bool>(q), false);
+}
+
+TEST(memory_unique_ptr, nullptr_construct) {
+  auto p = wrench::UniquePtr<int>{nullptr};
+  auto q = wrench::UniquePtr<int>{nullptr};
+
+  EXPECT_EQ(p, nullptr);
+  EXPECT_EQ(q, nullptr);
+  EXPECT_EQ(sizeof(p), sizeof(int*));
+  EXPECT_EQ(static_cast<bool>(p), false);
+  EXPECT_EQ(static_cast<bool>(q), false);
+}
+
+TEST(memory_unique_ptr, copy_constructible) {
+  const bool a = std::is_copy_constructible_v<wrench::UniquePtr<int>>;
+  const bool b = std::is_copy_assignable_v<wrench::UniquePtr<int>>;
+  const bool c =
+    std::is_copy_constructible_v<wrench::UniquePtr<int, UniqueDeleter>>;
+  const bool d =
+    std::is_copy_assignable_v<wrench::UniquePtr<int, UniqueDeleter>>;
+
+  EXPECT_FALSE(a);
+  EXPECT_FALSE(b);
+  EXPECT_FALSE(c);
+  EXPECT_FALSE(d);
+}
+
+TEST(memory_unique_ptr, move_constructible) {
+  wrench::UniquePtr<int> p{new int(unique_test_val)};
+  EXPECT_TRUE(p != nullptr);
+  EXPECT_EQ(*p, unique_test_val);
+
+  auto q = std::move(p);
+  EXPECT_TRUE(p == nullptr);
+  EXPECT_TRUE(q != nullptr);
+  EXPECT_EQ(*q, unique_test_val);
+
+  wrench::UniquePtr<int> r{new int(unique_test_val)};
+  EXPECT_TRUE(r != nullptr);
+  EXPECT_EQ(*r, unique_test_val);
+
+  r = std::move(q);
+  EXPECT_TRUE(q == nullptr);
+  EXPECT_TRUE(r != nullptr);
+  EXPECT_EQ(*r, unique_test_val);
+
+  const bool a = std::is_nothrow_move_constructible_v<wrench::UniquePtr<int>>;
+  const bool b = std::is_nothrow_move_assignable_v<wrench::UniquePtr<int>>;
+  const bool c =
+    std::is_nothrow_move_constructible_v<wrench::UniquePtr<int, UniqueDeleter>>;
+  const bool d =
+    std::is_nothrow_move_assignable_v<wrench::UniquePtr<int, UniqueDeleter>>;
+
+  EXPECT_TRUE(a);
+  EXPECT_TRUE(b);
+  EXPECT_TRUE(c);
+  EXPECT_TRUE(d);
 }
 
 #endif // WRENCH_TESTS_MEMORY_UNIQUE_PTR_HPP
