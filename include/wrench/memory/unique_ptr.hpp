@@ -38,9 +38,17 @@ struct DefaultDelete {
 
   /**
    * Copy constructor, enabled if U is convertible to T.
+   * \tparam U The type of the other object to delete.
    */
   template <typename U, typename = convertible_to_enable_t<U, T>>
-  DefaultDelete(DefaultDelete<U>&) noexcept {}
+  DefaultDelete(const DefaultDelete<U>&) noexcept {}
+
+  /**
+   * Move constructor, enabled if U is convertible to T.
+   * \tparam U The type of the other object to delete.
+   */
+  template <typename U, typename D = convertible_to_enable_t<U, T>>
+  DefaultDelete(DefaultDelete<U>&&) noexcept {}
 
   /**
    * Overload of opeator() to invoke the deleter, which deletes the \p ptr.
@@ -49,6 +57,14 @@ struct DefaultDelete {
   auto operator()(T* ptr) const -> void {
     delete ptr;
   }
+
+  /**
+   * Deleted call operator for a pointer of different type.
+   * \param  ptr The pointer to delete.
+   * \tparam U   The type of the pointer.
+   */
+  template <typename U>
+  auto operator()(U* ptr) const -> void = delete;
 };
 
 /**
@@ -63,6 +79,14 @@ struct DefaultDelete {
 template <typename T, typename Deleter = DefaultDelete<T>>
 class UniquePtr : private Deleter {
   static_assert(!std::is_array_v<T>, "UniquePtr doesn't support arrays!");
+
+  /**
+   * Friend class for unique pointers with convertible types and deleters.
+   * \tparam U The type of the other pointer.
+   * \tparam D The type of the other deleter.
+   */
+  template <typename U, typename D>
+  friend class UniquePtr;
 
   /**
    * Defines a valid type for a reference type.
@@ -129,13 +153,10 @@ class UniquePtr : private Deleter {
    * \tparam D     The type of the other deleter.
    * \return A unique pointer which points to \p other's pointer.
    */
-  template <
-    typename U,
-    typename D,
-    typename Del = OtherDeleter<D>,
-    base_of_enable_t<T, U>>
-  UniquePtr(UniquePtr<T, D>&& other) noexcept
-  : Deleter{std::forward<Del>(other.get_deleter())}, ptr_{other.ptr_} {
+  template <typename U, typename D, typename E = base_of_enable_t<T, U>>
+  UniquePtr(UniquePtr<U, D>&& other) noexcept
+  : Deleter{std::forward<OtherDeleter<D>>(other.get_deleter())},
+    ptr_{other.ptr_} {
     other.ptr_ = nullptr;
   }
 

@@ -86,6 +86,29 @@ TEST(memory_unique_ptr, nullptr_construct) {
   EXPECT_EQ(static_cast<bool>(q), false);
 }
 
+TEST(memory_unique_ptr, derived_construct) {
+  struct Base {
+    int x = 0;
+  };
+  struct Derived : public Base {
+    Derived(int v) : Base{v} {}
+  };
+
+  wrench::UniquePtr<Base> p = wrench::make_unique<Derived>(unique_test_val);
+  wrench::UniquePtr<Base> q =
+    wrench::UniquePtr<Derived>(new Derived(unique_test_val));
+
+  EXPECT_TRUE(p != nullptr);
+  EXPECT_EQ(sizeof(p), sizeof(Base*));
+  EXPECT_EQ(static_cast<bool>(p), true);
+  EXPECT_EQ(p->x, unique_test_val);
+
+  EXPECT_TRUE(q != nullptr);
+  EXPECT_EQ(sizeof(q), sizeof(Base*));
+  EXPECT_EQ(static_cast<bool>(q), true);
+  EXPECT_EQ(q->x, unique_test_val);
+}
+
 TEST(memory_unique_ptr, copy_constructible) {
   const bool a = std::is_copy_constructible_v<wrench::UniquePtr<int>>;
   const bool b = std::is_copy_assignable_v<wrench::UniquePtr<int>>;
