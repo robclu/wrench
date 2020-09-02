@@ -1,4 +1,4 @@
-//==--- wrench/tests/algorithm.cpp ------------------------- -*- C++ -*- ---==//
+//==--- wrench/tests/all.cpp ------------------------------- -*- C++ -*- ---==//
 //
 //                                  Wrench
 //
@@ -8,12 +8,13 @@
 //
 //==------------------------------------------------------------------------==//
 //
-/// \file  algorithm.cpp
-/// \brief This file implements tests for algorithm functionality.
+/// \file  all.cpp
+/// \brief This file implements all tests.
 //
 //==------------------------------------------------------------------------==//
 
 #include "algorithm/algorithm.hpp"
+#include "memory/memory.hpp"
 
 int main(int argc, char** argv) {
   ::testing::InitGoogleTest(&argc, argv);

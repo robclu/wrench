@@ -13,8 +13,7 @@
 //
 //==------------------------------------------------------------------------==//
 
-#include "memory/intrusive_ptr.hpp"
-#include "memory/unique_ptr.hpp"
+#include "memory/memory.hpp"
 
 int main(int argc, char** argv) {
   ::testing::InitGoogleTest(&argc, argv);
