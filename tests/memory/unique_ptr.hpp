@@ -155,4 +155,30 @@ TEST(memory_unique_ptr, move_constructible) {
   EXPECT_TRUE(d);
 }
 
+TEST(memory_unique_ptr, reset) {
+  wrench::UniquePtr<int> p{new int(unique_test_val)};
+  EXPECT_TRUE(p != nullptr);
+  EXPECT_EQ(*p, unique_test_val);
+
+  p.reset(new int(unique_test_val * 2));
+  EXPECT_TRUE(p != nullptr);
+  EXPECT_EQ(*p, unique_test_val * 2);
+}
+
+TEST(memory_unique_ptr, release) {
+  wrench::UniquePtr<int> p{new int(unique_test_val)};
+  EXPECT_TRUE(p != nullptr);
+  EXPECT_EQ(*p, unique_test_val);
+
+  int* q = p.release();
+  EXPECT_TRUE(q != nullptr);
+  EXPECT_EQ(*q, unique_test_val);
+}
+
+TEST(memory_unique_ptr, get) {
+  wrench::UniquePtr<int> p{new int(unique_test_val)};
+  EXPECT_TRUE(p.get() != nullptr);
+  EXPECT_EQ(*(p.get()), unique_test_val);
+}
+
 #endif // WRENCH_TESTS_MEMORY_UNIQUE_PTR_HPP
