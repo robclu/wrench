@@ -16,3 +16,7 @@ target_link_libraries(algorithm_tests gtest_main)
 
 add_executable(memory_tests ${CMAKE_CURRENT_SOURCE_DIR}/memory.cpp)
 target_link_libraries(memory_tests gtest_main)
+
+
+add_executable(utils_tests ${CMAKE_CURRENT_SOURCE_DIR}/utils.cpp)
+target_link_libraries(utils_tests gtest_main)
